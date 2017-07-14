@@ -32,7 +32,7 @@ export default class SinglePost extends React.Component {
       <SinglePostView
         {...this.props}
         isLiked={isLiked}
-        onTapLike={this.switchLike}
+        onLike={this.switchLike}
         comments={comments}
         currentInput={currentInput}
         onInputChange={this.changeInput}

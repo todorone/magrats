@@ -20,7 +20,7 @@ export default class Home extends React.Component {
         </Header>
 
         <Content>
-          <PostsList />
+          <PostsList navigation={this.props.navigation} />
         </Content>
       </Container>
     )

@@ -14,6 +14,7 @@ const SinglePostView = ({
   likesNumber,
   onTapLike,
   comments,
+  showComments,
   date,
 }) => {
   return (
@@ -51,6 +52,17 @@ const SinglePostView = ({
         {comments.map((text, i) => (
           <SinglePostComment author='Andrew R.' text={text} key={i} />
         ))}
+
+        <TouchableWithoutFeedback onPress={showComments}>
+          <View>
+            <Text style={styles.commentsLink}>View all {comments.length} comments</Text>
+          </View>
+        </TouchableWithoutFeedback>
+
+        <View style={styles.time}>
+          <Icon style={styles.timeIcon} name='time' outline />
+          <Text style={styles.timeText}>56 MINUTES AGO</Text>
+        </View>
       </View>
     </View>
   )
@@ -62,8 +74,9 @@ SinglePostView.propTypes = {
   thumbnailUrl: PropTypes.string,
   isLiked: PropTypes.bool,
   likesNumber: PropTypes.number,
-  onTapLike: PropTypes.func,
+  onLike: PropTypes.func,
   comments: PropTypes.array,
+  showComments: PropTypes.func,
   date: PropTypes.number,
 }
 
@@ -107,7 +120,7 @@ const styles = StyleSheet.create({
   footer: {
     paddingHorizontal: 20,
     paddingTop: 15,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
   buttons: {
     height: 35,
@@ -127,5 +140,23 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     fontSize: 16,
     fontWeight: '100',
-  }
+  },
+  commentsLink: {
+    fontSize: 14,
+    color: '#888',
+    paddingTop: 7,
+  },
+  time: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 34,
+  },
+  timeIcon: {
+    fontSize: 12,
+  },
+  timeText: {
+    fontSize: 11,
+    color: '#888',
+    paddingLeft: 4,
+  },
 })

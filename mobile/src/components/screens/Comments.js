@@ -10,25 +10,17 @@ export default class Social extends React.Component {
     tabBarIcon: getTabIcon('heart'),
   }
 
-  goToProfile = () => {
-    const { navigate } = this.props.navigation
-    navigate('MyProfile')
-  }
-
   render () {
     return (
       <Container>
         <Header>
           <Body>
-            <Text>Social</Text>
+            <Text>Comments</Text>
           </Body>
         </Header>
 
         <Content>
           <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={this.goToProfile}>
-              <Icon name='heart' outline style={styles.buttonIcon} />
-            </TouchableWithoutFeedback>
           </View>
         </Content>
       </Container>

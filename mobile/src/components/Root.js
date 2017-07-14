@@ -1,11 +1,12 @@
 import React from 'react'
-import { TabNavigator } from 'react-navigation'
+import { TabNavigator, StackNavigator } from 'react-navigation'
 
 import Home from './screens/Home'
 import Discover from './screens/Discover'
 import Social from './screens/Social'
 import Camera from './screens/Camera'
 import Profile from './screens/Profile'
+import Comments from './screens/Comments'
 
 const styles = {
   tabsContainer: {
@@ -21,7 +22,7 @@ const styles = {
   },
 }
 
-const Root = TabNavigator({
+const Tabs = TabNavigator({
   Home: {
     screen: Home,
   },
@@ -43,6 +44,17 @@ const Root = TabNavigator({
     showLabel: false,
     style: styles.tabsContainer,
   }
+})
+
+const Root = StackNavigator({
+  MainScreen: {
+    screen: Tabs,
+  },
+  Comments: {
+    screen: Comments,
+  },
+}, {
+  headerMode: 'none',
 })
 
 export default Root

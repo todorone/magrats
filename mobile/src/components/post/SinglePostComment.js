@@ -6,7 +6,7 @@ const SinglePostComment = ({ author, text }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.author}>{author}</Text>
-      <Text>{text}</Text>
+      <Text style={styles.text}>{text}</Text>
     </View>
   )
 }
@@ -23,10 +23,14 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   author: {
+    fontSize: 14,
     fontWeight: 'bold',
-    paddingLeft: 14,
-    paddingRight: 5
+    paddingLeft: 0,
+    paddingRight: 5,
   },
+  text: {
+    fontSize: 14,
+  }
 })
 
 export default SinglePostComment

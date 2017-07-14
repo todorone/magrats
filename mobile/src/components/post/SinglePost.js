@@ -20,6 +20,10 @@ export default class SinglePost extends React.Component {
 
   switchLike = () => this.setState({ isLiked: !this.state.isLiked })
 
+  showComments = () => {
+    this.props.navigation.navigate('Comments')
+  }
+
   render () {
     const { isLiked, comments } = this.state
     return (
@@ -27,7 +31,8 @@ export default class SinglePost extends React.Component {
         {...this.props}
         isLiked={isLiked}
         comments={comments}
-        onTapLike={this.switchLike}
+        onLike={this.switchLike}
+        showComments={this.showComments}
       />
     )
   }

@@ -14,6 +14,7 @@ export default class PostsList extends React.Component {
             thumbnailUrl='https://0.s3.envato.com/files/97977535/128/5_resize.png'
             photoUrl='https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/lg/public/2016/06/17/gettyimages-540885498_0.jpg'
             likesNumber={103}
+            navigation={this.props.navigation}
           />
         ))}
       </Content>
