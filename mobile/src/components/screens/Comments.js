@@ -1,22 +1,27 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container, Header, Content, Button, Body } from 'native-base'
+import { Container, Header, Content, Button, Left, Right, Body } from 'native-base'
 
 import Icon from '../shared/Icon'
-import { getTabIcon } from '../navigationOptions'
 
 export default class Social extends React.Component {
-  static navigationOptions = {
-    tabBarIcon: getTabIcon('heart'),
+  goBack = () => {
+    this.props.navigation.goBack()
   }
 
   render () {
     return (
       <Container>
         <Header>
+          <Left>
+            <TouchableWithoutFeedback onPress={this.goBack}>
+              <Icon style={styles.buttonIcon} name='arrow-back' />
+            </TouchableWithoutFeedback>
+          </Left>
           <Body>
             <Text>Comments</Text>
           </Body>
+          <Right />
         </Header>
 
         <Content>
@@ -35,6 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonIcon: {
-    fontSize: 30,
+    fontSize: 28,
   }
 })
