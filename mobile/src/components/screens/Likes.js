@@ -4,15 +4,13 @@ import { Container, Content } from 'native-base'
 
 import SimpleHeader from '../shared/SimpleHeader'
 
-export default class Comments extends React.Component {
+export default class Likes extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {
-    console.warn(this.props.navigation.state.params.postId)
-
     return (
       <Container>
-        <SimpleHeader left='back' title='Comments' goBack={this.goBack} />
+        <SimpleHeader left='back' title='Likes' goBack={this.goBack} />
 
         <Content>
           <View style={styles.container} />

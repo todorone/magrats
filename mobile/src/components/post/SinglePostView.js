@@ -4,16 +4,19 @@ import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-n
 
 import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
+import { getTimeAgo } from '../../utils'
 
 const SinglePostView = ({
-  name,
+  owner,
   photoUrl,
-  thumbnailUrl,
   isLiked,
   likesNumber,
   onTapLike,
+  description,
   comments,
+  commentsNumber,
   showComments,
+  showLikes,
   date,
 }) => {
   return (
@@ -22,12 +25,12 @@ const SinglePostView = ({
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
           <Image
-            source={{ uri: thumbnailUrl }}
+            source={{ uri: owner.thumbUrl }}
             style={styles.topThumbnail}
           />
-          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.name}>{owner.name}</Text>
         </View>
-        <Text style={styles.ellipsis}>...</Text>
+        {/* <Text style={styles.ellipsis}>...</Text> */}
       </View>
       {/* Main content */}
       <Image source={{ uri: photoUrl }} style={styles.content} />
@@ -40,27 +43,35 @@ const SinglePostView = ({
               <Icon name='heart' outline={!isLiked} style={styles.buttonIcon} />
             </TouchableWithoutFeedback>
             {(likesNumber > 0) &&
-              <Text style={styles.likesNumber}>{likesNumber}</Text>
+              <TouchableWithoutFeedback onPress={showLikes}>
+                <View>
+                  <Text style={styles.likesNumber}>{likesNumber}</Text>
+                </View>
+              </TouchableWithoutFeedback>
             }
           </View>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={showComments}>
             <Icon style={styles.buttonIcon} name='text' outline />
           </TouchableWithoutFeedback>
         </View>
+        {/* Description */}
+        <SinglePostComment author={owner.id} text={description} />
         {/* Comments */}
-        {comments.map((text, i) => (
-          <SinglePostComment author='Andrew R.' text={text} key={i} />
+        {comments.map((comment, i) => (
+          <SinglePostComment author={comment.owner} text={comment.text} key={i} />
         ))}
 
-        <TouchableWithoutFeedback onPress={showComments}>
-          <View>
-            <Text style={styles.commentsLink}>View all {comments.length} comments</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        {(commentsNumber > 2) &&
+          <TouchableWithoutFeedback onPress={showComments}>
+            <View>
+              <Text style={styles.commentsLink}>View all {commentsNumber} comments</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        }
 
         <View style={styles.time}>
           <Icon style={styles.timeIcon} name='time' outline />
-          <Text style={styles.timeText}>56 MINUTES AGO</Text>
+          <Text style={styles.timeText}>{getTimeAgo(date).toUpperCase()}</Text>
         </View>
       </View>
     </View>
@@ -68,15 +79,21 @@ const SinglePostView = ({
 }
 
 SinglePostView.propTypes = {
-  name: PropTypes.string,
-  photoUrl: PropTypes.string,
-  thumbnailUrl: PropTypes.string,
-  isLiked: PropTypes.bool,
-  likesNumber: PropTypes.number,
-  onLike: PropTypes.func,
-  comments: PropTypes.array,
-  showComments: PropTypes.func,
-  date: PropTypes.number,
+  owner: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    thumbUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  photoUrl: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  likesNumber: PropTypes.number.isRequired,
+  onLike: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired,
+  commentsNumber: PropTypes.number.isRequired,
+  showComments: PropTypes.func.isRequired,
+  showLikes: PropTypes.func.isRequired,
+  date: PropTypes.number.isRequired,
 }
 
 export default SinglePostView
@@ -136,8 +153,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   likesNumber: {
-    paddingLeft: 8,
-    fontSize: 16,
+    paddingHorizontal: 9,
+    paddingVertical: 4,
+    fontSize: 18,
     fontWeight: '100',
   },
   commentsLink: {

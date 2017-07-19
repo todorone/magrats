@@ -2,37 +2,44 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import SinglePostView from './SinglePostView'
+import { getPostOwner, getCommentsByIds } from '../../selectors'
 
 export default class SinglePost extends React.Component {
   static propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string,
-    photoUrl: PropTypes.string,
-    thumbnailUrl: PropTypes.string,
-    likesNumber: PropTypes.number,
-    date: PropTypes.number,
+    post: PropTypes.object.isRequired,
+    users: PropTypes.object.isRequired,
+    comments: PropTypes.object.isRequired,
   }
 
   state = {
     isLiked: false,
-    comments: ['Cool comment', 'another one looooooonnnnnnggggg....'],
   }
 
   switchLike = () => this.setState({ isLiked: !this.state.isLiked })
 
-  showComments = () => {
-    this.props.navigation.navigate('Comments')
-  }
+  showComments = () =>
+    this.props.navigation.navigate('Comments', { postId: this.props.post.id })
+
+  showLikes = () =>
+    this.props.navigation.navigate('Likes', { postId: this.props.post.id })
 
   render () {
-    const { isLiked, comments } = this.state
+    const { post, users, comments } = this.props
+    const { isLiked } = this.state
+    const owner = getPostOwner(post, users)
     return (
       <SinglePostView
-        {...this.props}
+        owner={owner}
+        photoUrl={post.url}
+        likesNumber={Object.keys(post.likes).length}
         isLiked={isLiked}
-        comments={comments}
+        description={post.description}
+        comments={getCommentsByIds(post.comments.slice(0, 2), comments)}
+        commentsNumber={post.comments.length}
+        date={post.published}
         onLike={this.switchLike}
         showComments={this.showComments}
+        showLikes={this.showLikes}
       />
     )
   }

@@ -1,4 +1,5 @@
-const { getRandomDate } = require('./utils')
+const { USERS } = require('./USERS')
+const { getRandomDate, getRandomInteger } = require('./utils')
 
 const _comments = [
   'What an awesome post!',
@@ -17,7 +18,7 @@ const _comments = [
 const COMMENTS = _comments.reduce((result, current, index) => {
   result[`comment${index}`] = {
     id: `comment${index}`,
-    owner: 'user0',
+    owner: `user${getRandomInteger(0, Object.keys(USERS).length - 1)}`,
     text: current,
     date: getRandomDate(),
   }
@@ -27,7 +28,7 @@ const COMMENTS = _comments.reduce((result, current, index) => {
 const getRandomCommentIds = (amount) => {
   return Object.keys(COMMENTS)
     .sort(() => 0.5 - Math.random())
-    .slice(0, amount - 1)
+    .slice(0, amount)
 }
 
 module.exports = {

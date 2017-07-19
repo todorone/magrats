@@ -13,17 +13,16 @@ export default class PostsList extends React.Component {
 
   render () {
     const { posts, users, comments } = this.props
-    // console.log(posts, users, comments)
+    // console.error(comments)
 
     return (
       <Content>
-        {Object.values(posts).map((post, i) => (
+        {Object.values(posts).map((post) => (
           <SinglePost
-            key={i}
-            name='kobybryant'
-            thumbnailUrl='https://0.s3.envato.com/files/97977535/128/5_resize.png'
-            photoUrl={post.url}
-            likesNumber={Object.keys(post.likes).length}
+            key={post.id}
+            post={post}
+            users={users}
+            comments={comments}
             navigation={this.props.navigation}
           />
         ))}

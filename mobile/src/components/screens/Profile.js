@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text } from 'react-native'
-import { Container, Header, Content, Body } from 'native-base'
+import { Container, Content } from 'native-base'
 
+import SimpleHeader from '../shared/SimpleHeader'
 import { getTabIcon } from '../navigationOptions'
 
 export default class Profile extends React.Component {
@@ -12,11 +12,7 @@ export default class Profile extends React.Component {
   render () {
     return (
       <Container>
-        <Header>
-          <Body>
-            <Text>Profile</Text>
-          </Body>
-        </Header>
+        <SimpleHeader title='Profile'/>
 
         <Content />
       </Container>

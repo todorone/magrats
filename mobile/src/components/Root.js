@@ -6,6 +6,7 @@ import Social from './screens/Social'
 import Camera from './screens/Camera'
 import Profile from './screens/Profile'
 import Comments from './screens/Comments'
+import Likes from './screens/Likes'
 
 const styles = {
   tabsContainer: {
@@ -22,21 +23,11 @@ const styles = {
 }
 
 const Tabs = TabNavigator({
-  Home: {
-    screen: Home,
-  },
-  Discover: {
-    screen: Discover,
-  },
-  Camera: {
-    screen: Camera,
-  },
-  Social: {
-    screen: Social,
-  },
-  Profile: {
-    screen: Profile,
-  },
+  Home: { screen: Home },
+  Discover: { screen: Discover },
+  Camera: { screen: Camera },
+  Social: { screen: Social },
+  Profile: { screen: Profile },
 }, {
   headerMode: 'none',
   tabBarOptions: {
@@ -46,12 +37,9 @@ const Tabs = TabNavigator({
 })
 
 const Root = StackNavigator({
-  MainScreen: {
-    screen: Tabs,
-  },
-  Comments: {
-    screen: Comments,
-  },
+  MainScreen: { screen: Tabs },
+  Comments: { screen: Comments },
+  Likes: { screen: Likes },
 }, {
   headerMode: 'none',
 })
