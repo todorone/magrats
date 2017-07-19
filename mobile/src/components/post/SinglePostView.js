@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container, Header, Title, Content, Button, Left, Right, Item, } from 'native-base'
 
 import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
@@ -19,7 +18,7 @@ const SinglePostView = ({
 }) => {
   return (
     <View>
-      {/*Top bar*/}
+      {/* Top bar */}
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
           <Image
@@ -30,11 +29,11 @@ const SinglePostView = ({
         </View>
         <Text style={styles.ellipsis}>...</Text>
       </View>
-      {/*Main content*/}
+      {/* Main content */}
       <Image source={{ uri: photoUrl }} style={styles.content} />
-      {/*Footer*/}
+      {/* Footer */}
       <View style={styles.footer}>
-        {/*Like & Comment buttons*/}
+        {/* Like & Comment buttons */}
         <View style={styles.buttons}>
           <View style={styles.likes}>
             <TouchableWithoutFeedback onPress={onTapLike}>
@@ -48,7 +47,7 @@ const SinglePostView = ({
             <Icon style={styles.buttonIcon} name='text' outline />
           </TouchableWithoutFeedback>
         </View>
-        {/*Comments*/}
+        {/* Comments */}
         {comments.map((text, i) => (
           <SinglePostComment author='Andrew R.' text={text} key={i} />
         ))}
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
   topThumbnail: {
     width: 26,
     height: 26,
-    borderRadius:13
+    borderRadius: 13
   },
   name: {
     fontSize: 13,

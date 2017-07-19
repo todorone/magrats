@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import { Container, Header, Content, Button, Body } from 'native-base'
+import { Text } from 'react-native'
+import { Container, Header, Content, Body } from 'native-base'
 
 import PostsList from '../shared/PostsList'
 import { getTabIcon } from '../navigationOptions'

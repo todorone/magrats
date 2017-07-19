@@ -1,4 +1,4 @@
-import { getRandomDate } from '../utils'
+const { getRandomDate } = require('./utils')
 
 const _comments = [
   'What an awesome post!',
@@ -14,12 +14,6 @@ const _comments = [
   'Great!!!',
 ]
 
-export const getRandomCommentIds = (amount) => {
-  return Object.keys(COMMENTS)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, amount - 1)
-}
-
 const COMMENTS = _comments.reduce((result, current, index) => {
   result[`comment${index}`] = {
     id: `comment${index}`,
@@ -30,4 +24,13 @@ const COMMENTS = _comments.reduce((result, current, index) => {
   return result
 }, {})
 
-export default COMMENTS
+const getRandomCommentIds = (amount) => {
+  return Object.keys(COMMENTS)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, amount - 1)
+}
+
+module.exports = {
+  COMMENTS,
+  getRandomCommentIds,
+}

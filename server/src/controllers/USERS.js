@@ -1,4 +1,4 @@
-import { getRandomInteger } from '../utils'
+const { getRandomInteger } = require('./utils')
 
 const USERS = {}
 
@@ -11,12 +11,13 @@ for (let i = 0; i < 10; i++) {
   }
 }
 
-USERS.length = Object.keys(USERS).length
-
-export const getRandomUserIds = (amount) => {
+const getRandomUserIds = (amount) => {
   return Object.keys(USERS)
     .sort(() => 0.5 - Math.random())
     .slice(0, amount)
 }
 
-export default USERS
+module.exports = {
+  USERS,
+  getRandomUserIds,
+}

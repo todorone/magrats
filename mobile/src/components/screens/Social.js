@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container, Header, Content, Button, Body } from 'native-base'
+import { Container, Header, Content, Body } from 'native-base'
 
 import Icon from '../shared/Icon'
 import { getTabIcon } from '../navigationOptions'

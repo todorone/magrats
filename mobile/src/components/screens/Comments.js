@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container, Header, Content, Button, Left, Right, Body } from 'native-base'
+import { Container, Header, Content, Left, Right, Body } from 'native-base'
 
 import Icon from '../shared/Icon'
 
@@ -25,8 +25,7 @@ export default class Social extends React.Component {
         </Header>
 
         <Content>
-          <View style={styles.container}>
-          </View>
+          <View style={styles.container} />
         </Content>
       </Container>
     )

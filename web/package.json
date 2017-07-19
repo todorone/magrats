@@ -1,6 +1,6 @@
 {
-  "name": "magrats",
-  "version": "0.1.0",
+  "name": "magrats-web",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "normalize.css": "^7.0.0",

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import { Container, Header, Content, Button, Body } from 'native-base'
+import { Text } from 'react-native'
+import { Container, Header, Content, Body } from 'native-base'
 
 import { getTabIcon } from '../navigationOptions'
 
@@ -18,12 +18,11 @@ export default class Discover extends React.Component {
           </Body>
         </Header>
 
-        <Content>
-        </Content>
+        <Content />
       </Container>
     )
   }
 }
 
-const styles = StyleSheet.create({
-})
+// const styles = StyleSheet.create({
+// })

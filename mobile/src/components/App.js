@@ -6,7 +6,6 @@ import store from '../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../actions'
 
 class App extends Component {
-
   componentWillMount () {
     this.props.fetchUsers()
     this.props.fetchComments()

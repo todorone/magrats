@@ -34,7 +34,6 @@ class PostsList extends React.Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   posts: getPosts(state),
   users: getUsers(state),
