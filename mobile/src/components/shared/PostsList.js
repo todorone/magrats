@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Content } from 'native-base'
 
 import SinglePost from '../post/SinglePost'
-import { getPosts, getUsers, getComments } from '../../selectors'
 
-class PostsList extends React.Component {
+export default class PostsList extends React.Component {
   static propTypes = {
     posts: PropTypes.object,
     users: PropTypes.object,
@@ -15,7 +13,7 @@ class PostsList extends React.Component {
 
   render () {
     const { posts, users, comments } = this.props
-    console.log(posts, users, comments)
+    // console.log(posts, users, comments)
 
     return (
       <Content>
@@ -33,11 +31,3 @@ class PostsList extends React.Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  posts: getPosts(state),
-  users: getUsers(state),
-  comments: getComments(state),
-})
-
-export default connect(mapStateToProps)(PostsList)

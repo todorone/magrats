@@ -6,15 +6,23 @@ import store from '../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../actions'
 
 class App extends Component {
-  componentWillMount () {
-    this.props.fetchUsers()
-    this.props.fetchComments()
-    this.props.fetchPosts()
+  state = {
+    isInitialized: false,
+  }
+
+  async componentWillMount () {
+    console.log('starting fetch data...')
+
+    await Promise.all([
+      this.props.fetchUsers(), this.props.fetchComments(), this.props.fetchPosts()]
+    )
+
+    this.setState({ isInitialized: true })
   }
 
   render () {
     return (
-      <Root />
+      this.state.isInitialized && <Root />
     )
   }
 }
