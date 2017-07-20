@@ -6,7 +6,13 @@ import { getPostOwner, getCommentsByIds } from '../../selectors'
 
 export default class SinglePost extends React.Component {
   static propTypes = {
-    post: PropTypes.object.isRequired,
+    post: PropTypes.shape({
+      owner: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      likes: PropTypes.array.isRequired,
+      comments: PropTypes.array.isRequired,
+      published: PropTypes.number.isRequired,
+    }).isRequired,
     users: PropTypes.object.isRequired,
     comments: PropTypes.object.isRequired,
   }

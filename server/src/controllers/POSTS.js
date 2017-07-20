@@ -10,7 +10,7 @@ const POSTS = _urls.reduce((result, current, index) => {
     id: `post${index}`,
     owner: `user${getRandomInteger(0, Object.keys(USERS).length - 1)}`,
     type: PHOTO,
-    url: `https://unsplash.it/400/300`,
+    url: `https://unsplash.it/400/${getRandomInteger(270, 300)}`,
     published: getRandomDate(),
     description: current,
     likes: getRandomUserIds(Math.round(Math.random() * 7)),

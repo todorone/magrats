@@ -1,7 +1,7 @@
 import { TabNavigator, StackNavigator } from 'react-navigation'
 
 import Home from './screens/Home'
-import Discover from './screens/Discover'
+import Discover from './discover/Discover'
 import Social from './screens/Social'
 import Camera from './screens/Camera'
 import Profile from './screens/Profile'
