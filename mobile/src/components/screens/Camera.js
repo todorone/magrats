@@ -1,7 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
-import { Container, Header, Body } from 'native-base'
+import { Header, Body } from 'native-base'
 
+import Container from '../shared/Container'
 import Content from '../shared/Content'
 import { getTabIcon } from '../navigationOptions'
 

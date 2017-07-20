@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container } from 'native-base'
 
+import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import DiscoverGrid from './DiscoverGrid'

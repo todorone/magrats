@@ -4,7 +4,7 @@ import Home from './screens/Home'
 import Discover from './discover/Discover'
 import Social from './screens/Social'
 import Camera from './screens/Camera'
-import Profile from './screens/Profile'
+import Profile from './profile/Profile'
 import Comments from './comments/Comments'
 import Likes from './likes/Likes'
 

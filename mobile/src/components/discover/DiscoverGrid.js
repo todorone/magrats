@@ -33,13 +33,7 @@ const styles = StyleSheet.create({
 })
 
 DiscoverGrid.propTypes = {
-  // feed: PropTypes.arrayOf({
-  //   owner: PropTypes.string.isRequired,
-  //   url: PropTypes.string.isRequired,
-  //   likes: PropTypes.array.isRequired,
-  //   comments: PropTypes.array.isRequired,
-  //   published: PropTypes.number.isRequired,
-  // }).isRequired,
+  feed: PropTypes.array.isRequired,
 }
 
 export default DiscoverGrid

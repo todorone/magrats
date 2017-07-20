@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container } from 'native-base'
 
+import Container from '../shared/Container'
 import SimpleHeader from '../shared/SimpleHeader'
 import Icon from '../shared/Icon'
 import Content from '../shared/Content'
