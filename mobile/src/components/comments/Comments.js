@@ -1,42 +1,39 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, StyleSheet } from 'react-native'
 import { Container } from 'native-base'
 
 import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
-import { getComments } from '../../selectors'
+import SingleComment from './SingleComment'
+import { getComments, getUsers, getCommentsByIds, getUserById } from '../../selectors'
 
 class Comments extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {
-    // console.warn(this.props.navigation.state.params.postId)
+    const { commentsIds } = this.props.navigation.state.params
+    const comments = getCommentsByIds(commentsIds, this.props.comments)
 
     return (
       <Container>
         <SimpleHeader left='back' title='Comments' goBack={this.goBack} />
 
         <Content>
-          <View style={styles.container} />
+          {comments.map(comment => (
+            <SingleComment
+              owner={getUserById(comment.owner, this.props.users)}
+              text={comment.text}
+              key={comment.id}
+            />
+          ))}
         </Content>
       </Container>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    height: 300,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonIcon: {
-    fontSize: 28,
-  }
-})
-
 const mapStateToProps = state => ({
+  users: getUsers(state),
   comments: getComments(state),
 })
 

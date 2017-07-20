@@ -20,6 +20,3 @@ export default class Discover extends React.Component {
     )
   }
 }
-
-// const styles = StyleSheet.create({
-// })

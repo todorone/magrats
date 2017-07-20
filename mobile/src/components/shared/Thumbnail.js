@@ -1,15 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Image } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 
-const Thumbnail = ({ src }) => {
-  return (
-    <Image
-      source={{ uri: src }}
-      style={{ width: 50, height: 50, borderRadius: 25 }}
-    />
-  )
-}
+const Thumbnail = ({ src }) => (
+  <Image source={{ uri: src }} style={styles.image} />
+)
+
+const styles = StyleSheet.create({
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  },
+})
 
 Thumbnail.propTypes = {
   src: PropTypes.string.isRequired,

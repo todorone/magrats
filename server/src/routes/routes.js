@@ -6,7 +6,7 @@ const controllers = require('../controllers')
 router.get('/', controllers.homePage)
 
 router.get('/posts', controllers.getPosts)
-router.post('/post/:id', controllers.getPosts)
+router.post('/post/:id', controllers.updatePost)
 
 router.get('/users', controllers.getUsers)
 

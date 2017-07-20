@@ -5,7 +5,7 @@ import Discover from './screens/Discover'
 import Social from './screens/Social'
 import Camera from './screens/Camera'
 import Profile from './screens/Profile'
-import Comments from './screens/Comments'
+import Comments from './comments/Comments'
 import Likes from './likes/Likes'
 
 const styles = {

@@ -18,7 +18,7 @@ export default class SinglePost extends React.Component {
   switchLike = () => this.setState({ isLiked: !this.state.isLiked })
 
   showComments = () =>
-    this.props.navigation.navigate('Comments', { postId: this.props.post.id })
+    this.props.navigation.navigate('Comments', { commentsIds: this.props.post.comments })
 
   showLikes = () =>
     this.props.navigation.navigate('Likes', { likes: this.props.post.likes })

@@ -13,6 +13,7 @@ const _comments = [
   'Very inspiring',
   'Want to be here 💌',
   'Great!!!',
+  'And very-very-very long comment. This comment is soooo looooonnnnggggggg, that it is even longer then longest wait before sunrise. Come on, it\'s just a joke...(:',
 ]
 
 const COMMENTS = _comments.reduce((result, current, index) => {

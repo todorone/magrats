@@ -5,8 +5,10 @@ import { View, Text, StyleSheet } from 'react-native'
 const SinglePostComment = ({ author, text }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.author}>{author}</Text>
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.text}>
+        <Text style={styles.author}>{author} </Text>
+        {text}
+      </Text>
     </View>
   )
 }
@@ -19,7 +21,6 @@ SinglePostComment.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
     marginTop: 5
   },
   author: {
