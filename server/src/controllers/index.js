@@ -3,23 +3,26 @@ const { COMMENTS } = require('./COMMENTS')
 const { POSTS } = require('./POSTS')
 
 const DELAY = 250
+const delayOnDevServer = fn => (...args) => {
+  setTimeout(() => fn(...args), DELAY)
+}
 
 exports.homePage = (req, res) => {
   res.send('Magrats API')
 }
 
-exports.getPosts = (req, res) => {
-  setTimeout(() => res.json(POSTS), DELAY)
-}
+exports.getPosts = delayOnDevServer(
+  (req, res) => res.json({ result: POSTS })
+)
 
-exports.updatePost = (req, res) => {
-  setTimeout(() => res.json(POSTS), DELAY)
-}
+exports.updatePost = delayOnDevServer(
+  (req, res) => res.send({ error: 'Not implemented' })
+)
 
-exports.getUsers = (req, res) => {
-  setTimeout(() => res.json(USERS), DELAY)
-}
+exports.getUsers = delayOnDevServer(
+  (req, res) => res.json({ result: USERS })
+)
 
-exports.getComments = (req, res) => {
-  setTimeout(() => res.json(COMMENTS), DELAY)
-}
+exports.getComments = delayOnDevServer(
+  (req, res) => res.json({ result: COMMENTS })
+)

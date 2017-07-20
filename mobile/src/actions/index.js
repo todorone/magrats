@@ -10,7 +10,12 @@ export const fetchPosts = () =>
 
     try {
       const data = await API.fetchPosts()
-      dispatch(fetchPostsSuccess(data))
+
+      if (data.error) {
+        dispatch(fetchDataError(data.error))
+      } else {
+        dispatch(fetchPostsSuccess(data.result))
+      }
     } catch (error) {
       console.error(error)
     }
@@ -24,7 +29,12 @@ export const fetchUsers = () =>
 
     try {
       const data = await API.fetchUsers()
-      dispatch(fetchUsersSuccess(data))
+
+      if (data.error) {
+        dispatch(fetchDataError(data.error))
+      } else {
+        dispatch(fetchUsersSuccess(data.result))
+      }
     } catch (error) {
       console.error(error)
     }
@@ -39,8 +49,19 @@ export const fetchComments = () =>
 
     try {
       const data = await API.fetchComments()
-      dispatch(fetchCommentsSuccess(data))
+
+      if (data.error) {
+        dispatch(fetchDataError(data.error))
+      } else {
+        dispatch(fetchCommentsSuccess(data.result))
+      }
     } catch (error) {
       console.error(error)
     }
+  }
+
+// FETCH DATA ERROR HANDLER
+const fetchDataError = error =>
+  dispatch => {
+    console.error(error)
   }
