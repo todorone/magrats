@@ -2,13 +2,17 @@ const { USERS } = require('./USERS')
 const { COMMENTS } = require('./COMMENTS')
 const { POSTS } = require('./POSTS')
 
-const DELAY = 500
+const DELAY = 250
 
 exports.homePage = (req, res) => {
   res.send('Magrats API')
 }
 
 exports.getPosts = (req, res) => {
+  setTimeout(() => res.json(POSTS), DELAY)
+}
+
+exports.updatePost = (req, res) => {
   setTimeout(() => res.json(POSTS), DELAY)
 }
 

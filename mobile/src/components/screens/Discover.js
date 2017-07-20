@@ -1,9 +1,9 @@
 import React from 'react'
-import { Container, Content } from 'native-base'
+import { Container } from 'native-base'
 
+import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import { getTabIcon } from '../navigationOptions'
-
 
 export default class Discover extends React.Component {
   static navigationOptions = {

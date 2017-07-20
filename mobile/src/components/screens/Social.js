@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
-import { Container, Content } from 'native-base'
+import { Container } from 'native-base'
 
 import SimpleHeader from '../shared/SimpleHeader'
 import Icon from '../shared/Icon'
+import Content from '../shared/Content'
 import { getTabIcon } from '../navigationOptions'
 
 export default class Social extends React.Component {
@@ -19,7 +20,7 @@ export default class Social extends React.Component {
   render () {
     return (
       <Container>
-        <SimpleHeader/>
+        <SimpleHeader />
 
         <Content>
           <View style={styles.container}>

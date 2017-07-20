@@ -21,7 +21,7 @@ export default class SinglePost extends React.Component {
     this.props.navigation.navigate('Comments', { postId: this.props.post.id })
 
   showLikes = () =>
-    this.props.navigation.navigate('Likes', { postId: this.props.post.id })
+    this.props.navigation.navigate('Likes', { likes: this.props.post.likes })
 
   render () {
     const { post, users, comments } = this.props
@@ -31,7 +31,7 @@ export default class SinglePost extends React.Component {
       <SinglePostView
         owner={owner}
         photoUrl={post.url}
-        likesNumber={Object.keys(post.likes).length}
+        likesNumber={post.likes.length}
         isLiked={isLiked}
         description={post.description}
         comments={getCommentsByIds(post.comments.slice(0, 2), comments)}

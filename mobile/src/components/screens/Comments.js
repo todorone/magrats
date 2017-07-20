@@ -1,14 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { View, StyleSheet } from 'react-native'
-import { Container, Content } from 'native-base'
+import { Container } from 'native-base'
 
+import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
+import { getComments } from '../../selectors'
 
-export default class Comments extends React.Component {
+class Comments extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {
-    console.warn(this.props.navigation.state.params.postId)
+    // console.warn(this.props.navigation.state.params.postId)
 
     return (
       <Container>
@@ -32,3 +35,9 @@ const styles = StyleSheet.create({
     fontSize: 28,
   }
 })
+
+const mapStateToProps = state => ({
+  comments: getComments(state),
+})
+
+export default connect(mapStateToProps)(Comments)

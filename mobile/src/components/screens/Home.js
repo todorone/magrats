@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Container, Content } from 'native-base'
+import { Container } from 'native-base'
 
+import Content from '../shared/Content'
 import PostsList from '../shared/PostsList'
 import SimpleHeader from '../shared/SimpleHeader'
 import { getTabIcon } from '../navigationOptions'
