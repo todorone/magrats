@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import IonIcon from 'react-native-vector-icons/Ionicons'
+import IonIcon from '@expo/vector-icons/Ionicons'
 
 const Icon = ({ name, outline, ...props }) => {
   return (

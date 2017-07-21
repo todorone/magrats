@@ -1,4 +1,6 @@
 {
-  "name": "rnproto",
-  "displayName": "rnproto"
+  "expo": {
+    "sdkVersion": "18.0.0",
+    "orientation": "portrait"
+  }
 }

@@ -10,7 +10,7 @@ import Likes from './likes/Likes'
 
 const styles = {
   tabsContainer: {
-    height: 70,
+    height: 65,
     paddingLeft: 15,
     paddingRight: 15,
 

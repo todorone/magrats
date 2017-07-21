@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   async componentWillMount () {
-    console.log('starting fetch data...')
+    console.log(process.env.NODE_ENV)
 
     await Promise.all([
       this.props.fetchUsers(), this.props.fetchComments(), this.props.fetchPosts()]

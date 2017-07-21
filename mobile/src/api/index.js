@@ -1,5 +1,7 @@
 
-const baseUrl = 'http://localhost:7777'
+const baseUrl = (process.env.NODE_ENV === 'production')
+  ? 'http://magrats-api.todor.one'
+  : 'http://localhost:7777'
 
 const fetchData = type => async () => {
   try {

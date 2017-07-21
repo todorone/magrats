@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { View, Image, StyleSheet } from 'react-native'
 
 const DiscoverGrid = ({ feed }) => {
-  // console.error(feed[0])
   return (
     <View style={styles.container}>
       <Image style={styles.featured} source={{ uri: feed[0].url }} />
