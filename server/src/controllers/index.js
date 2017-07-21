@@ -2,10 +2,12 @@ const { USERS } = require('./USERS')
 const { COMMENTS } = require('./COMMENTS')
 const { POSTS } = require('./POSTS')
 
-const DELAY = 250
-const delayOnDevServer = fn => (...args) => {
-  setTimeout(() => fn(...args), DELAY)
-}
+const DELAY = 500
+const delayOnDevServer = fn => (process.env.NODE_ENV === 'production')
+  ? fn
+  : (...args) => {
+      setTimeout(() => fn(...args), DELAY)
+    }
 
 exports.homePage = (req, res) => {
   res.send('Magrats API')

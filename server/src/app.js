@@ -1,13 +1,18 @@
 const express = require('express')
 const path = require('path')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const routes = require('./routes/routes')
 
 const app = express()
 
+console.log('Environment:', process.env.NODE_ENV)
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
+
+app.use(helmet())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
