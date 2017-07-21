@@ -13,7 +13,7 @@ const SingleComment = ({ owner, text }) => {
         <View style={styles.contentContainer}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              <Text style={styles.id}>{owner.name} </Text> {text}
+              <Text style={styles.id}>{owner.id} </Text> {text}
             </Text>
 
             <View style={styles.info}>
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
 SingleComment.propTypes = {
   owner: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     thumbUrl: PropTypes.string.isRequired,
   }).isRequired,
   text: PropTypes.string.isRequired,

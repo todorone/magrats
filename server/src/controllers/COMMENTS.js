@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const { USERS } = require('./USERS')
 const { getRandomDate, getRandomInteger } = require('./utils')
 
@@ -19,7 +20,7 @@ const _comments = [
 const COMMENTS = _comments.reduce((result, current, index) => {
   result[`comment${index}`] = {
     id: `comment${index}`,
-    owner: `user${getRandomInteger(0, Object.keys(USERS).length - 1)}`,
+    owner: _.sample(Object.keys(USERS)),
     text: current,
     date: getRandomDate(),
   }

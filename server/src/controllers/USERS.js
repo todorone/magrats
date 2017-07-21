@@ -1,10 +1,12 @@
+const _ = require('lodash')
 const { getRandomInteger } = require('./utils')
+const userIds = require('./data/userIds')
 
 const USERS = {}
 
-for (let i = 0; i < 10; i++) {
-  USERS[`user${i}`] = {
-    id: `user${i}`,
+for (let i = 0; i < 50; i++) {
+  USERS[userIds[i]] = {
+    id: userIds[i],
     description: 'Hi there!',
     thumbUrl: `https://0.s3.envato.com/files/97977535/128/${getRandomInteger(1, 15)}_resize.png`,
     following: [],
@@ -12,9 +14,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 const getRandomUserIds = (amount) => {
-  return Object.keys(USERS)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, amount)
+  return _.sampleSize(Object.keys(USERS), amount)
 }
 
 module.exports = {
