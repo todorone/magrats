@@ -13,6 +13,7 @@ const SinglePostView = ({
   likesNumber,
   onTapLike,
   description,
+  location,
   comments,
   commentsNumber,
   showComments,
@@ -28,7 +29,12 @@ const SinglePostView = ({
             source={{ uri: owner.thumbUrl }}
             style={styles.topThumbnail}
           />
-          <Text style={styles.name}>{owner.name}</Text>
+          <Text style={styles.id}>
+            {owner.id}
+            {location &&
+              <Text style={styles.location}>{`\n${location}`}</Text>
+            }
+          </Text>
         </View>
         {/* <Text style={styles.ellipsis}>...</Text> */}
       </View>
@@ -78,26 +84,6 @@ const SinglePostView = ({
   )
 }
 
-SinglePostView.propTypes = {
-  owner: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    thumbUrl: PropTypes.string.isRequired,
-  }).isRequired,
-  photoUrl: PropTypes.string.isRequired,
-  isLiked: PropTypes.bool.isRequired,
-  likesNumber: PropTypes.number.isRequired,
-  onLike: PropTypes.func.isRequired,
-  description: PropTypes.string.isRequired,
-  comments: PropTypes.array.isRequired,
-  commentsNumber: PropTypes.number.isRequired,
-  showComments: PropTypes.func.isRequired,
-  showLikes: PropTypes.func.isRequired,
-  date: PropTypes.number.isRequired,
-}
-
-export default SinglePostView
-
 const styles = StyleSheet.create({
   topBar: { // TOP BAR
     height: 36,
@@ -116,11 +102,15 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 15
   },
-  name: {
+  id: {
     fontSize: 13,
     fontWeight: 'bold',
     color: '#000',
-    paddingLeft: 6
+    paddingLeft: 10,
+  },
+  location: {
+    fontWeight: 'normal',
+    color: '#999',
   },
   ellipsis: {
     fontSize: 28,
@@ -177,3 +167,23 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
   },
 })
+
+SinglePostView.propTypes = {
+  owner: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    thumbUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  photoUrl: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  likesNumber: PropTypes.number.isRequired,
+  onLike: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  location: PropTypes.string,
+  comments: PropTypes.array.isRequired,
+  commentsNumber: PropTypes.number.isRequired,
+  showComments: PropTypes.func.isRequired,
+  showLikes: PropTypes.func.isRequired,
+  date: PropTypes.number.isRequired,
+}
+
+export default SinglePostView

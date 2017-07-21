@@ -13,6 +13,7 @@ const POSTS = _urls.reduce((result, current, index) => {
     url: `https://unsplash.it/400/${getRandomInteger(270, 300)}`,
     published: getRandomDate(),
     description: current,
+    location: Math.random() > 0.5 ? 'Kyiv, UA' : '',
     likes: getRandomUserIds(Math.round(Math.random() * 7)),
     comments: Object.values(getRandomCommentIds(Math.round(Math.random() * 4))),
   }

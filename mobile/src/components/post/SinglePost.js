@@ -40,6 +40,7 @@ export default class SinglePost extends React.Component {
         likesNumber={post.likes.length}
         isLiked={isLiked}
         description={post.description}
+        location={post.location}
         comments={getCommentsByIds(post.comments.slice(0, 2), comments)}
         commentsNumber={post.comments.length}
         date={post.published}
