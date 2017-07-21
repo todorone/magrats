@@ -6,7 +6,7 @@ import Thumbnail from '../shared/Thumbnail'
 
 const ProfileInfo = ({ user }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Thumbnail big src='https://0.s3.envato.com/files/97977535/128/10_resize.png' />
     </View>
   )

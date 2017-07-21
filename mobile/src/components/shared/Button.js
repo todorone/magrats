@@ -14,7 +14,6 @@ const Button = ({ children, onPress }) => {
 }
 
 Button.propTypes = {
-  children: PropTypes.oneOfType(PropTypes.string, PropTypes.element),
   onPress: PropTypes.func.isRequired,
 }
 

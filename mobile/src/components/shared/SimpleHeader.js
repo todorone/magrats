@@ -5,7 +5,7 @@ import { Header, Left, Right, Body } from 'native-base'
 
 import Icon from '../shared/Icon'
 
-const SimpleHeader = ({ title = '', left = '', goBack }) => {
+const SimpleHeader = ({ title, left = '', goBack }) => {
   return (
     <Header>
       <Left>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 })
 
 SimpleHeader.propTypes = {
-  left: PropTypes.oneOf('back', ''),
+  left: PropTypes.string,
   title: PropTypes.string,
   goBack: PropTypes.func,
 }

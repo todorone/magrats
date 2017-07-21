@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StyleSheet, ScrollView } from 'react-native'
 
 const Content = ({ children }) => {
@@ -15,9 +14,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   }
 })
-
-Content.propTypes = {
-  children: PropTypes.oneOfType(PropTypes.string, PropTypes.element),
-}
 
 export default Content

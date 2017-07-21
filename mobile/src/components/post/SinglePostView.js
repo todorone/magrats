@@ -100,11 +100,11 @@ export default SinglePostView
 
 const styles = StyleSheet.create({
   topBar: { // TOP BAR
-    height: 34,
+    height: 36,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: 8,
+    paddingLeft: 12,
     paddingRight: 10,
   },
   topBarLeft: {
@@ -112,9 +112,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   topThumbnail: {
-    width: 26,
-    height: 26,
-    borderRadius: 13
+    width: 30,
+    height: 30,
+    borderRadius: 15
   },
   name: {
     fontSize: 13,
