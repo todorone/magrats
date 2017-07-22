@@ -3,6 +3,12 @@ export const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - 
 
 export const getRandomDate = () => Date.now() - Math.round(1000000 * Math.random())
 
+export const truncateString = (string, characters) => (
+  (string.length > characters)
+    ? string.substr(0, characters - 1) + '…'
+    : string
+)
+
 export function getTimeAgo (val) {
   val = 0 | (Date.now() - val) / 1000
   var unit
