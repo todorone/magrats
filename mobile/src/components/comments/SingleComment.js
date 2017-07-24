@@ -8,7 +8,7 @@ import Thumbnail from '../shared/Thumbnail'
 const SingleComment = ({ owner, text }) => {
   return (
     <TouchableWithoutFeedback>
-      <View style={styles.container}>
+      <View style={styles.topContainer}>
         <Thumbnail src={owner.thumbUrl} />
         <View style={styles.contentContainer}>
           <View style={styles.textContainer}>
@@ -34,7 +34,7 @@ const SingleComment = ({ owner, text }) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     paddingTop: 15,
     flexDirection: 'row',
     paddingLeft: 10,

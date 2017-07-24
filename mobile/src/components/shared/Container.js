@@ -2,11 +2,11 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
 const Container = ({ children }) => (
-  <View style={styles.container}>{children}</View>
+  <View style={styles.topContainer}>{children}</View>
 )
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     backgroundColor: '#000',
     position: 'absolute',
     top: 0,

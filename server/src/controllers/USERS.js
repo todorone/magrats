@@ -10,6 +10,7 @@ for (let i = 0; i < 50; i++) {
     id: userIds[i],
     description: userDescriptions[i],
     thumbUrl: _.sample(userAvatars),
+    homePage: 'http://www.starwars.com/',
     following: [],
   }
 }

@@ -15,7 +15,7 @@ class SinglePostComment extends React.Component {
   render () {
     const { author, text } = this.props
     return (
-      <View style={styles.container}>
+      <View style={styles.topContainer}>
         <Text style={styles.text}>
           <Text style={styles.author}>{author} </Text>
           {text}
@@ -26,7 +26,7 @@ class SinglePostComment extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     flexDirection: 'row',
     marginTop: 5,
   },

@@ -5,7 +5,7 @@ import DiscoverGridItem from './DiscoverGridItem'
 
 const DiscoverGrid = ({ feed, onItemClick }) => {
   return ((feed.length > 0) &&
-    <View style={styles.container}>
+    <View style={styles.topContainer}>
       <DiscoverGridItem featured id={feed[0].id} url={feed[0].url} onItemClick={onItemClick} />
 
       {feed.map((post, index) => ((index > 1) &&
@@ -16,7 +16,7 @@ const DiscoverGrid = ({ feed, onItemClick }) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',

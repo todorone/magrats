@@ -23,7 +23,7 @@ export default class Social extends React.Component {
         <SimpleHeader />
 
         <Content>
-          <View style={styles.container}>
+          <View style={styles.topContainer}>
             <TouchableWithoutFeedback onPress={this.goToProfile}>
               <Icon name='heart' outline style={styles.buttonIcon} />
             </TouchableWithoutFeedback>
@@ -35,7 +35,7 @@ export default class Social extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     height: 300,
     alignItems: 'center',
     justifyContent: 'center',

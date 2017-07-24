@@ -9,7 +9,7 @@ import { truncateString } from '../../utils'
 const SingleLike = ({ owner, goToProfile, switchFollow }) => {
   return (
     <TouchableWithoutFeedback onPress={goToProfile}>
-      <View style={styles.container}>
+      <View style={styles.topContainer}>
         <Thumbnail src={owner.thumbUrl} />
         <View style={styles.infoContainer}>
           <Text style={styles.id}>{owner.id}</Text>
@@ -24,7 +24,7 @@ const SingleLike = ({ owner, goToProfile, switchFollow }) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  topContainer: {
     height: 68,
     flexDirection: 'row',
     alignItems: 'center',
