@@ -6,6 +6,7 @@ import Social from './screens/Social'
 import Camera from './screens/Camera'
 import Profile from './profile/Profile'
 import Comments from './comments/Comments'
+import Post from './screens/Post'
 import Likes from './likes/Likes'
 
 const styles = {
@@ -41,6 +42,7 @@ const Root = StackNavigator({
   Comments: { screen: Comments },
   Likes: { screen: Likes },
   Profile: { screen: Profile },
+  Post: { screen: Post }
 }, {
   headerMode: 'none',
 })

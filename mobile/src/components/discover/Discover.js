@@ -13,6 +13,8 @@ class Discover extends React.Component {
     tabBarIcon: getTabIcon('search'),
   }
 
+  onItemClick = postId => this.props.navigation.navigate('Post', { postId })
+
   render () {
     const { feed } = this.props
 
@@ -23,6 +25,7 @@ class Discover extends React.Component {
         <Content>
           <DiscoverGrid
             feed={Object.values(feed)}
+            onItemClick={this.onItemClick}
           />
         </Content>
       </Container>

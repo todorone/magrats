@@ -13,7 +13,6 @@ export default class PostsList extends React.Component {
 
   render () {
     const { posts, users, comments } = this.props
-    // console.error(comments)
 
     return (
       <Content>

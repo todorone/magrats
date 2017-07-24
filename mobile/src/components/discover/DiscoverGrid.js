@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import DiscoverGridItem from './DiscoverGridItem'
 
-const DiscoverGrid = ({ feed }) => {
-  return (
+const DiscoverGrid = ({ feed, onItemClick }) => {
+  return ((feed.length > 0) &&
     <View style={styles.container}>
-      <Image style={styles.featured} source={{ uri: feed[0].url }} />
-      {feed.map(post => (
-        <Image style={styles.image} source={{ uri: post.url }} key={post.id} />
+      <DiscoverGridItem featured id={feed[0].id} url={feed[0].url} onItemClick={onItemClick} />
+
+      {feed.map((post, index) => ((index > 1) &&
+        <DiscoverGridItem id={post.id} url={post.url} onItemClick={onItemClick} key={post.id} />
       ))}
     </View>
   )
@@ -19,20 +21,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  featured: {
-    width: '100%',
-    height: 200,
-    marginBottom: 1,
-  },
-  image: {
-    width: '33%',
-    height: 100,
-    marginBottom: 1,
-  },
 })
 
 DiscoverGrid.propTypes = {
   feed: PropTypes.array.isRequired,
+  onItemClick: PropTypes.func.isRequired,
 }
 
 export default DiscoverGrid
