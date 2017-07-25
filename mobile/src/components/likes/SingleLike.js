@@ -5,22 +5,38 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import Button from '../shared/Button'
 import Thumbnail from '../shared/Thumbnail'
 import { truncateString } from '../../utils'
+import { GRAY, WHITE } from '../styles'
 
-const SingleLike = ({ owner, goToProfile, switchFollow }) => {
-  return (
-    <TouchableWithoutFeedback onPress={goToProfile}>
-      <View style={styles.topContainer}>
-        <Thumbnail src={owner.thumbUrl} />
-        <View style={styles.infoContainer}>
-          <Text style={styles.id}>{owner.id}</Text>
-          <Text style={styles.name}>{truncateString(owner.description, 25)}</Text>
+export default class SingleLike extends React.Component {
+  static propTypes = {
+    owner: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      thumbUrl: PropTypes.string.isRequired,
+    }).isRequired,
+    goToProfile: PropTypes.func.isRequired,
+    switchFollow: PropTypes.func.isRequired,
+  }
+
+  goToProfile = () => this.props.goToProfile(this.props.owner.id)
+
+  render () {
+    const { owner, switchFollow } = this.props
+
+    return (
+      <TouchableWithoutFeedback onPress={this.goToProfile}>
+        <View style={styles.topContainer}>
+          <Thumbnail src={owner.thumbUrl} />
+          <View style={styles.infoContainer}>
+            <Text style={styles.id}>{owner.id}</Text>
+            <Text style={styles.name}>{truncateString(owner.description, 25)}</Text>
+          </View>
+
+          <Button onPress={switchFollow}>Follow</Button>
         </View>
-        <Button onPress={switchFollow}>
-          <Text style={styles.buttonText}>Follow</Text>
-        </Button>
-      </View>
-    </TouchableWithoutFeedback>
-  )
+      </TouchableWithoutFeedback>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -29,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: WHITE,
   },
   infoContainer: {
     flex: 1,
@@ -41,21 +57,6 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 14,
-    color: '#999',
+    color: GRAY,
   },
-  buttonText: {
-    color: '#fff',
-  }
 })
-
-SingleLike.propTypes = {
-  owner: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    thumbUrl: PropTypes.string.isRequired,
-  }).isRequired,
-  goToProfile: PropTypes.func.isRequired,
-  switchFollow: PropTypes.func.isRequired,
-}
-
-export default SingleLike

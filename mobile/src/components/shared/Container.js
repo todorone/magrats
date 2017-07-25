@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
+import { BLACK } from '../styles'
 
 const Container = ({ children }) => (
   <View style={styles.topContainer}>{children}</View>
@@ -7,7 +8,7 @@ const Container = ({ children }) => (
 
 const styles = StyleSheet.create({
   topContainer: {
-    backgroundColor: '#000',
+    backgroundColor: BLACK,
     position: 'absolute',
     top: 0,
     left: 0,

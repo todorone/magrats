@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
+import { WHITE } from '../styles'
 
 const Content = ({ children }) => {
   return (
@@ -11,7 +12,7 @@ const Content = ({ children }) => {
 
 const styles = StyleSheet.create({
   topContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: WHITE,
   }
 })
 

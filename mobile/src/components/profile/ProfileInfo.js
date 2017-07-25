@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 
 import Thumbnail from '../shared/Thumbnail'
+import { BLACK, GRAY, LIGHTEST_GRAY } from '../styles'
 
 const ProfileInfo = ({ user }) => {
   return (
@@ -61,17 +62,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: BLACK,
   },
   metric: {
     paddingBottom: 6,
     textAlign: 'center',
-    color: '#999',
+    color: GRAY,
   },
   editButton: {
     flex: 1,
     height: 35,
-    backgroundColor: '#eee',
+    backgroundColor: LIGHTEST_GRAY,
   }
 })
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
-import Icon from '../shared/Icon'
 
+import Icon from '../shared/Icon'
 import Thumbnail from '../shared/Thumbnail'
+import { BLACK, DARK_GRAY, DARKEST_GRAY, GRAY, LIGHTEST_GRAY, WHITE } from '../styles'
 
 const SingleComment = ({ owner, text }) => {
   return (
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     flexDirection: 'row',
     paddingLeft: 10,
-    backgroundColor: '#fff',
+    backgroundColor: WHITE,
   },
   contentContainer: {
     flex: 1,
@@ -46,24 +47,24 @@ const styles = StyleSheet.create({
     minHeight: 65,
     marginLeft: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: LIGHTEST_GRAY,
   },
   textContainer: {
     flex: 1,
   },
   id: {
     fontWeight: 'bold',
-    color: '#000',
+    color: BLACK,
   },
   text: {
     fontSize: 14,
-    color: '#111',
+    color: DARKEST_GRAY,
   },
   buttonIcon: {
     paddingTop: 10,
     paddingHorizontal: 18,
     fontSize: 15,
-    color: '#666',
+    color: DARK_GRAY,
   },
   info: {
     flexDirection: 'row',
@@ -71,12 +72,12 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 13,
-    color: '#999',
+    color: GRAY,
   },
   reply: {
     paddingHorizontal: 20,
     fontSize: 13,
-    color: '#999',
+    color: GRAY,
   },
 })
 

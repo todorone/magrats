@@ -5,6 +5,7 @@ import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-n
 import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
 import { getTimeAgo } from '../../utils'
+import { BLACK, GRAY } from '../styles'
 
 const SinglePostView = ({
   owner,
@@ -105,22 +106,22 @@ const styles = StyleSheet.create({
   id: {
     fontSize: 13,
     fontWeight: 'bold',
-    color: '#000',
+    color: BLACK,
     paddingLeft: 10,
   },
   location: {
     fontWeight: 'normal',
-    color: '#999',
+    color: GRAY,
   },
   ellipsis: {
     fontSize: 28,
-    color: '#000',
+    color: BLACK,
     paddingLeft: 6,
     position: 'relative',
     top: -8
   }, // MAIN CONTENT
   content: {
-    width: '100%',
+    flex: 1,
     height: 300
   }, // FOOTER
   footer: {
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 35,
-    color: '#000',
+    color: BLACK,
   },
   likes: {
     flexDirection: 'row',
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
   },
   commentsLink: {
     fontSize: 14,
-    color: '#888',
+    color: GRAY,
     paddingTop: 7,
   },
   time: {
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 11,
-    color: '#888',
+    color: GRAY,
     paddingLeft: 4,
   },
 })

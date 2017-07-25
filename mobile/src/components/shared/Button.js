@@ -1,20 +1,65 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
-import { Button as NBButton } from 'native-base'
 
-const Button = ({ children, onPress }) => {
-  return (
-    <View>
-      <NBButton rounded primary small onPress={onPress}>
-        {children}
-      </NBButton>
-    </View>
-  )
+import { BLACK, BLUE, LIGHT_GRAY, WHITE, composeStyles } from '../styles'
+
+export default class Button extends React.Component {
+  static propTypes = {
+    onPress: PropTypes.func.isRequired,
+    theme: PropTypes.oneOf('primary', 'light')
+  }
+
+  static defaultProps = {
+    theme: 'light',
+  }
+
+  render () {
+    const { theme } = this.props
+    const containerStyle = composeStyles(
+      styles.container,
+      {
+        [styles.primary]: (theme === 'primary'),
+        [styles.light]: (theme === 'light'),
+      }
+    )
+    const textStyle = composeStyles(
+      styles.text,
+      {
+        [styles.lightText]: (theme === 'light'),
+      }
+    )
+
+    return (
+      <TouchableOpacity onPress={this.props.onPress}>
+        <View style={containerStyle}>
+          <Text style={textStyle}>{this.props.children}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
 }
 
-Button.propTypes = {
-  onPress: PropTypes.func.isRequired,
-}
-
-export default Button
+const styles = StyleSheet.create({
+  container: {
+    height: 30,
+    borderRadius: 5,
+    borderWidth: 1,
+    paddingHorizontal: 26,
+    paddingVertical: 5,
+  },
+  text: {
+    color: WHITE,
+  },
+  primary: {
+    borderColor: BLUE,
+    backgroundColor: BLUE,
+  },
+  light: {
+    borderColor: LIGHT_GRAY,
+    backgroundColor: WHITE,
+  },
+  lightText: {
+    color: BLACK,
+  }
+})

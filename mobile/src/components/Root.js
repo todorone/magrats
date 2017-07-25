@@ -30,7 +30,7 @@ const Tabs = TabNavigator({
   Social: { screen: Social },
   MyProfile: { screen: Profile },
 }, {
-  initialRouteName: 'MyProfile',
+  // initialRouteName: 'MyProfile',
   headerMode: 'none',
   tabBarOptions: {
     showLabel: false,
