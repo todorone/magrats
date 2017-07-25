@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 
 import Thumbnail from '../shared/Thumbnail'
-import { BLACK, GRAY, LIGHTEST_GRAY } from '../styles'
+import Button from '../shared/Button'
+import { BLACK, BLUE, DARKEST_GRAY, GRAY } from '../styles'
+import ProfileFeeds from './ProfileFeeds'
 
-const ProfileInfo = ({ user }) => {
+const ProfileInfo = ({ user, editProfile }) => {
   return (
     <View>
       <View style={styles.topContainer}>
@@ -28,9 +30,18 @@ const ProfileInfo = ({ user }) => {
             </View>
           </View>
           <View style={styles.editButton}>
+            <Button onPress={editProfile}>Edit Profile</Button>
           </View>
         </View>
       </View>
+
+      <View style={styles.infoContainer}>
+        <Text style={styles.id}>@{user.id}</Text>
+        <Text style={styles.description}>{user.description}</Text>
+        <Text style={styles.homePage}>{user.homePage.replace(/^https?:\/\//,'')}</Text>
+      </View>
+
+      <ProfileFeeds />
     </View>
   )
 }
@@ -51,7 +62,6 @@ const styles = StyleSheet.create({
   metricsContainer: {
     flexDirection: 'row',
     paddingTop: 20,
-    // backgroundColor: 'lightblue',
   },
   metricContainer: {
     flex: 1,
@@ -71,16 +81,34 @@ const styles = StyleSheet.create({
   },
   editButton: {
     flex: 1,
-    height: 35,
-    backgroundColor: LIGHTEST_GRAY,
-  }
+  },
+  infoContainer: {
+    paddingHorizontal: 20,
+    paddingTop: 5,
+    paddingBottom: 15,
+  },
+  id: {
+    paddingBottom: 2,
+    fontWeight: 'bold',
+  },
+  description: {
+    paddingBottom: 2,
+    color: DARKEST_GRAY,
+  },
+  homePage: {
+    paddingBottom: 2,
+    color: BLUE,
+  },
 })
 
 ProfileInfo.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.string.isRequired,
     thumbUrl: PropTypes.string.isRequired,
-  })
+    description: PropTypes.string.isRequired,
+    homePage: PropTypes.string.isRequired,
+  }),
+  editProfile: PropTypes.func.isRequired,
 }
 
 export default ProfileInfo

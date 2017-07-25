@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { BLACK, BLUE, LIGHT_GRAY, WHITE, composeStyles } from '../styles'
+import { BLACK, BLUE, WHITE, LIGHTEST_GRAY, composeStyles } from '../styles'
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -50,13 +50,14 @@ const styles = StyleSheet.create({
   },
   text: {
     color: WHITE,
+    textAlign: 'center',
   },
   primary: {
     borderColor: BLUE,
     backgroundColor: BLUE,
   },
   light: {
-    borderColor: LIGHT_GRAY,
+    borderColor: LIGHTEST_GRAY,
     backgroundColor: WHITE,
   },
   lightText: {

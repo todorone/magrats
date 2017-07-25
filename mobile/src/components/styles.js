@@ -8,8 +8,8 @@ export const DARKEST_GRAY = '#111'
 export const DARK_GRAY = '#666'
 export const GRAY = '#999'
 export const LIGHT_GRAY = '#999'
+export const LIGHTER_GRAY = '#bbb'
 export const LIGHTEST_GRAY = '#ddd'
-
 
 /**
  * Transform object { style1: true, style2: false, ... } to array, compatible with

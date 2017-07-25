@@ -18,6 +18,8 @@ class Profile extends React.Component {
     users: PropTypes.object.isRequired,
   }
 
+  editProfile = () => {}
+
   render () {
     const { users } = this.props
     if (!users) return null // Data is not ready yet
@@ -32,7 +34,7 @@ class Profile extends React.Component {
         <SimpleHeader title={user.id} />
 
         <Content>
-          <ProfileInfo user={user} />
+          <ProfileInfo user={user} editProfile={this.editProfile} />
         </Content>
       </Container>
     )
