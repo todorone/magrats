@@ -4,8 +4,6 @@ import thunkMiddleware from 'redux-thunk'
 
 import rootReducer from '../reducers'
 
-const composeEnhancers = composeWithDevTools({ realtime: true })
-
-export default createStore(rootReducer, composeEnhancers(
+export default createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunkMiddleware),
 ))

@@ -4,6 +4,7 @@ import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-n
 
 import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
+import FadeInImage from '../shared/FadeInImage'
 import { getTimeAgo } from '../../utils'
 import { BLACK, GRAY } from '../styles'
 
@@ -40,7 +41,7 @@ const SinglePostView = ({
         {/* <Text style={styles.ellipsis}>...</Text> */}
       </View>
       {/* Main content */}
-      <Image source={{ uri: photoUrl }} style={styles.content} />
+      <FadeInImage source={{ uri: photoUrl }} containerStyle={styles.content} />
       {/* Footer */}
       <View style={styles.footer}>
         {/* Like & Comment buttons */}

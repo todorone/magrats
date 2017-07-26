@@ -2,10 +2,6 @@ import { createSelector } from 'reselect'
 
 // POSTS
 export const getPosts = state => state.data.posts
-// export const getPostsOfUser = state => createSelector(
-//   getPosts,
-//   post => post.owner === userId
-// )
 
 // USERS
 export const getUsers = state => state.data.users
@@ -28,4 +24,9 @@ export const getProfileScreenUser = createSelector(
   getUsers,
   getProfileScreenUserId,
   (users, userId) => users[userId]
+)
+export const getPostsOfProfileOwner = createSelector(
+  getPosts,
+  getProfileScreenUserId,
+  (posts, userId) => Object.values(posts).filter(post => post.owner === userId)
 )

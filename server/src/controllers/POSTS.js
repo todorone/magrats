@@ -4,7 +4,7 @@ const { USERS, getRandomUserIds } = require('./USERS')
 const { getRandomCommentIds } = require('./COMMENTS')
 const { getRandomInteger, getRandomDate } = require('./utils')
 
-const _urls = Array(10).fill('Amazing nature photo 😼 #nature #travel')
+const _urls = Array(40).fill('Amazing nature photo 😼 #nature #travel')
 
 const POSTS = _urls.reduce((result, current, index) => {
   result[`post${index}`] = {

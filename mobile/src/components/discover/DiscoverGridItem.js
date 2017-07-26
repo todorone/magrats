@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Image, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import { TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import FadeInImage from '../shared/FadeInImage'
 
 export default class DiscoverGridItem extends React.Component {
   static propTypes = {
@@ -16,7 +17,7 @@ export default class DiscoverGridItem extends React.Component {
     const { url, featured } = this.props
     return (
       <TouchableWithoutFeedback onPress={this.onItemClick}>
-        <Image style={featured ? styles.featured : styles.image} source={{ uri: url }} />
+        <FadeInImage containerStyle={featured ? styles.featured : styles.image} source={{ uri: url }} />
       </TouchableWithoutFeedback>
     )
   }
