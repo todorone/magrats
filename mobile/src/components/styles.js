@@ -1,5 +1,6 @@
 
 export const WHITE = '#fff'
+export const ALMOST_WHITE = '#f8f8f8'
 export const BLACK = '#000'
 
 export const BLUE = '#007aff'

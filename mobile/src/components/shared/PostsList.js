@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Content } from 'native-base'
+import { View } from 'react-native'
 
 import SinglePost from '../post/SinglePost'
 
@@ -15,7 +15,7 @@ export default class PostsList extends React.Component {
     const { posts, users, comments } = this.props
 
     return (
-      <Content>
+      <View>
         {Object.values(posts).map((post) => (
           <SinglePost
             key={post.id}
@@ -25,7 +25,7 @@ export default class PostsList extends React.Component {
             navigation={this.props.navigation}
           />
         ))}
-      </Content>
+      </View>
     )
   }
 }

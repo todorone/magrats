@@ -7,7 +7,7 @@ import { BLACK, BLUE, WHITE, LIGHTEST_GRAY, composeStyles } from '../styles'
 export default class Button extends React.Component {
   static propTypes = {
     onPress: PropTypes.func.isRequired,
-    theme: PropTypes.oneOf('primary', 'light')
+    theme: PropTypes.oneOf(['primary', 'light'])
   }
 
   static defaultProps = {

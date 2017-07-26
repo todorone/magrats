@@ -1,32 +1,51 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
-import { LIGHTEST_GRAY } from '../styles'
+
+
 import Icon from '../shared/Icon'
+import { BLUE, LIGHTEST_GRAY, composeStyles } from '../styles'
 
 export default class ProfileFeeds extends React.Component {
   static propTypes = {
 
   }
 
-  static state = {
+  state = {
     currentTab: 'list',
   }
 
+  activateListTab = () => this.setState({ currentTab: 'list' })
+  activateGridTab = () => this.setState({ currentTab: 'grid' })
+
   render () {
+    const { currentTab } = this.state
+
     return (
       <View>
         <View style={styles.tabsContainer}>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={this.activateListTab}>
             <View style={styles.tab}>
-              <Icon name='list' style={styles.tabIcon} />
+              <Icon
+                name='list'
+                style={composeStyles(styles.listIcon, { [styles.activeIcon]: (currentTab === 'list') })}
+              />
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback onPress={this.activateGridTab}>
             <View style={styles.tab}>
-              <Icon name='apps' style={styles.tabIcon} />
+              <Icon
+                name='apps'
+                outline
+                style={composeStyles(styles.gridIcon, { [styles.activeIcon]: (currentTab === 'grid') })}
+              />
             </View>
           </TouchableWithoutFeedback>
+        </View>
+
+        <View style={styles.feedContainer}>
+
         </View>
       </View>
     )
@@ -49,8 +68,18 @@ const styles = StyleSheet.create({
   tab: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  tabIcon: {
-    fontSize: 36,
-  }
+  listIcon: {
+    fontSize: 38,
+  },
+  gridIcon: {
+    fontSize: 31,
+  },
+  activeIcon: {
+    color: BLUE,
+  },
+  feedContainer: {
+    flex: 1,
+  },
 })

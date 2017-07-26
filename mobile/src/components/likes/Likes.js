@@ -6,11 +6,15 @@ import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import SingleLike from './SingleLike'
 import { getUsers, getUserById } from '../../selectors'
+import { setProfileScreenUserId } from '../../actions'
 
 class Likes extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
-  goToProfile = userId => this.props.navigation.navigate('Profile', { userId })
+  goToProfile = userId => {
+    this.props.dispatch(setProfileScreenUserId(userId))
+    this.props.navigation.navigate('Profile')
+  }
 
   switchFollow = userId => {}
 

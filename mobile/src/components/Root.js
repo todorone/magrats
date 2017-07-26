@@ -28,9 +28,9 @@ const Tabs = TabNavigator({
   Discover: { screen: Discover },
   Camera: { screen: Camera },
   Social: { screen: Social },
-  MyProfile: { screen: Profile },
+  MyProfile: { screen: Profile, params: { userId: 'luke_skywalker' } },
 }, {
-  initialRouteName: 'MyProfile',
+  // initialRouteName: 'MyProfile',
   headerMode: 'none',
   tabBarOptions: {
     showLabel: false,

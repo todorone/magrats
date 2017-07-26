@@ -7,7 +7,7 @@ import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import ProfileInfo from './ProfileInfo'
 import { getTabIcon } from '../navigationOptions'
-import { getUsers } from '../../selectors'
+import { getProfileScreenUser } from '../../selectors'
 
 class Profile extends React.Component {
   static navigationOptions = {
@@ -15,19 +15,14 @@ class Profile extends React.Component {
   }
 
   static propTypes = {
-    users: PropTypes.object.isRequired,
+    user: PropTypes.object,
   }
 
   editProfile = () => {}
 
   render () {
-    const { users } = this.props
-    if (!users) return null // Data is not ready yet
-
-    const userId = (this.props.navigation.state.params)
-      ? this.props.navigation.state.params.userId
-      : Object.keys(users)[0] // TODO For MyProfile we'll need user profile's id
-    const user = users[userId]
+    const { user } = this.props
+    if (!user) return null // Data is not ready yet
 
     return (
       <Container>
@@ -42,7 +37,8 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: getUsers(state),
+  user: getProfileScreenUser(state),
+  posts: {},
 })
 
 export default connect(mapStateToProps)(Profile)

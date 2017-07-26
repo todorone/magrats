@@ -38,7 +38,7 @@ const ProfileInfo = ({ user, editProfile }) => {
       <View style={styles.infoContainer}>
         <Text style={styles.id}>@{user.id}</Text>
         <Text style={styles.description}>{user.description}</Text>
-        <Text style={styles.homePage}>{user.homePage.replace(/^https?:\/\//,'')}</Text>
+        <Text style={styles.homePage}>{user.homePage.replace(/^https?:\/\//, '')}</Text>
       </View>
 
       <ProfileFeeds />
