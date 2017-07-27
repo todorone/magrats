@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const { USERS } = require('./USERS')
-const { getRandomDate, getRandomInteger } = require('./utils')
+const { getRandomDate } = require('./utils')
 
 const _comments = [
   'What an awesome post!',
