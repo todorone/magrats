@@ -6,10 +6,9 @@ import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import ProfileInfo from './ProfileInfo'
-import DiscoverGrid from '../discover/DiscoverGrid'
+import ProfileFeeds from './ProfileFeeds'
 import { getTabIcon } from '../navigationOptions'
-import { getProfileScreenUser, getPostsOfProfileOwner } from '../../selectors'
-
+import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors'
 
 class Profile extends React.Component {
   static navigationOptions = {
@@ -22,22 +21,28 @@ class Profile extends React.Component {
 
   editProfile = () => {}
 
-  render () {
-    const { user, posts } = this.props
-    if (!user) return null // Data is not ready yet
+  onItemClick = postId => this.props.navigation.navigate('Post', { postId })
 
-    console.log('posts', posts)
+  render () {
+    const { user, posts, users, comments } = this.props
+    if (!user) return null // Data is not ready yet
 
     return (
       <Container>
         <SimpleHeader title={user.id} />
 
         <Content>
-          <ProfileInfo user={user} editProfile={this.editProfile} />
+          <ProfileInfo
+            user={user}
+            editProfile={this.editProfile}
+          />
 
-          <DiscoverGrid
-            feed={posts}
-            onItemClick={() => {}}
+          <ProfileFeeds
+            posts={posts}
+            users={users}
+            comments={comments}
+            navigation={this.props.navigation}
+            onItemClick={this.onItemClick}
           />
         </Content>
       </Container>
@@ -47,7 +52,9 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => ({
   user: getProfileScreenUser(state),
-  posts: getPostsOfProfileOwner(state),
+  posts: getPostsForProfileScreen(state),
+  users: getUsers(state),
+  comments: getComments(state),
 })
 
 export default connect(mapStateToProps)(Profile)

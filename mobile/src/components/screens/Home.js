@@ -7,7 +7,7 @@ import Content from '../shared/Content'
 import PostsList from '../shared/PostsList'
 import SimpleHeader from '../shared/SimpleHeader'
 import { getTabIcon } from '../navigationOptions'
-import { getPosts, getUsers, getComments } from '../../selectors'
+import { getPostsArray, getUsers, getComments } from '../../selectors'
 
 class Home extends React.Component {
   static navigationOptions = {
@@ -15,7 +15,7 @@ class Home extends React.Component {
   }
 
   static propTypes = {
-    posts: PropTypes.object,
+    posts: PropTypes.array,
     users: PropTypes.object,
     comments: PropTypes.object,
   }
@@ -40,7 +40,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  posts: getPosts(state),
+  posts: getPostsArray(state),
   users: getUsers(state),
   comments: getComments(state),
 })

@@ -5,7 +5,6 @@ import { View, Text, StyleSheet } from 'react-native'
 import Thumbnail from '../shared/Thumbnail'
 import Button from '../shared/Button'
 import { BLACK, BLUE, DARKEST_GRAY, GRAY } from '../styles'
-import ProfileFeeds from './ProfileFeeds'
 
 const ProfileInfo = ({ user, editProfile }) => {
   return (
@@ -17,15 +16,15 @@ const ProfileInfo = ({ user, editProfile }) => {
         <View style={styles.topRightContainer}>
           <View style={styles.metricsContainer}>
             <View style={styles.metricContainer}>
-              <Text style={styles.bold}>1</Text>
+              <Text style={styles.bold}>{user.posts.length}</Text>
               <Text style={styles.metric}>posts</Text>
             </View>
             <View style={styles.metricContainer}>
-              <Text style={styles.bold}>6</Text>
+              <Text style={styles.bold}>{user.followers.length}</Text>
               <Text style={styles.metric}>followers</Text>
             </View>
             <View style={styles.metricContainer}>
-              <Text style={styles.bold}>12</Text>
+              <Text style={styles.bold}>{user.following.length}</Text>
               <Text style={styles.metric}>following</Text>
             </View>
           </View>
@@ -40,8 +39,6 @@ const ProfileInfo = ({ user, editProfile }) => {
         <Text style={styles.description}>{user.description}</Text>
         <Text style={styles.homePage}>{user.homePage.replace(/^https?:\/\//, '')}</Text>
       </View>
-
-      <ProfileFeeds />
     </View>
   )
 }
@@ -107,6 +104,9 @@ ProfileInfo.propTypes = {
     thumbUrl: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     homePage: PropTypes.string.isRequired,
+    following: PropTypes.array.isRequired,
+    followers: PropTypes.array.isRequired,
+    posts: PropTypes.array.isRequired,
   }),
   editProfile: PropTypes.func.isRequired,
 }

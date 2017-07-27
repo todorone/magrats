@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
-
 import Icon from '../shared/Icon'
+import Grid from '../discover/Grid'
 import { BLUE, LIGHTEST_GRAY, composeStyles } from '../styles'
+import PostsList from '../shared/PostsList'
 
 export default class ProfileFeeds extends React.Component {
   static propTypes = {
-
+    posts: PropTypes.array.isRequired,
+    onItemClick: PropTypes.func.isRequired,
   }
 
   state = {
@@ -19,6 +21,7 @@ export default class ProfileFeeds extends React.Component {
   activateGridTab = () => this.setState({ currentTab: 'grid' })
 
   render () {
+    const { posts, users, comments, navigation, onItemClick } = this.props
     const { currentTab } = this.state
 
     return (
@@ -44,9 +47,22 @@ export default class ProfileFeeds extends React.Component {
           </TouchableWithoutFeedback>
         </View>
 
-        <View style={styles.feedContainer}>
-
-        </View>
+        {(currentTab === 'grid')
+          ? (
+            <Grid
+              posts={posts}
+              onItemClick={onItemClick}
+            />
+          )
+          : (
+            <PostsList
+              posts={posts}
+              users={users}
+              comments={comments}
+              navigation={navigation}
+            />
+          )
+        }
       </View>
     )
   }
@@ -54,7 +70,6 @@ export default class ProfileFeeds extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-
   },
   tabsContainer: {
     flexDirection: 'row',
@@ -78,8 +93,5 @@ const styles = StyleSheet.create({
   },
   activeIcon: {
     color: BLUE,
-  },
-  feedContainer: {
-    flex: 1,
   },
 })

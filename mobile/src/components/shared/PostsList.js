@@ -6,7 +6,7 @@ import SinglePost from '../post/SinglePost'
 
 export default class PostsList extends React.Component {
   static propTypes = {
-    posts: PropTypes.object,
+    posts: PropTypes.array,
     users: PropTypes.object,
     comments: PropTypes.object,
   }
@@ -16,7 +16,7 @@ export default class PostsList extends React.Component {
 
     return (
       <View>
-        {Object.values(posts).map((post) => (
+        {posts.map((post) => (
           <SinglePost
             key={post.id}
             post={post}

@@ -15,7 +15,7 @@ export default class FadeInImage extends React.Component {
     return (
       <Animatable.View
         style={[containerStyle, styles.container]}
-        ref={ref => this.imageRef = ref}
+        ref={ref => (this.imageRef = ref)}
         useNativeDriver
       >
         <Image onLoadEnd={this.startAnimation} {...props} style={styles.image} />

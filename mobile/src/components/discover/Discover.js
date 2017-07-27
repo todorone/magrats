@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
-import DiscoverGrid from './DiscoverGrid'
+import Grid from './Grid'
+import GridItem from './GridItem'
 import { getTabIcon } from '../navigationOptions'
-import { getPosts } from '../../selectors'
+import { getPostsArray } from '../../selectors'
 
 class Discover extends React.Component {
   static navigationOptions = {
@@ -16,15 +17,22 @@ class Discover extends React.Component {
   onItemClick = postId => this.props.navigation.navigate('Post', { postId })
 
   render () {
-    const { feed } = this.props
+    const { posts } = this.props
 
     return (
       <Container>
         <SimpleHeader title='Discover' />
 
         <Content>
-          <DiscoverGrid
-            feed={Object.values(feed)}
+          <GridItem
+            featured
+            id={posts[0].id}
+            url={posts[0].url}
+            onItemClick={this.onItemClick}
+          />
+
+          <Grid
+            posts={posts.slice(1)}
             onItemClick={this.onItemClick}
           />
         </Content>
@@ -34,7 +42,7 @@ class Discover extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  feed: getPosts(state),
+  posts: getPostsArray(state),
 })
 
 export default connect(mapStateToProps)(Discover)

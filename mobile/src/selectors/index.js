@@ -2,6 +2,10 @@ import { createSelector } from 'reselect'
 
 // POSTS
 export const getPosts = state => state.data.posts
+export const getPostsArray = createSelector(
+  getPosts,
+  posts => Object.values(posts)
+)
 
 // USERS
 export const getUsers = state => state.data.users
@@ -20,13 +24,12 @@ export const getCommentsByIds = (commentsIds, comments) => (
 
 // SCREENS
 const getProfileScreenUserId = state => state.profileScreen.userId
-export const getProfileScreenUser = createSelector(
-  getUsers,
-  getProfileScreenUserId,
-  (users, userId) => users[userId]
-)
-export const getPostsOfProfileOwner = createSelector(
+export const getProfileScreenUser = state => getUsers(state)[getProfileScreenUserId(state)]
+
+export const getPostsForProfileScreen = createSelector(
   getPosts,
-  getProfileScreenUserId,
-  (posts, userId) => Object.values(posts).filter(post => post.owner === userId)
+  getProfileScreenUser,
+  (posts, user) => (user)
+    ? user.posts.map(postId => posts[postId])
+    : []
 )
