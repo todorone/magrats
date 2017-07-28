@@ -1,4 +1,4 @@
-import { setProfileScreenToMyself } from '../actions'
+import { setProfileScreenToMyself } from '../../actions'
 
 export function hookNavigation ({
   prevNavigationState,

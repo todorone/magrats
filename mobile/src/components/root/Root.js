@@ -1,13 +1,13 @@
 import { TabNavigator, StackNavigator } from 'react-navigation'
 
-import Home from './screens/Home'
-import Discover from './discover/Discover'
-import Social from './screens/Social'
-import Camera from './screens/Camera'
-import Profile from './profile/Profile'
-import Comments from './comments/Comments'
-import Post from './screens/Post'
-import Likes from './likes/Likes'
+import Home from '../home/Home'
+import Discover from '../discover/Discover'
+import Social from '../social/Social'
+import Camera from '../camera/Camera'
+import Profile from '../profile/Profile'
+import Comments from '../comments/Comments'
+import Post from '../post/Post'
+import Likes from '../likes/Likes'
 
 const styles = {
   tabsContainer: {
@@ -28,7 +28,7 @@ const Tabs = TabNavigator({
   Discover: { screen: Discover },
   Camera: { screen: Camera },
   Social: { screen: Social },
-  MyProfile: { screen: Profile, params: { userId: 'luke_skywalker' } },
+  MyProfile: { screen: Profile },
 }, {
   initialRouteName: 'Discover',
   headerMode: 'none',

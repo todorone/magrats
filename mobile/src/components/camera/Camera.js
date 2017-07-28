@@ -4,7 +4,7 @@ import { Header, Body } from 'native-base'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import { getTabIcon } from '../navigationOptions'
+import { getTabIcon } from '../navigationUtils'
 
 export default class Camera extends React.Component {
   static navigationOptions = {

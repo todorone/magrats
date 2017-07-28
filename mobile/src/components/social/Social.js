@@ -5,7 +5,7 @@ import Container from '../shared/Container'
 import SimpleHeader from '../shared/SimpleHeader'
 import Icon from '../shared/Icon'
 import Content from '../shared/Content'
-import { getTabIcon } from '../navigationOptions'
+import { getTabIcon } from '../navigationUtils'
 
 export default class Social extends React.Component {
   static navigationOptions = {

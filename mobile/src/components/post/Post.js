@@ -4,31 +4,35 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import PostsList from '../shared/PostsList'
+import SinglePost from '../post/SinglePost'
 import SimpleHeader from '../shared/SimpleHeader'
-import { getTabIcon } from '../navigationOptions'
-import { getPostsArray, getUsers, getComments } from '../../selectors'
+import { getTabIcon } from '../navigationUtils'
+import { getPosts, getUsers, getComments } from '../../selectors'
 
-class Home extends React.Component {
+class Post extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('home'),
   }
 
   static propTypes = {
-    posts: PropTypes.array,
+    posts: PropTypes.object,
     users: PropTypes.object,
     comments: PropTypes.object,
   }
 
+  goBack = () => this.props.navigation.goBack()
+
   render () {
     const { posts, users, comments } = this.props
+    const { postId } = this.props.navigation.state.params
+
     return (
       <Container>
-        <SimpleHeader title='Magrats' />
+        <SimpleHeader left='back' title='' goBack={this.goBack} />
 
         <Content>
-          <PostsList
-            posts={posts}
+          <SinglePost
+            post={posts[postId]}
             users={users}
             comments={comments}
             navigation={this.props.navigation}
@@ -40,9 +44,9 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  posts: getPostsArray(state),
+  posts: getPosts(state),
   users: getUsers(state),
   comments: getComments(state),
 })
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Post)

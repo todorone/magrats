@@ -7,7 +7,7 @@ import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
 import ProfileInfo from './ProfileInfo'
 import ProfileFeeds from './ProfileFeeds'
-import { getTabIcon } from '../navigationOptions'
+import { getTabIcon } from '../navigationUtils'
 import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors'
 
 class Profile extends React.Component {

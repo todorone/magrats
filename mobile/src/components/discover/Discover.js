@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SimpleHeader from '../shared/SimpleHeader'
-import Grid from './Grid'
-import GridItem from './GridItem'
-import { getTabIcon } from '../navigationOptions'
+import Grid from '../shared/Grid'
+import GridItem from '../shared/GridItem'
+import { getTabIcon } from '../navigationUtils'
 import { getPostsArray } from '../../selectors'
 
 class Discover extends React.Component {

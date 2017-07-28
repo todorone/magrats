@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Icon from '../shared/Icon'
-import Grid from '../discover/Grid'
+import Grid from '../shared/Grid'
 import { BLUE, LIGHTEST_GRAY, composeStyles } from '../styles'
 import PostsList from '../shared/PostsList'
 
