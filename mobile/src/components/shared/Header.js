@@ -6,7 +6,7 @@ import { Left, Right, Body } from 'native-base'
 import Icon from '../shared/Icon'
 import { ALMOST_WHITE, LIGHTEST_GRAY } from '../styles'
 
-const SimpleHeader = ({ title, left = '', goBack }) => {
+const Header = ({ title, left = '', goBack }) => {
   return (
     <View>
       <StatusBar />
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
   }
 })
 
-SimpleHeader.propTypes = {
+Header.propTypes = {
   left: PropTypes.string,
   title: PropTypes.string,
   goBack: PropTypes.func,
 }
 
-export default SimpleHeader
+export default Header

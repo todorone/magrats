@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import FadeInImage from '../shared/FadeInImage'
 
-export default class GridItem extends React.Component {
+export default class PostsGridItem extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     url: PropTypes.string,

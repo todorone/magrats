@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Icon from '../shared/Icon'
-import Grid from '../shared/Grid'
+import PostsGrid from '../discover/PostsGrid'
 import { BLUE, LIGHTEST_GRAY, composeStyles } from '../styles'
-import PostsList from '../shared/PostsList'
+import PostsList from '../home/PostsList'
 
 export default class ProfileFeeds extends React.Component {
   static propTypes = {
@@ -49,7 +49,7 @@ export default class ProfileFeeds extends React.Component {
 
         {(currentTab === 'grid')
           ? (
-            <Grid
+            <PostsGrid
               posts={posts}
               onItemClick={onItemClick}
             />

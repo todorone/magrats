@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SinglePost from '../post/SinglePost'
-import SimpleHeader from '../shared/SimpleHeader'
+import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
 import { getPosts, getUsers, getComments } from '../../selectors'
 
@@ -28,7 +28,7 @@ class Post extends React.Component {
 
     return (
       <Container>
-        <SimpleHeader left='back' title='' goBack={this.goBack} />
+        <Header left='back' title='' goBack={this.goBack} />
 
         <Content>
           <SinglePost

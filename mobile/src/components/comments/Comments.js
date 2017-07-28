@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import SimpleHeader from '../shared/SimpleHeader'
+import Header from '../shared/Header'
 import SingleComment from './SingleComment'
 import { getComments, getUsers, getCommentsByIds, getUserById } from '../../selectors'
 
@@ -16,7 +16,7 @@ class Comments extends React.Component {
 
     return (
       <Container>
-        <SimpleHeader left='back' title='Comments' goBack={this.goBack} />
+        <Header left='back' title='Comments' goBack={this.goBack} />
 
         <Content>
           {comments.map(comment => (

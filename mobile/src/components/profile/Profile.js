@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import SimpleHeader from '../shared/SimpleHeader'
+import Header from '../shared/Header'
 import ProfileInfo from './ProfileInfo'
 import ProfileFeeds from './ProfileFeeds'
 import { getTabIcon } from '../navigationUtils'
@@ -29,7 +29,7 @@ class Profile extends React.Component {
 
     return (
       <Container>
-        <SimpleHeader title={user.id} />
+        <Header title={user.id} />
 
         <Content>
           <ProfileInfo

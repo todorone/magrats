@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import SimpleHeader from '../shared/SimpleHeader'
+import Header from '../shared/Header'
 import SingleLike from './SingleLike'
 import { getUsers, getUserById } from '../../selectors'
 import { setProfileScreenUserId } from '../../actions'
@@ -24,7 +24,7 @@ class Likes extends React.Component {
 
     return (
       <Container>
-        <SimpleHeader left='back' title='Likes' goBack={this.goBack} />
+        <Header left='back' title='Likes' goBack={this.goBack} />
 
         <Content>
           {likes.map(userId => (

@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import SimpleHeader from '../shared/SimpleHeader'
-import Grid from '../shared/Grid'
-import GridItem from '../shared/GridItem'
+import Header from '../shared/Header'
+import PostsGrid from './PostsGrid'
+import PostsGridItem from './PostsGridItem'
 import { getTabIcon } from '../navigationUtils'
 import { getPostsArray } from '../../selectors'
 
@@ -21,17 +21,17 @@ class Discover extends React.Component {
 
     return (
       <Container>
-        <SimpleHeader title='Discover' />
+        <Header title='Discover' />
 
         <Content>
-          <GridItem
+          <PostsGridItem
             featured
             id={posts[0].id}
             url={posts[0].url}
             onItemClick={this.onItemClick}
           />
 
-          <Grid
+          <PostsGrid
             posts={posts.slice(1)}
             onItemClick={this.onItemClick}
           />

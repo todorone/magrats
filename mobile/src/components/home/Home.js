@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
-import PostsList from '../shared/PostsList'
-import SimpleHeader from '../shared/SimpleHeader'
+import PostsList from './PostsList'
+import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
 import { getPostsArray, getUsers, getComments } from '../../selectors'
 
@@ -24,7 +24,7 @@ class Home extends React.Component {
     const { posts, users, comments } = this.props
     return (
       <Container>
-        <SimpleHeader title='Magrats' />
+        <Header title='Magrats' />
 
         <Content>
           <PostsList

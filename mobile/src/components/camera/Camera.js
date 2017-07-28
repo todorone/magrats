@@ -1,9 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
-import { Header, Body } from 'native-base'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
+import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
 
 export default class Camera extends React.Component {
@@ -14,11 +13,7 @@ export default class Camera extends React.Component {
   render () {
     return (
       <Container>
-        <Header>
-          <Body>
-            <Text>Camera</Text>
-          </Body>
-        </Header>
+        <Header title='Camera' />
 
         <Content />
       </Container>

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 
 import Container from '../shared/Container'
-import SimpleHeader from '../shared/SimpleHeader'
+import Header from '../shared/Header'
 import Icon from '../shared/Icon'
 import Content from '../shared/Content'
 import { getTabIcon } from '../navigationUtils'
@@ -20,7 +20,7 @@ export default class Social extends React.Component {
   render () {
     return (
       <Container>
-        <SimpleHeader />
+        <Header title='Social' />
 
         <Content>
           <View style={styles.topContainer}>
