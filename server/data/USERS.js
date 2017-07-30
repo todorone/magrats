@@ -1,7 +1,7 @@
 const _ = require('lodash')
-const userIds = require('./data/userIds')
-const userDescriptions = require('./data/userDescriptions')
-const userAvatars = require('./data/userAvatars')
+const userIds = require('./USER_IDS')
+const userDescriptions = require('./USER_DESCRIPTIONS')
+const userAvatars = require('./USER_AVATARS')
 
 const USERS = {}
 

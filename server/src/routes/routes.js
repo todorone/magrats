@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const controllers = require('../controllers')
+const controllers = require('../controllers/controllers')
 
 /* GET home page. */
 router.get('/', controllers.homePage)
 
 router.get('/posts', controllers.getPosts)
-router.post('/post/:id', controllers.updatePost)
+router.patch('/post/:id', controllers.patchPost)
 
 router.get('/users', controllers.getUsers)
 

@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { PHOTO } = require('./postTypes')
+const { PHOTO } = require('./POST_TYPES')
 const { USERS, getRandomUserIds } = require('./USERS')
 const { getRandomCommentIds } = require('./COMMENTS')
 const { getRandomDate } = require('./utils')
