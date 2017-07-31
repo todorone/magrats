@@ -14,9 +14,10 @@ export const getUsers = state => state.data.users
 export const getComments = state => state.data.comments
 
 // HELPERS
-export const getUserById = (userId, users) => users[userId]
-
 export const getPostOwner = (post, users) => users[post.owner]
+export const isPostLiked = post => post.likes.indexOf('luke_skywalker') > -1
+
+export const getUserById = (userId, users) => users[userId]
 
 export const getCommentsByIds = (commentsIds, comments) => (
   commentsIds.map(commentId => comments[commentId])

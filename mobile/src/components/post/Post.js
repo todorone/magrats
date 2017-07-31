@@ -26,6 +26,8 @@ class Post extends React.Component {
     const { posts, users, comments } = this.props
     const { postId } = this.props.navigation.state.params
 
+    // console.log('Post render')
+
     return (
       <Container>
         <Header left='back' title='' goBack={this.goBack} />

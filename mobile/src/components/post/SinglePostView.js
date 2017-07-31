@@ -178,7 +178,7 @@ SinglePostView.propTypes = {
   photoUrl: PropTypes.string.isRequired,
   isLiked: PropTypes.bool.isRequired,
   likesNumber: PropTypes.number.isRequired,
-  onLike: PropTypes.func.isRequired,
+  onTapLike: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string,
   comments: PropTypes.array.isRequired,

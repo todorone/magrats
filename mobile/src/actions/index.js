@@ -27,6 +27,25 @@ export const fetchPosts = () =>
       console.error(error)
     }
   }
+
+const patchPostRequest = () => ({ type: types.PATCH_POST_REQUEST })
+const patchPostSuccess = post => ({ type: types.PATCH_POST_SUCCESS, post })
+export const setLikeStatus = (postId, userId, status) =>
+  async dispatch => {
+    dispatch(patchPostRequest())
+
+    try {
+      const data = await API.patchPost(postId, { likes: { [userId]: status } })
+
+      if (data.error) {
+        dispatch(patchPostError(data.error))
+      } else {
+        dispatch(patchPostSuccess(data.result))
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 // USERS
 const fetchUsersRequest = () => ({ type: types.FETCH_USERS_REQUEST })
 const fetchUsersSuccess = users => ({ type: types.FETCH_USERS_SUCCESS, users })
@@ -67,8 +86,12 @@ export const fetchComments = () =>
     }
   }
 
-// FETCH DATA ERROR HANDLER
+// ERROR HANDLERS
 const fetchDataError = error =>
   dispatch => {
-    console.error(error)
+    console.error('Fetch data error:', error)
+  }
+const patchPostError = error =>
+  dispatch => {
+    console.error('Patch post error:', error)
   }

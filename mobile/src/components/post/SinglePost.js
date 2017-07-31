@@ -1,10 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import SinglePostView from './SinglePostView'
-import { getPostOwner, getCommentsByIds } from '../../selectors'
+import { setLikeStatus } from '../../actions'
+import { getPostOwner, getCommentsByIds, isPostLiked } from '../../selectors'
 
-export default class SinglePost extends React.Component {
+class SinglePost extends React.Component {
   static propTypes = {
     post: PropTypes.shape({
       owner: PropTypes.string.isRequired,
@@ -17,11 +19,13 @@ export default class SinglePost extends React.Component {
     comments: PropTypes.object.isRequired,
   }
 
-  state = {
-    isLiked: false,
-  }
+  switchLike = () => {
+    const { post, dispatch } = this.props
+    const isLiked = isPostLiked(post)
+    dispatch(setLikeStatus(post.id, 'luke_skywalker', !isLiked))
 
-  switchLike = () => this.setState({ isLiked: !this.state.isLiked })
+    // setTimeout(() => this.forceUpdate(), 1300)
+  }
 
   showComments = () =>
     this.props.navigation.navigate('Comments', { commentsIds: this.props.post.comments })
@@ -31,8 +35,13 @@ export default class SinglePost extends React.Component {
 
   render () {
     const { post, users, comments } = this.props
-    const { isLiked } = this.state
+    const isLiked = isPostLiked(post)
     const owner = getPostOwner(post, users)
+
+    if (post.id === 'post0') {
+      console.log('SinglePost render')
+    }
+
     return (
       <SinglePostView
         owner={owner}
@@ -44,10 +53,12 @@ export default class SinglePost extends React.Component {
         comments={getCommentsByIds(post.comments.slice(0, 2), comments)}
         commentsNumber={post.comments.length}
         date={post.published}
-        onLike={this.switchLike}
+        onTapLike={this.switchLike}
         showComments={this.showComments}
         showLikes={this.showLikes}
       />
     )
   }
 }
+
+export default connect()(SinglePost)

@@ -13,20 +13,42 @@ const delayOnDevServer = fn =>
     })
   }
 
-export const fetchPosts = delayOnDevServer(
+const fetchPosts = delayOnDevServer(
   () => ({ result: POSTS })
 )
 
-export const fetchUsers = delayOnDevServer(
+const patchPost = delayOnDevServer(
+  (postId, patch) => {
+    if (!(postId in POSTS)) return ({ error: 'Post not found' })
+
+    if ('likes' in patch) { // Patch likes
+      for (let [userId, value] of Object.entries(patch.likes)) {
+
+        // console.warn('Set like status', postId, userId, value)
+        const { likes } = POSTS[postId]
+        if (value && (likes.indexOf(userId) === -1)) {
+          likes.push(userId)
+        } else if (!value && (likes.indexOf(userId) > -1)) {
+          likes.splice(likes.indexOf(userId), 1)
+        }
+      }
+    }
+
+    return ({ result: POSTS[postId] })
+  }
+)
+
+const fetchUsers = delayOnDevServer(
   () => ({ result: USERS })
 )
 
-export const fetchComments = delayOnDevServer(
+const fetchComments = delayOnDevServer(
   () => ({ result: COMMENTS })
 )
 
 export const API = {
   fetchPosts,
+  patchPost,
   fetchUsers,
   fetchComments,
 }
