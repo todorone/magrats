@@ -23,8 +23,6 @@ class SinglePost extends React.Component {
     const { post, dispatch } = this.props
     const isLiked = isPostLiked(post)
     dispatch(setLikeStatus(post.id, 'luke_skywalker', !isLiked))
-
-    // setTimeout(() => this.forceUpdate(), 1300)
   }
 
   showComments = () =>

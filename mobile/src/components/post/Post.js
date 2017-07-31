@@ -25,8 +25,7 @@ class Post extends React.Component {
   render () {
     const { posts, users, comments } = this.props
     const { postId } = this.props.navigation.state.params
-
-    // console.log('Post render')
+    // const postId = 'post0'
 
     return (
       <Container>

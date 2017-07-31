@@ -12,6 +12,7 @@ class Comments extends React.Component {
 
   render () {
     const { commentsIds } = this.props.navigation.state.params
+    // const commentsIds = []
     const comments = getCommentsByIds(commentsIds, this.props.comments)
 
     return (

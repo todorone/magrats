@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 
 import Root from './Root'
-import RootNew from './RootNew'
+// import RootNew from './RootNew'
 import store from '../../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../../actions'
 import { hookNavigation } from './navigationHook'
@@ -37,7 +37,7 @@ class App extends Component {
 
   render () {
     return (
-      this.state.isInitialized && <RootNew onNavigationStateChange={this.attachHook} />
+      this.state.isInitialized && <Root onNavigationStateChange={this.attachHook} />
     )
   }
 }

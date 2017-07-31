@@ -21,6 +21,7 @@ class Likes extends React.Component {
   render () {
     const { users } = this.props
     const { likes } = this.props.navigation.state.params
+    // const likes = []
 
     return (
       <Container>
