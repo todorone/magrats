@@ -7,7 +7,7 @@ import Content from '../shared/Content'
 import SinglePost from '../post/SinglePost'
 import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
-import { getPosts, getUsers, getComments } from '../../selectors'
+import { getPosts, getUsers, getComments } from '../../shared/selectors'
 
 class Post extends React.Component {
   static navigationOptions = {
@@ -16,14 +16,12 @@ class Post extends React.Component {
 
   static propTypes = {
     posts: PropTypes.object,
-    users: PropTypes.object,
-    comments: PropTypes.object,
   }
 
   goBack = () => this.props.navigation.goBack()
 
   render () {
-    const { posts, users, comments } = this.props
+    // const { posts } = this.props
     const { postId } = this.props.navigation.state.params
     // const postId = 'post0'
 
@@ -33,9 +31,7 @@ class Post extends React.Component {
 
         <Content>
           <SinglePost
-            post={posts[postId]}
-            users={users}
-            comments={comments}
+            postId={postId}
             navigation={this.props.navigation}
           />
         </Content>
@@ -46,8 +42,6 @@ class Post extends React.Component {
 
 const mapStateToProps = state => ({
   posts: getPosts(state),
-  users: getUsers(state),
-  comments: getComments(state),
 })
 
 export default connect(mapStateToProps)(Post)

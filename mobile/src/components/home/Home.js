@@ -7,7 +7,7 @@ import Content from '../shared/Content'
 import PostsList from './PostsList'
 import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
-import { getPostsArray, getUsers, getComments } from '../../selectors'
+import { getPostsArray, getUsers, getComments } from '../../shared/selectors'
 
 class Home extends React.Component {
   static navigationOptions = {

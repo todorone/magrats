@@ -4,7 +4,7 @@ import { Provider, connect } from 'react-redux'
 import Root from './Root'
 // import RootNew from './RootNew'
 import store from '../../store/store'
-import { fetchComments, fetchPosts, fetchUsers } from '../../actions'
+import { fetchComments, fetchPosts, fetchUsers } from '../../shared/actions'
 import { hookNavigation } from './navigationHook'
 
 class App extends Component {

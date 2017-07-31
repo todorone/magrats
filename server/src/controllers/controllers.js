@@ -1,6 +1,6 @@
-const { USERS } = require('../../data/USERS')
-const { COMMENTS } = require('../../data/COMMENTS')
-const { POSTS } = require('../../data/POSTS')
+const { USERS } = require('../../../mobile/src/shared/data/USERS')
+const { COMMENTS } = require('../../../mobile/src/shared/data/COMMENTS')
+const { POSTS } = require('../../../mobile/src/shared/data/POSTS')
 
 const DELAY = 500
 const delayOnDevServer = fn => (process.env.NODE_ENV === 'production')

@@ -1,38 +1,49 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import ReactHint from 'react-hint'
-import styled from 'styled-components'
+import { Provider, connect } from 'react-redux'
 
-import Home from './Home'
-import Explore from './Explore'
-import Profile from './Profile'
-import Header from './header/Header'
+import Root from './Root'
+import store from '../store/store'
+import { fetchComments, fetchPosts, fetchUsers } from '../shared/actions'
 
 class App extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      isInitialized: false,
+    }
+  }
+
+  async componentWillMount () {
+    // console.log('environment:', process.env.NODE_ENV)
+    const { dispatch } = this.props
+
+    await Promise.all([
+      dispatch(fetchUsers()),
+      dispatch(fetchComments()),
+      dispatch(fetchPosts())
+    ])
+
+    this.setState({ isInitialized: true })
+  }
+
   render () {
     return (
-      <Router>
-        <Container>
-          <Header />
-
-          <Content>
-            <Route exact path='/' component={Home} />
-            <Route path='/explore' component={Explore} />
-            <Route path='/profile' component={Profile} />
-          </Content>
-          <ReactHint />
-        </Container>
-      </Router>
+      this.state.isInitialized && <Root />
     )
   }
 }
 
-export default App
+const mapStateToProps = state => ({ reduxState: state })
 
-// =====
-const Container = styled.div`
-`
-const Content = styled.div`
-  margin: 0 auto;
-  max-width: 800px;
-`
+const ConnectedApp = connect(mapStateToProps)(App)
+
+// ==========
+
+const ReduxWrapper = () => (
+  <Provider store={store}>
+    <ConnectedApp />
+  </Provider>
+)
+
+export default ReduxWrapper

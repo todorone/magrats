@@ -8,7 +8,7 @@ import Header from '../shared/Header'
 import ProfileInfo from './ProfileInfo'
 import ProfileFeeds from './ProfileFeeds'
 import { getTabIcon } from '../navigationUtils'
-import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors'
+import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../shared/selectors'
 
 class Profile extends React.Component {
   static navigationOptions = {

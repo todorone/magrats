@@ -7,7 +7,7 @@ import Header from '../shared/Header'
 import PostsGrid from './PostsGrid'
 import PostsGridItem from './PostsGridItem'
 import { getTabIcon } from '../navigationUtils'
-import { getPostsArray } from '../../selectors'
+import { getPostsArray } from '../../shared/selectors'
 
 class Discover extends React.Component {
   static navigationOptions = {

@@ -5,7 +5,7 @@ import Container from '../shared/Container'
 import Content from '../shared/Content'
 import Header from '../shared/Header'
 import SingleComment from './SingleComment'
-import { getComments, getUsers, getCommentsByIds, getUserById } from '../../selectors'
+import { getComments, getUsers, getCommentsByIds, getUserById } from '../../shared/selectors'
 
 class Comments extends React.Component {
   goBack = () => this.props.navigation.goBack()

@@ -3,11 +3,14 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import SinglePostView from './SinglePostView'
-import { setLikeStatus } from '../../actions'
-import { getPostOwner, getCommentsByIds, isPostLiked } from '../../selectors'
+import { setLikeStatus } from '../../shared/actions'
+import { getPostOwner, isPostLiked, getPostById, getPosts } from '../../shared/selectors'
+import { getUsers, getComments, getMyUserId, get2CommentsOfPost } from '../../shared/selectors'
 
 class SinglePost extends React.Component {
   static propTypes = {
+    myUserId: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired,
     post: PropTypes.shape({
       owner: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
@@ -15,14 +18,17 @@ class SinglePost extends React.Component {
       comments: PropTypes.array.isRequired,
       published: PropTypes.number.isRequired,
     }).isRequired,
+    owner: PropTypes.object.isRequired,
+    twoComments: PropTypes.array.isRequired,
+    isLiked: PropTypes.bool.isRequired,
     users: PropTypes.object.isRequired,
     comments: PropTypes.object.isRequired,
   }
 
   switchLike = () => {
-    const { post, dispatch } = this.props
-    const isLiked = isPostLiked(post)
-    dispatch(setLikeStatus(post.id, 'luke_skywalker', !isLiked))
+    const { myUserId, post, isLiked, dispatch } = this.props
+
+    dispatch(setLikeStatus(post.id, myUserId, !isLiked))
   }
 
   showComments = () =>
@@ -32,13 +38,7 @@ class SinglePost extends React.Component {
     this.props.navigation.navigate('Likes', { likes: this.props.post.likes })
 
   render () {
-    const { post, users, comments } = this.props
-    const isLiked = isPostLiked(post)
-    const owner = getPostOwner(post, users)
-
-    if (post.id === 'post0') {
-      console.log('SinglePost render')
-    }
+    const { post, isLiked, twoComments, owner } = this.props
 
     return (
       <SinglePostView
@@ -48,7 +48,7 @@ class SinglePost extends React.Component {
         isLiked={isLiked}
         description={post.description}
         location={post.location}
-        comments={getCommentsByIds(post.comments.slice(0, 2), comments)}
+        comments={twoComments}
         commentsNumber={post.comments.length}
         date={post.published}
         onTapLike={this.switchLike}
@@ -59,4 +59,15 @@ class SinglePost extends React.Component {
   }
 }
 
-export default connect()(SinglePost)
+const mapStateToProps = (state, ownProps) => ({
+  myUserId: getMyUserId(state),
+  post: getPostById(state, ownProps.postId),
+  owner: getPostOwner(state, ownProps.postId),
+  twoComments: get2CommentsOfPost(state, ownProps.postId),
+  isLiked: isPostLiked(state, ownProps.postId),
+  posts: getPosts(state), // To trigger component update, otherwise it won't update
+  users: getUsers(state),
+  comments: getComments(state),
+})
+
+export default connect(mapStateToProps)(SinglePost)

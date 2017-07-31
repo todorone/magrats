@@ -5,8 +5,8 @@ import Container from '../shared/Container'
 import Content from '../shared/Content'
 import Header from '../shared/Header'
 import SingleLike from './SingleLike'
-import { getUsers, getUserById } from '../../selectors'
-import { setProfileScreenUserId } from '../../actions'
+import { getUsers, getUserById } from '../../shared/selectors'
+import { setProfileScreenUserId } from '../../shared/actions'
 
 class Likes extends React.Component {
   goBack = () => this.props.navigation.goBack()
