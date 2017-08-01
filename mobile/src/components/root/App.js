@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { View } from 'react-native'
 import { Provider, connect } from 'react-redux'
 
+
 import Root from './Root'
-// import RootNew from './RootNew'
 import store from '../../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../../shared/actions'
 import { hookNavigation } from './navigationHook'
+import Firebase from './Firebase'
 
 class App extends Component {
   state = {
@@ -37,7 +39,11 @@ class App extends Component {
 
   render () {
     return (
-      this.state.isInitialized && <Root onNavigationStateChange={this.attachHook} />
+      this.state.isInitialized &&
+        <View>
+          <Root onNavigationStateChange={this.attachHook} key='root' />
+          <Firebase key='firebase' />
+        </View>
     )
   }
 }

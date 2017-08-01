@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import * as firebase from 'firebase'
 
 import Container from '../shared/Container'
 import Header from '../shared/Header'
@@ -12,9 +13,8 @@ export default class Social extends React.Component {
     tabBarIcon: getTabIcon('heart'),
   }
 
-  goToProfile = () => {
-    const { navigate } = this.props.navigation
-    navigate('MyProfile')
+  logIn = () => {
+
   }
 
   render () {
@@ -24,7 +24,7 @@ export default class Social extends React.Component {
 
         <Content>
           <View style={styles.topContainer}>
-            <TouchableWithoutFeedback onPress={this.goToProfile}>
+            <TouchableWithoutFeedback onPress={this.logIn}>
               <Icon name='heart' outline style={styles.buttonIcon} />
             </TouchableWithoutFeedback>
           </View>
