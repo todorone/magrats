@@ -1,4 +1,4 @@
-import { setProfileScreenToMyself } from '../../shared/actions'
+import { setProfileScreenToMyself } from '../../shared/actions/screens'
 
 export function hookNavigation ({
   prevNavigationState,

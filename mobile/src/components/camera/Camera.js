@@ -17,8 +17,9 @@ export default class Camera extends React.Component {
     // console.warn('take photo')
     const pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
-      aspect: [4,3]
+      aspect: [4, 3],
     })
+    console.log(pickerResult)
   }
 
   render () {

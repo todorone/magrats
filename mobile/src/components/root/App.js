@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Provider, connect } from 'react-redux'
 
-
 import Root from './Root'
-import store from '../../store/store'
-import { fetchComments, fetchPosts, fetchUsers } from '../../shared/actions'
-import { hookNavigation } from './navigationHook'
 import Firebase from './Firebase'
+import store from '../../store/store'
+import { fetchComments, fetchPosts, fetchUsers } from '../../shared/actions/data'
+import { hookNavigation } from './navigationHook'
+import { BLACK } from '../styles'
 
 class App extends Component {
   state = {
@@ -40,13 +40,24 @@ class App extends Component {
   render () {
     return (
       this.state.isInitialized &&
-        <View>
-          <Root onNavigationStateChange={this.attachHook} key='root' />
-          <Firebase key='firebase' />
+        <View style={styles.container}>
+          <Root onNavigationStateChange={this.attachHook} />
+          <Firebase />
         </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: BLACK,
+  }
+})
 
 const mapStateToProps = state => ({ reduxState: state })
 

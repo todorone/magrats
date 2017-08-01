@@ -3,9 +3,17 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import SinglePostView from './SinglePostView'
-import { setLikeStatus } from '../../shared/actions'
-import { getPostOwner, isPostLiked, getPostById, getPosts } from '../../shared/selectors'
-import { getUsers, getComments, getMyUserId, get2CommentsOfPost } from '../../shared/selectors'
+import { setLikeStatus } from '../../shared/actions/data'
+import {
+  getPostOwner,
+  isPostLiked,
+  getPostById,
+  getPosts,
+  getUsers,
+  getComments,
+  getMyUserId,
+  get2CommentsOfPost
+} from '../../shared/selectors'
 
 class SinglePost extends React.Component {
   static propTypes = {

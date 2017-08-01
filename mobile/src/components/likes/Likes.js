@@ -6,7 +6,7 @@ import Content from '../shared/Content'
 import Header from '../shared/Header'
 import SingleLike from './SingleLike'
 import { getUsers, getUserById } from '../../shared/selectors'
-import { setProfileScreenUserId } from '../../shared/actions'
+import { setProfileScreenUserId } from '../../shared/actions/screens'
 
 class Likes extends React.Component {
   goBack = () => this.props.navigation.goBack()

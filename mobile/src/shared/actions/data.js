@@ -1,13 +1,5 @@
 import { API } from '../api'
 import * as types from './actionTypes'
-import { getMyUserId } from '../selectors/index'
-
-// SCREENS
-export const setProfileScreenUserId = userId => ({ type: types.SET_PROFILE_SCREEN_USER_ID, userId })
-export const setProfileScreenToMyself = () =>
-  (dispatch, getState) => {
-    dispatch(setProfileScreenUserId(getMyUserId(getState())))
-  }
 
 // POSTS
 const fetchPostsRequest = () => ({ type: types.FETCH_POSTS_REQUEST })

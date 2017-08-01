@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
 import SinglePost from '../post/SinglePost'
 import Header from '../shared/Header'
 import { getTabIcon } from '../navigationUtils'
-import { getPosts, getUsers, getComments } from '../../shared/selectors'
 
 class Post extends React.Component {
   static navigationOptions = {
@@ -21,7 +19,6 @@ class Post extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {
-    // const { posts } = this.props
     const { postId } = this.props.navigation.state.params
     // const postId = 'post0'
 
@@ -40,8 +37,8 @@ class Post extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: getPosts(state),
-})
+// const mapStateToProps = state => ({
+//   posts: getPosts(state),
+// })
 
-export default connect(mapStateToProps)(Post)
+export default Post
