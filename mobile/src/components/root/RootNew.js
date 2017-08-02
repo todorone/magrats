@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { Scene, Router, Actions, Reducer, ActionConst } from 'react-native-router-flux';
+import { Scene, Router } from 'react-native-router-flux'
 
 import Home from '../home/Home'
 import Discover from '../discover/Discover'
@@ -38,20 +37,20 @@ export default class RootNew extends React.Component {
 
 const tabsContainerStyles = {
   height: 65,
-    paddingLeft: 15,
-    paddingRight: 15,
+  paddingLeft: 15,
+  paddingRight: 15,
 
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  flexDirection: 'row',
 
-    backgroundColor: '#fcfdfe'
+  backgroundColor: '#fcfdfe',
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flex: 1,
-    backgroundColor: 'lightgrey',
-  }
-})
+// const styles = StyleSheet.create({
+//   container: {
+//     width: '100%',
+//     flex: 1,
+//     backgroundColor: 'lightgrey',
+//   }
+// })

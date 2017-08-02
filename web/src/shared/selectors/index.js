@@ -26,7 +26,6 @@ export const getPostsArray = createSelector(
 // USER
 export const getMyUserId = state => state.user.userId
 
-
 // SCREENS
 const getProfileScreenUserId = state => state.profileScreen.userId
 export const getProfileScreenUser = state => getUsers(state)[getProfileScreenUserId(state)]

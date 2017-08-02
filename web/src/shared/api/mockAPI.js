@@ -23,7 +23,6 @@ const patchPost = delayOnDevServer(
 
     if ('likes' in patch) { // Patch likes
       for (let [userId, value] of Object.entries(patch.likes)) {
-
         // console.warn('Set like status', postId, userId, value)
         const { likes } = POSTS[postId]
         if (value && (likes.indexOf(userId) === -1)) {
