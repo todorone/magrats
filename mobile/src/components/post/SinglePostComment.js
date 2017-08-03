@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
+import { GRAY } from '../styles'
 
 class SinglePostComment extends React.Component {
   static propTypes = {
@@ -8,8 +9,19 @@ class SinglePostComment extends React.Component {
     text: PropTypes.string,
   }
 
-  state = {
-    isExpanded: false,
+  state = { isFull: false }
+
+  showAll = () => this.setState({ isFull: true })
+
+  renderText (text) {
+    return ((text.length < 75) || this.state.isFull)
+      ? text
+      : (
+        <Text>
+          {text.substr(0, 70)}
+          <Text onPress={this.showAll} style={styles.more}> more</Text>
+        </Text>
+      )
   }
 
   render () {
@@ -18,7 +30,7 @@ class SinglePostComment extends React.Component {
       <View style={styles.topContainer}>
         <Text style={styles.text}>
           <Text style={styles.author}>{author} </Text>
-          {text}
+          {this.renderText(text)}
         </Text>
       </View>
     )
@@ -38,7 +50,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-  }
+  },
+  more: {
+    color: GRAY,
+  },
 })
 
 export default SinglePostComment
