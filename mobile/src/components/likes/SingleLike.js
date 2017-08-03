@@ -19,10 +19,12 @@ export default class SingleLike extends React.Component {
     switchFollow: PropTypes.func.isRequired,
   }
 
+  switchFollow = () => this.props.switchFollow(this.props.owner.id)
+
   goToProfile = () => this.props.goToProfile(this.props.owner.id)
 
   render () {
-    const { owner, switchFollow } = this.props
+    const { owner, isMeFollowing } = this.props
 
     return (
       <TouchableWithoutFeedback onPress={this.goToProfile}>
@@ -33,7 +35,13 @@ export default class SingleLike extends React.Component {
             <Text style={styles.name}>{truncateString(owner.description, 25)}</Text>
           </View>
 
-          <Button onPress={switchFollow}>Follow</Button>
+          <View style={styles.buttonContainer}>
+            {isMeFollowing
+              ? <Button theme='primary' onPress={this.switchFollow}>Following</Button>
+              : <Button onPress={this.switchFollow}>Follow</Button>
+            }
+          </View>
+
         </View>
       </TouchableWithoutFeedback>
     )
@@ -59,5 +67,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     color: GRAY,
+  },
+  buttonContainer: {
+    width: 105,
   },
 })

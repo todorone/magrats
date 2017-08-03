@@ -8,6 +8,7 @@ import Header from '../shared/Header'
 import SingleLike from './SingleLike'
 import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../../shared/selectors/selectors'
 import { setProfileScreenUserId } from '../../shared/actions/screens'
+import { setFollowStatus } from '../../shared/actions/data'
 
 class Likes extends React.Component {
   static propTypes = {
@@ -22,7 +23,7 @@ class Likes extends React.Component {
     this.props.navigation.navigate('Profile')
   }
 
-  switchFollow = userId => {}
+  switchFollow = userId => this.props.dispatch(setFollowStatus(userId))
 
   render () {
     const { users, myUserId } = this.props
