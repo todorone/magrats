@@ -6,7 +6,7 @@ import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
 import FadeInImage from '../shared/FadeInImage'
 import { getTimeAgo } from '../../utils'
-import { BLACK, GRAY } from '../styles'
+import { BLACK, composeStyles, GRAY, RED } from '../styles'
 
 const SinglePostView = ({
   owner,
@@ -48,7 +48,11 @@ const SinglePostView = ({
         <View style={styles.buttons}>
           <View style={styles.likes}>
             <TouchableWithoutFeedback onPress={onTapLike}>
-              <Icon name='heart' outline={!isLiked} style={styles.buttonIcon} />
+              <Icon
+                name='heart'
+                outline={!isLiked}
+                style={composeStyles(styles.buttonIcon, { [styles.buttonIconLiked]: isLiked })}
+              />
             </TouchableWithoutFeedback>
             {(likesNumber > 0) &&
               <TouchableWithoutFeedback onPress={showLikes}>
@@ -139,6 +143,9 @@ const styles = StyleSheet.create({
   buttonIcon: {
     fontSize: 35,
     color: BLACK,
+  },
+  buttonIconLiked: {
+    color: RED,
   },
   likes: {
     flexDirection: 'row',

@@ -5,6 +5,8 @@ export const BLACK = '#000'
 
 export const BLUE = '#007aff'
 
+export const RED = '#ff584f'
+
 export const DARKEST_GRAY = '#111'
 export const DARK_GRAY = '#666'
 export const GRAY = '#999'
