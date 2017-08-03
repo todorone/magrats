@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StatusBar, TouchableWithoutFeedback, StyleSheet } from 'react-native'
-import { Left, Right, Body } from 'native-base'
 
 import Icon from '../shared/Icon'
 import { ALMOST_WHITE, LIGHTEST_GRAY } from '../styles'
@@ -12,19 +11,19 @@ const Header = ({ title, left = '', goBack }) => {
       <StatusBar />
 
       <View style={styles.container}>
-        <Left>
+        <View>
           {(left === 'back') &&
             <TouchableWithoutFeedback onPress={goBack}>
               <Icon style={styles.buttonIcon} name='arrow-back' />
             </TouchableWithoutFeedback>
           }
-        </Left>
+        </View>
 
-        <Body>
+        <View>
           <Text>{title}</Text>
-        </Body>
+        </View>
 
-        <Right />
+        <View />
       </View>
     </View>
   )
@@ -34,7 +33,8 @@ const styles = StyleSheet.create({
   container: {
     height: 64,
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderBottomColor: LIGHTEST_GRAY,
     paddingTop: 15,
