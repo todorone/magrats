@@ -14,6 +14,7 @@ export default class SingleLike extends React.Component {
       description: PropTypes.string.isRequired,
       thumbUrl: PropTypes.string.isRequired,
     }).isRequired,
+    isMeFollowing: PropTypes.bool.isRequired,
     goToProfile: PropTypes.func.isRequired,
     switchFollow: PropTypes.func.isRequired,
   }

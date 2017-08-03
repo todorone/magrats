@@ -1,4 +1,4 @@
-import { getMyUserId } from '../selectors'
+import { getMyUserId } from '../selectors/selectors'
 import * as types from './actionTypes'
 
 // SCREENS

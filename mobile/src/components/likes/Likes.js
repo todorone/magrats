@@ -1,14 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Container from '../shared/Container'
 import Content from '../shared/Content'
 import Header from '../shared/Header'
 import SingleLike from './SingleLike'
-import { getUsers, getUserById } from '../../shared/selectors'
+import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../../shared/selectors/selectors'
 import { setProfileScreenUserId } from '../../shared/actions/screens'
 
 class Likes extends React.Component {
+  static propTypes = {
+    users: PropTypes.array.isRequired,
+    myUserId: PropTypes.string.isRequired,
+  }
+
   goBack = () => this.props.navigation.goBack()
 
   goToProfile = userId => {
@@ -19,21 +25,20 @@ class Likes extends React.Component {
   switchFollow = userId => {}
 
   render () {
-    const { users } = this.props
-    const { likes } = this.props.navigation.state.params
-    // const likes = []
+    const { users, myUserId } = this.props
 
     return (
       <Container>
         <Header left='back' title='Likes' goBack={this.goBack} />
 
         <Content>
-          {likes.map(userId => (
+          {users.map(user => (
             <SingleLike
-              owner={getUserById(userId, users)}
+              owner={user}
               goToProfile={this.goToProfile}
               switchFollow={this.switchFollow}
-              key={userId}
+              isMeFollowing={isMeFollowingUser(user, myUserId)}
+              key={user.id}
             />
           ))}
         </Content>
@@ -42,8 +47,9 @@ class Likes extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  users: getUsers(state),
+const mapStateToProps = (state, ownProps) => ({
+  users: getUsersWhoLikesPost(state, ownProps.navigation.state.params.postId),
+  myUserId: getMyUserId(state),
 })
 
 export default connect(mapStateToProps)(Likes)

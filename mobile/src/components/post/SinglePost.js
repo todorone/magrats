@@ -13,7 +13,7 @@ import {
   getComments,
   getMyUserId,
   get2CommentsOfPost
-} from '../../shared/selectors'
+} from '../../shared/selectors/selectors'
 
 class SinglePost extends React.Component {
   static propTypes = {
@@ -43,7 +43,7 @@ class SinglePost extends React.Component {
     this.props.navigation.navigate('Comments', { commentsIds: this.props.post.comments })
 
   showLikes = () =>
-    this.props.navigation.navigate('Likes', { likes: this.props.post.likes })
+    this.props.navigation.navigate('Likes', { postId: this.props.post.id })
 
   render () {
     const { post, isLiked, twoComments, owner } = this.props
