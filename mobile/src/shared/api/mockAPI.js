@@ -46,20 +46,7 @@ const patchUser = delayOnDevServer(
     console.warn('API call: patch user')
 
     if (!(userId in USERS)) return ({ error: 'User not found' })
-
-
-
-    // if ('likes' in patch) { // Patch likes
-    //   for (let [userId, value] of Object.entries(patch.likes)) {
-    //     // console.warn('Set like status', postId, userId, value)
-    //     const { likes } = POSTS[postId]
-    //     if (value && (likes.indexOf(userId) === -1)) {
-    //       likes.push(userId)
-    //     } else if (!value && (likes.indexOf(userId) > -1)) {
-    //       likes.splice(likes.indexOf(userId), 1)
-    //     }
-    //   }
-    // }
+    if (!(userId in USERS)) return ({ error: 'User not found' })
 
     return ({ result: USERS[userId] })
   }

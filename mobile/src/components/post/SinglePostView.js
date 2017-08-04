@@ -5,7 +5,7 @@ import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-n
 import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
 import FadeInImage from '../shared/FadeInImage'
-import { getTimeAgo } from '../../utils'
+import { getTimeAgo } from '../../utils/utils'
 import { BLACK, composeStyles, GRAY, RED } from '../styles'
 
 const SinglePostView = ({

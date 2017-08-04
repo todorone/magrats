@@ -3,10 +3,11 @@ import { createSelector } from 'reselect'
 // USERS
 export const getUsers = state => state.data.users
 export const getUserById = (userId, users) => users[userId]
-export const isMeFollowingUser = (user, myUserId) => user.followers.indexOf(myUserId) > -1
 
 export const getUsersByIds = (state, userIds) =>
   getUsersArray(state).filter(user => userIds.indexOf(user.id) > -1)
+
+export const isMeFollowingUser = (user, myUserId) => user.followers.indexOf(myUserId) > -1
 
 export const getUsersArray = createSelector(
   getUsers,
@@ -24,6 +25,7 @@ export const getCommentsByIds = (commentsIds, comments) =>
 
 // POSTS
 export const getPosts = state => state.data.posts
+
 export const getPostById = (state, postId) => getPosts(state)[postId]
 
 export const getPostOwner = (state, postId) =>
@@ -45,6 +47,7 @@ export const getMyUserId = state => state.user.userId
 
 // SCREENS
 const getProfileScreenUserId = state => state.profileScreen.userId
+
 export const getProfileScreenUser = state => getUsers(state)[getProfileScreenUserId(state)]
 
 export const getPostsForProfileScreen = createSelector(

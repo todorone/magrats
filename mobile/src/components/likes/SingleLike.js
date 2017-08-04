@@ -4,7 +4,7 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Button from '../shared/Button'
 import Thumbnail from '../shared/Thumbnail'
-import { truncateString } from '../../utils'
+import { truncateString } from '../../utils/utils'
 import { GRAY, WHITE } from '../styles'
 
 export default class SingleLike extends React.Component {
