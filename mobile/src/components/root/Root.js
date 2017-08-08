@@ -1,4 +1,4 @@
-import { TabNavigator, StackNavigator } from 'react-navigation'
+import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation'
 
 import Home from '../home/Home'
 import Discover from '../discover/Discover'
@@ -31,7 +31,11 @@ const Tabs = TabNavigator({
   MyProfile: { screen: Profile },
 }, {
   initialRouteName: 'Home',
+  tabBarComponent: TabBarBottom,
   headerMode: 'none',
+  swipeEnabled: true,
+  lazy: false,
+  tabBarPosition: 'bottom',
   tabBarOptions: {
     showLabel: false,
     style: styles.tabsContainer,
