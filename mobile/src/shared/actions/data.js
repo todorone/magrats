@@ -67,7 +67,7 @@ export const setFollowStatus = (followingId, followerId, status) =>
     dispatch(patchUserRequest())
 
     try {
-      const data = await API.patchUser(followerId, {})
+      const data = await API.patchUser(followingId, { followers: { [followerId]: status } })
 
       if (data.error) {
         dispatch(patchUserError(data.error))

@@ -19,7 +19,7 @@ export default class SingleLike extends React.Component {
     switchFollow: PropTypes.func.isRequired,
   }
 
-  switchFollow = () => this.props.switchFollow(this.props.owner.id)
+  switchFollow = () => this.props.switchFollow(this.props.owner.id, !this.props.isMeFollowing)
 
   goToProfile = () => this.props.goToProfile(this.props.owner.id)
 

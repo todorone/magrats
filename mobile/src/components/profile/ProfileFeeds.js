@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     height: 45,
-    borderTopWidth: 1,
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: LIGHTEST_GRAY,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: LIGHTEST_GRAY,
   },
   tab: {

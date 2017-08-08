@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     minHeight: 65,
     marginLeft: 15,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: LIGHTEST_GRAY,
   },
   textContainer: {

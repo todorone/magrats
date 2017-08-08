@@ -23,7 +23,9 @@ class Likes extends React.Component {
     this.props.navigation.navigate('Profile')
   }
 
-  switchFollow = userId => this.props.dispatch(setFollowStatus(userId))
+  switchFollow = (userId, status) => this.props.dispatch(
+    setFollowStatus(userId, this.props.myUserId, status)
+  )
 
   render () {
     const { users, myUserId } = this.props

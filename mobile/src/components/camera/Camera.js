@@ -14,7 +14,6 @@ export default class Camera extends React.Component {
   }
 
   async takePhoto () {
-    // console.warn('take photo')
     const pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -30,7 +29,7 @@ export default class Camera extends React.Component {
         <Content>
           <View style={styles.topContainer}>
             <TouchableWithoutFeedback onPress={this.takePhoto}>
-              <Icon name='heart' outline style={styles.buttonIcon} />
+              <Icon name='camera' outline style={styles.buttonIcon} />
             </TouchableWithoutFeedback>
           </View>
         </Content>
@@ -46,6 +45,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonIcon: {
-    fontSize: 30,
+    fontSize: 50,
   }
 })
