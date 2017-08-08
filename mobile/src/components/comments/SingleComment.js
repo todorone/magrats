@@ -5,8 +5,9 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import Icon from '../shared/Icon'
 import Thumbnail from '../shared/Thumbnail'
 import { BLACK, DARK_GRAY, DARKEST_GRAY, GRAY, LIGHTEST_GRAY, WHITE } from '../styles'
+import { getTimeAgo } from '../../utils/utils'
 
-const SingleComment = ({ owner, text }) => {
+const SingleComment = ({ owner, text, date }) => {
   return (
     <TouchableWithoutFeedback>
       <View style={styles.topContainer}>
@@ -18,7 +19,7 @@ const SingleComment = ({ owner, text }) => {
             </Text>
 
             <View style={styles.info}>
-              <Text style={styles.time}>15h</Text>
+              <Text style={styles.time}>{getTimeAgo(date)}</Text>
               <TouchableWithoutFeedback>
                 <View>
                   <Text style={styles.reply}>Reply</Text>
@@ -87,6 +88,7 @@ SingleComment.propTypes = {
     thumbUrl: PropTypes.string.isRequired,
   }).isRequired,
   text: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
 }
 
 export default SingleComment

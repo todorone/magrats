@@ -24,6 +24,7 @@ class Comments extends React.Component {
             <SingleComment
               owner={getUserById(comment.owner, this.props.users)}
               text={comment.text}
+              date={comment.date}
               key={comment.id}
             />
           ))}
