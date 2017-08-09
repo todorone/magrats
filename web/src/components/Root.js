@@ -7,6 +7,7 @@ import Home from './Home'
 import Explore from './Explore'
 import Profile from './Profile'
 import Header from './header/Header'
+import { ALMOST_WHITE } from './styles'
 
 class Root extends Component {
   render () {
@@ -34,5 +35,6 @@ const Container = styled.div`
 `
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 45rem;
+  background-color: ${ALMOST_WHITE}
 `
