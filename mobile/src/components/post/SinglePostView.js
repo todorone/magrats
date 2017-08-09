@@ -6,7 +6,7 @@ import Icon from '../shared/Icon'
 import SinglePostComment from './SinglePostComment'
 import FadeInImage from '../shared/FadeInImage'
 import { getTimeAgo } from '../../utils/utils'
-import { BLACK, composeStyles, GRAY, RED } from '../styles'
+import { BLACK, GRAY, RED } from '../styles'
 
 const SinglePostView = ({
   owner,
@@ -51,7 +51,7 @@ const SinglePostView = ({
               <Icon
                 name='heart'
                 outline={!isLiked}
-                style={composeStyles(styles.buttonIcon, { [styles.buttonIconLiked]: isLiked })}
+                style={[styles.buttonIcon, isLiked && styles.buttonIconLiked]}
               />
             </TouchableWithoutFeedback>
             {(likesNumber > 0) &&
@@ -63,7 +63,12 @@ const SinglePostView = ({
             }
           </View>
           <TouchableWithoutFeedback onPress={showComments}>
-            <Icon style={styles.buttonIcon} name='text' outline />
+            <View style={styles.likes}>
+              {(commentsNumber > 0) &&
+                <Text style={styles.commentsNumber}>{commentsNumber}</Text>
+              }
+              <Icon style={styles.buttonIcon} name='text' outline />
+            </View>
           </TouchableWithoutFeedback>
         </View>
         {/* Description */}
@@ -152,8 +157,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   likesNumber: {
-    paddingHorizontal: 9,
+    paddingHorizontal: 11,
     paddingVertical: 4,
+    fontSize: 18,
+    fontWeight: '100',
+  },
+  commentsNumber: {
+    paddingHorizontal: 13,
+    paddingBottom: 4,
+    paddingTop: 3,
     fontSize: 18,
     fontWeight: '100',
   },

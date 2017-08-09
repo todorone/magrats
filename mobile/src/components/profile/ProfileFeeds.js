@@ -4,7 +4,7 @@ import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Icon from '../shared/Icon'
 import PostsGrid from '../discover/PostsGrid'
-import { BLUE, LIGHTEST_GRAY, composeStyles } from '../styles'
+import { BLUE, LIGHTEST_GRAY } from '../styles'
 import PostsList from '../home/PostsList'
 
 export default class ProfileFeeds extends React.Component {
@@ -31,7 +31,7 @@ export default class ProfileFeeds extends React.Component {
             <View style={styles.tab}>
               <Icon
                 name='list'
-                style={composeStyles(styles.listIcon, { [styles.activeIcon]: (currentTab === 'list') })}
+                style={[styles.listIcon, (currentTab === 'list') && styles.activeIcon]}
               />
             </View>
           </TouchableWithoutFeedback>
@@ -41,7 +41,7 @@ export default class ProfileFeeds extends React.Component {
               <Icon
                 name='apps'
                 outline
-                style={composeStyles(styles.gridIcon, { [styles.activeIcon]: (currentTab === 'grid') })}
+                style={[styles.gridIcon, (currentTab === 'grid') && styles.activeIcon]}
               />
             </View>
           </TouchableWithoutFeedback>

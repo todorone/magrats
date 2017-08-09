@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { BLACK, BLUE, WHITE, LIGHTEST_GRAY, composeStyles } from '../styles'
+import { BLACK, BLUE, WHITE, LIGHTEST_GRAY } from '../styles'
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -16,19 +16,15 @@ export default class Button extends React.Component {
 
   render () {
     const { theme } = this.props
-    const containerStyle = composeStyles(
+    const containerStyle = [
       styles.container,
-      {
-        [styles.primary]: (theme === 'primary'),
-        [styles.light]: (theme === 'light'),
-      }
-    )
-    const textStyle = composeStyles(
+      (theme === 'primary') && styles.primary,
+      (theme === 'light') && styles.light,
+    ]
+    const textStyle = [
       styles.text,
-      {
-        [styles.lightText]: (theme === 'light'),
-      }
-    )
+      (theme === 'light') && styles.lightText,
+    ]
 
     return (
       <TouchableOpacity onPress={this.props.onPress}>
