@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ABSOLUTE_FILL_POSITION, LIGHTEST_GRAY, GRAY } from '../styles'
+import { LIGHTEST_GRAY, GRAY, media } from '../styles'
 
 const SearchInput = () => {
   return (
@@ -11,14 +11,18 @@ const SearchInput = () => {
 }
 
 const Wrapper = styled.div`
+  margin: 0 0.25rem;
   width: 10rem;
+  ${media.medium`width: 8rem;`}
+  ${media.small`width: 7rem;`}
   height: 1.25rem;
   
   border-radius: 0.2rem;
   position: relative;
 `
 const Input = styled.input`
-  ${ABSOLUTE_FILL_POSITION}
+  width: 100%;
+  height: 100%;
   border: 1px solid ${LIGHTEST_GRAY};
   padding: 0 1rem 0 1.25rem;
   outline: none;

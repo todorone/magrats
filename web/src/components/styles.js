@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { css, injectGlobal } from 'styled-components'
 
 // COLORS
 export const WHITE = '#fff'
@@ -24,6 +24,12 @@ export const ABSOLUTE_FILL_POSITION = `
   bottom: 0;
   left: 0;
 `
+
+export const media = {
+  big: (...args) => css`@media (max-width: 768px) { ${css(...args)} }`,
+  medium: (...args) => css`@media (max-width: 640px) { ${css(...args)} }`,
+  small: (...args) => css`@media (max-width: 480px) { ${css(...args)} }`,
+}
 
 // GLOBALS
 // eslint-disable-next-line
