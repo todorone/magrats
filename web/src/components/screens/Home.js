@@ -22,7 +22,7 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: ${OVERALL_CONTAINER_WIDTH};
   padding: 2.5rem 1.5rem;
-  ${media.medium`padding: 0 1rem;`}
+  ${media.medium`padding: 1.5rem 1rem;`}
   ${media.small`padding: 0;`}
 `
 

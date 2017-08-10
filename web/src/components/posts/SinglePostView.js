@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import SinglePostComment from './SinglePostComment'
-import { LIGHTEST_GRAY, WHITE } from '../styles'
+import { GRAY, LIGHTEST_GRAY, media, WHITE } from '../styles'
+import Thumbnail from '../shared/Thumbnail'
 
 const SinglePostView = ({
   owner,
@@ -21,7 +22,13 @@ const SinglePostView = ({
 }) => {
   return (
     <Container>
-      <Header />
+      <Header>
+        <Thumbnail src={owner.thumbUrl} />
+        <HeaderInfo>
+          {owner.id}
+          {location && <HeaderLocation>{location}</HeaderLocation>}
+        </HeaderInfo>
+      </Header>
       <Image src={photoUrl} />
       <Footer>
         <SinglePostComment
@@ -35,15 +42,31 @@ const SinglePostView = ({
 
 const Container = styled.div`
   margin: 0 auto 2.5rem auto;
+  ${media.medium`margin: 0 auto 1.5rem auto;`}
+  ${media.small`
+    margin: 0;
+    border: 0;
+  `}
   max-width: 30rem;
   border: 1px solid ${LIGHTEST_GRAY};
   border-radius: 0.2rem;
   
   background-color: ${WHITE};
+  font-size: 0.7rem;
 `
 const Header = styled.div`
   height: 3rem;
   border-bottom: 1px solid ${LIGHTEST_GRAY};
+  padding: 0 1rem;
+  
+  display: flex;
+  align-items: center;
+`
+const HeaderInfo = styled.div`
+  margin-left: 0.5rem;
+`
+const HeaderLocation = styled.div`
+  color: ${GRAY};
 `
 const Image = styled.img`
   display: block;
