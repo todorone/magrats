@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LIGHTEST_GRAY, GRAY, media } from '../styles'
+import { media, LIGHTEST_GRAY, GRAY, ALMOST_WHITE, WHITE } from '../styles'
 
 const SearchInput = () => {
   return (
@@ -24,16 +24,23 @@ const Input = styled.input`
   width: 100%;
   height: 100%;
   border: 1px solid ${LIGHTEST_GRAY};
-  padding: 0 1rem 0 1.25rem;
+  padding: 0 0 0 37%;
+  ${media.medium`padding: 0 0 0 35%;`}
+  ${media.small`padding: 0 0 0 33%;`}
   outline: none;
   
+  background-color: ${ALMOST_WHITE};
   font-size: 0.75rem;
   color: ${GRAY};
-  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: ${LIGHTEST_GRAY};
-  }
-  &::-moz-placeholder { /* Firefox */
-    color: ${LIGHTEST_GRAY};
+  &::-webkit-input-placeholder { color: ${LIGHTEST_GRAY}; } // Chrome/Opera/Safari
+  &::-moz-placeholder { color: ${LIGHTEST_GRAY}; } // Firefox
+  transition: all 0.2s;
+  
+  &:focus {
+    padding: 0 10% 0 10%;
+    
+    background-color: ${WHITE};
+    text-align: left;
   }
 `
 
