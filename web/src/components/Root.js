@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ReactHint from 'react-hint'
 import styled from 'styled-components'
 
-import Home from './Home'
-import Explore from './Explore'
-import Profile from './Profile'
+import Home from './screens/Home'
+import Explore from './screens/Explore'
+import Profile from './screens/Profile'
 import Header from './header/Header'
 import { ALMOST_WHITE } from './styles'
 
@@ -34,7 +34,7 @@ export default Root
 const Container = styled.div`
 `
 const Content = styled.div`
-  margin: 0 auto;
-  max-width: 45rem;
+  min-height: 100vh;
+  
   background-color: ${ALMOST_WHITE}
 `

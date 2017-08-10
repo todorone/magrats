@@ -23,7 +23,6 @@ const patchPost = delayOnDevServer(
 
     if ('likes' in patch) { // Patch likes
       for (let [userId, value] of Object.entries(patch.likes)) {
-        // console.warn('Set like status', postId, userId, value)
         const { likes } = POSTS[postId]
         if (value && (likes.indexOf(userId) === -1)) {
           likes.push(userId)
@@ -41,6 +40,30 @@ const fetchUsers = delayOnDevServer(
   () => ({ result: USERS })
 )
 
+const patchUser = delayOnDevServer(
+  (userId, patch) => {
+    if (!(userId in USERS)) return ({ error: 'Following user is not found' })
+
+    if ('followers' in patch) {
+      for (let [followerId, value] of Object.entries(patch.followers)) {
+        if (!(followerId in USERS)) return ({ error: 'Follower user is not found' })
+
+        const { followers } = USERS[userId]
+        const { following } = USERS[followerId]
+        if (value && (followers.indexOf(followerId) === -1) && (following.indexOf(userId) === -1)) {
+          followers.push(followerId)
+          following.push(userId)
+        } else if (!value && (followers.indexOf(followerId) > -1) && (following.indexOf(userId) > -1)) {
+          followers.splice(followers.indexOf(followerId), 1)
+          following.splice(following.indexOf(userId), 1)
+        }
+      }
+    }
+
+    return ({ result: USERS[userId] })
+  }
+)
+
 const fetchComments = delayOnDevServer(
   () => ({ result: COMMENTS })
 )
@@ -49,5 +72,6 @@ export const API = {
   fetchPosts,
   patchPost,
   fetchUsers,
+  patchUser,
   fetchComments,
 }

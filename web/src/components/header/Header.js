@@ -7,7 +7,7 @@ import HeartIcon from 'react-icons/lib/md/favorite'
 import CameraIcon from 'react-icons/lib/md/camera-enhance'
 
 import SearchInput from './SearchInput'
-import { BLACK, LIGHTEST_GRAY, media, WHITE } from '../styles'
+import { media, BLACK, LIGHTEST_GRAY, OVERALL_CONTAINER_WIDTH, WHITE } from '../styles'
 
 import 'react-hint/css/index.css'
 
@@ -42,16 +42,16 @@ export default Header
 const Wrapper = styled.div`
   height: 3.5rem;
   border-bottom: 1px solid ${LIGHTEST_GRAY};
-  padding: 0 1.5rem;
-  ${media.medium`padding: 0 1rem;`}
-  ${media.small`padding: 0 0.5rem;`}
   
   background-color: ${WHITE};
 `
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 45rem;
+  max-width: ${OVERALL_CONTAINER_WIDTH};
   height: 100%;
+  padding: 0 1.5rem;
+  ${media.medium`padding: 0 1rem;`}
+  ${media.small`padding: 0 0.5rem;`}
   
   display: flex;
   align-items: center;

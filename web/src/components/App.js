@@ -3,7 +3,7 @@ import { Provider, connect } from 'react-redux'
 
 import Root from './Root'
 import store from '../store/store'
-import { fetchComments, fetchPosts, fetchUsers } from '../shared/actions'
+import { fetchComments, fetchPosts, fetchUsers } from '../shared/actions/data'
 
 class App extends Component {
   constructor () {

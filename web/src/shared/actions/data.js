@@ -1,13 +1,5 @@
-import { API } from '../api'
+import { API } from '../api/api'
 import * as types from './actionTypes'
-import { getMyUserId } from '../selectors/index'
-
-// SCREENS
-export const setProfileScreenUserId = userId => ({ type: types.SET_PROFILE_SCREEN_USER_ID, userId })
-export const setProfileScreenToMyself = () =>
-  (dispatch, getState) => {
-    dispatch(setProfileScreenUserId(getMyUserId(getState())))
-  }
 
 // POSTS
 const fetchPostsRequest = () => ({ type: types.FETCH_POSTS_REQUEST })
@@ -47,6 +39,7 @@ export const setLikeStatus = (postId, userId, status) =>
       console.error(error)
     }
   }
+
 // USERS
 const fetchUsersRequest = () => ({ type: types.FETCH_USERS_REQUEST })
 const fetchUsersSuccess = users => ({ type: types.FETCH_USERS_SUCCESS, users })
@@ -61,6 +54,25 @@ export const fetchUsers = () =>
         dispatch(fetchDataError(data.error))
       } else {
         dispatch(fetchUsersSuccess(data.result))
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+const patchUserRequest = () => ({ type: types.PATCH_USER_REQUEST })
+const patchUserSuccess = user => ({ type: types.PATCH_USER_SUCCESS, user })
+export const setFollowStatus = (followingId, followerId, status) =>
+  async dispatch => {
+    dispatch(patchUserRequest())
+
+    try {
+      const data = await API.patchUser(followingId, { followers: { [followerId]: status } })
+
+      if (data.error) {
+        dispatch(patchUserError(data.error))
+      } else {
+        dispatch(patchUserSuccess(data.result))
       }
     } catch (error) {
       console.error(error)
@@ -92,7 +104,13 @@ const fetchDataError = error =>
   dispatch => {
     console.error('Fetch data error:', error)
   }
+
 const patchPostError = error =>
   dispatch => {
     console.error('Patch post error:', error)
+  }
+
+const patchUserError = error =>
+  dispatch => {
+    console.error('Patch user error:', error)
   }
