@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import LikeOutlineIcon from 'react-icons/lib/md/favorite-outline'
+import LikeIcon from 'react-icons/lib/md/favorite'
+import CommentIcon from 'react-icons/lib/md/chat-bubble-outline'
 
 import SinglePostComment from './SinglePostComment'
 import { GRAY, LIGHTEST_GRAY, media, WHITE } from '../styles'
@@ -31,10 +34,25 @@ const SinglePostView = ({
       </Header>
       <Image src={photoUrl} />
       <Footer>
-        <SinglePostComment
-          author='author'
-          text='Comment...'
-        />
+        <FooterTopContainer>
+          <FooterLikesControl>
+            {(isLiked)
+              ? <LikeIcon />
+              : <LikeOutlineIcon />
+            }
+            {(likesNumber > 0) && <LikesCounter>{likesNumber}</LikesCounter>}
+          </FooterLikesControl>
+          <FooterCommentsControl>
+            <CommentsCounter>{commentsNumber}</CommentsCounter>
+            <CommentStyledIcon />
+          </FooterCommentsControl>
+        </FooterTopContainer>
+
+        <SinglePostComment author={owner.id} text={description} />
+        {/* Comments */}
+        {comments.map((comment, i) => (
+          <SinglePostComment author={comment.owner} text={comment.text} key={i} />
+        ))}
       </Footer>
     </Container>
   )
@@ -75,6 +93,40 @@ const Image = styled.img`
 const Footer = styled.div`
   height: 10rem;
   border-top: 1px solid ${LIGHTEST_GRAY};
+  padding: 0 1rem;
+`
+const FooterTopContainer = styled.div`
+  height: 2.75rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  font-size: 1.5rem;
+  line-height: 70%;
+`
+const FooterLikesControl = styled.div`
+  display: flex;
+  align-items: center;
+`
+const LikesCounter = styled.div`
+  padding-left: 0.6rem;
+  
+  font-size: 1rem;
+  font-weight: 500;
+`
+const FooterCommentsControl = styled.div`
+  display: flex;
+  align-items: center;
+`
+const CommentsCounter = styled.div`
+  padding-right: 0.7rem;
+  
+  font-size: 1rem;
+  font-weight: 500;
+`
+const CommentStyledIcon = styled(CommentIcon)`
+  padding-top: 0.15rem;
 `
 
 SinglePostView.propTypes = {
