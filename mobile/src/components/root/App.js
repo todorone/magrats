@@ -39,7 +39,7 @@ class App extends Component {
   render () {
     return (
       this.state.isInitialized &&
-        <View style={StyleSheet.absoluteFillObject}>
+        <View style={StyleSheet.absoluteFill}>
           <Root onNavigationStateChange={this.attachHook} />
           <Firebase />
         </View>
