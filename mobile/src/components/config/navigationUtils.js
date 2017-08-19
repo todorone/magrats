@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import Icon from '../shared/Icon'
+import Icon from '../dumb/Icon'
 
 export const getTabIcon = name => ({ tintColor }) => (
   <Icon style={styles.icon} name={name} outline={tintColor !== '#3478f6'} />

@@ -2,14 +2,14 @@ import React from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import Expo from 'expo'
 
-import Container from '../shared/Container'
-import Header from '../shared/Header'
-import Icon from '../shared/Icon'
-import Content from '../shared/Content'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Header from '../dumb/Header'
+import Icon from '../dumb/Icon'
+import Content from '../dumb/Content'
+import { getTabIcon } from '../config/navigationUtils'
 import { IOS_GOOGLE_OAUTH_ID, ANDROID_GOOGLE_OAUTH_ID } from 'react-native-dotenv'
 
-export default class Social extends React.Component {
+export default class SocialScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('heart'),
   }

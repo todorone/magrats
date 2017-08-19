@@ -1,26 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import SinglePost from '../shared/SinglePost'
-import Header from '../shared/Header'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import SinglePost from '../smart/SinglePostContainer'
+import Header from '../dumb/Header'
+import { getTabIcon } from '../config/navigationUtils'
 
-class Post extends React.Component {
+export default class PostScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('home'),
-  }
-
-  static propTypes = {
-    posts: PropTypes.object,
   }
 
   goBack = () => this.props.navigation.goBack()
 
   render () {
     const { postId } = this.props.navigation.state.params
-    // const postId = 'post0'
 
     return (
       <Container>
@@ -36,9 +31,3 @@ class Post extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = state => ({
-//   posts: getPosts(state),
-// })
-
-export default Post

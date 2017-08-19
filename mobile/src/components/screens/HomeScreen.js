@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import PostsList from '../shared/PostsList'
-import Header from '../shared/Header'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import PostsList from '../dumb/PostsList'
+import Header from '../dumb/Header'
+import { getTabIcon } from '../config/navigationUtils'
 import { getPostsArray, getUsers, getComments } from '../../selectors/selectors'
 
-class Home extends React.Component {
+class HomeScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('home'),
   }
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
   comments: getComments(state),
 })
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(HomeScreen)

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 import { GRAY } from '../styles'
 
-class SinglePostComment extends React.Component {
+export default class SinglePostComment extends React.Component {
   static propTypes = {
     author: PropTypes.string,
     text: PropTypes.string,
@@ -55,5 +55,3 @@ const styles = StyleSheet.create({
     color: GRAY,
   },
 })
-
-export default SinglePostComment

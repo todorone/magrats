@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import Header from '../shared/Header'
-import SingleComment from '../shared/SingleComment'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import Header from '../dumb/Header'
+import SingleComment from '../dumb/SingleComment'
 import { getComments, getUsers, getCommentsByIds, getUserById } from '../../selectors/selectors'
 
-class Comments extends React.Component {
+class CommentsScreen extends React.Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {
@@ -39,4 +39,4 @@ const mapStateToProps = state => ({
   comments: getComments(state),
 })
 
-export default connect(mapStateToProps)(Comments)
+export default connect(mapStateToProps)(CommentsScreen)

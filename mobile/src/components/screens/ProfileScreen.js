@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import Header from '../shared/Header'
-import ProfileInfo from '../shared/ProfileInfo'
-import ProfileFeeds from '../shared/ProfileFeeds'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import Header from '../dumb/Header'
+import ProfileInfo from '../dumb/ProfileInfo'
+import ProfileFeeds from '../dumb/ProfileFeeds'
+import { getTabIcon } from '../config/navigationUtils'
 import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors/selectors'
 
-class Profile extends React.Component {
+class ProfileScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('happy'),
   }
@@ -57,4 +57,4 @@ const mapStateToProps = state => ({
   comments: getComments(state),
 })
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(ProfileScreen)

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import SinglePostView from './SinglePostView'
+import SinglePost from '../dumb/SinglePost'
 import { setLikeStatus } from '../../actions/data'
 import {
   getPostOwner,
@@ -15,7 +15,7 @@ import {
   get2CommentsOfPost
 } from '../../selectors/selectors'
 
-class SinglePost extends React.Component {
+class SinglePostContainer extends React.Component {
   static propTypes = {
     myUserId: PropTypes.string.isRequired,
     postId: PropTypes.string.isRequired,
@@ -49,7 +49,7 @@ class SinglePost extends React.Component {
     const { post, isLiked, twoComments, owner } = this.props
 
     return (
-      <SinglePostView
+      <SinglePost
         owner={owner}
         photoUrl={post.url}
         likesNumber={post.likes.length}
@@ -78,4 +78,4 @@ const mapStateToProps = (state, ownProps) => ({
   comments: getComments(state),
 })
 
-export default connect(mapStateToProps)(SinglePost)
+export default connect(mapStateToProps)(SinglePostContainer)

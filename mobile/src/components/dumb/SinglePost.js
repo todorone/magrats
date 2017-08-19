@@ -8,7 +8,7 @@ import FadeInImage from './FadeInImage'
 import { getTimeAgo } from '../../utils/utils'
 import { BLACK, GRAY, RED } from '../styles'
 
-const SinglePostView = ({
+const SinglePost = ({
   owner,
   photoUrl,
   isLiked,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
 })
 
-SinglePostView.propTypes = {
+SinglePost.propTypes = {
   owner: PropTypes.shape({
     id: PropTypes.string.isRequired,
     thumbUrl: PropTypes.string.isRequired,
@@ -207,4 +207,4 @@ SinglePostView.propTypes = {
   date: PropTypes.number.isRequired,
 }
 
-export default SinglePostView
+export default SinglePost

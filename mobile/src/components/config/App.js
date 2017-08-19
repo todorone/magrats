@@ -3,10 +3,10 @@ import { View, StyleSheet } from 'react-native'
 import { Provider, connect } from 'react-redux'
 
 import Root from './Root'
-import Firebase from './Firebase'
 import store from '../../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../../actions/data'
 import { hookNavigation } from './navigationHook'
+import { initializeFirebase } from '../../actions/firebase'
 
 class App extends Component {
   state = {
@@ -20,36 +20,27 @@ class App extends Component {
     await Promise.all([
       dispatch(fetchUsers()),
       dispatch(fetchComments()),
-      dispatch(fetchPosts())
+      dispatch(fetchPosts()),
+      dispatch(initializeFirebase())
     ])
 
     this.setState({ isInitialized: true })
   }
 
   attachHook = (prevState, nextState, action) => {
-    hookNavigation({
-      prevState,
-      nextState,
-      action,
-      reduxState: this.props.reduxState,
-      dispatch: this.props.dispatch,
-    })
+    hookNavigation(action, this.props.dispatch)
   }
 
   render () {
-    return (
-      this.state.isInitialized &&
-        <View style={StyleSheet.absoluteFill}>
-          <Root onNavigationStateChange={this.attachHook} />
-          <Firebase />
-        </View>
+    return (this.state.isInitialized &&
+      <View style={StyleSheet.absoluteFill}>
+        <Root onNavigationStateChange={this.attachHook} />
+      </View>
     )
   }
 }
 
-const mapStateToProps = state => ({ reduxState: state })
-
-const ConnectedApp = connect(mapStateToProps)(App)
+const ConnectedApp = connect()(App)
 
 // ==========
 

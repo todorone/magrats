@@ -2,14 +2,14 @@ import React from 'react'
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { ImagePicker } from 'expo'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import Header from '../shared/Header'
-import Icon from '../shared/Icon'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import Header from '../dumb/Header'
+import Icon from '../dumb/Icon'
+import { getTabIcon } from '../config/navigationUtils'
 import { LIGHTER_GRAY, LIGHTEST_GRAY } from '../styles'
 
-export default class Camera extends React.Component {
+export default class CameraScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('add-circle'),
   }

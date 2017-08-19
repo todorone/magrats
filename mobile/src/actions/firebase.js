@@ -1,5 +1,3 @@
-import React from 'react'
-import { connect } from 'react-redux'
 import * as firebase from 'firebase'
 import {
   FIREBASE_API_KEY,
@@ -9,8 +7,11 @@ import {
   FIREBASE_STORAGE_BUCKET,
 } from 'react-native-dotenv'
 
-class Firebase extends React.Component {
-  componentWillMount () {
+// ACTION TYPES
+
+export function initializeFirebase () {
+  return (dispatch) => {
+
     firebase.initializeApp({
       apiKey: FIREBASE_API_KEY,
       authDomain: FIREBASE_AUTH_DOMAIN,
@@ -19,10 +20,4 @@ class Firebase extends React.Component {
       storageBucket: FIREBASE_STORAGE_BUCKET,
     })
   }
-
-  render () {
-    return null
-  }
 }
-
-export default connect()(Firebase)

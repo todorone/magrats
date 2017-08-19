@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import Header from '../shared/Header'
-import PostsGrid from '../shared/PostsGrid'
-import PostsGridItem from '../shared/PostsGridItem'
-import { getTabIcon } from '../root/navigationUtils'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import Header from '../dumb/Header'
+import PostsGrid from '../dumb/PostsGrid'
+import PostsGridItem from '../dumb/PostsGridItem'
+import { getTabIcon } from '../config/navigationUtils'
 import { getPostsArray } from '../../selectors/selectors'
 
-class Discover extends React.Component {
+class DiscoverScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('search'),
   }
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
   posts: getPostsArray(state),
 })
 
-export default connect(mapStateToProps)(Discover)
+export default connect(mapStateToProps)(DiscoverScreen)

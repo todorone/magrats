@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../shared/Container'
-import Content from '../shared/Content'
-import Header from '../shared/Header'
-import SingleLike from '../shared/SingleLike'
+import Container from '../dumb/Container'
+import Content from '../dumb/Content'
+import Header from '../dumb/Header'
+import SingleLike from '../dumb/SingleLike'
 import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../../selectors/selectors'
 import { setProfileScreenUserId } from '../../actions/screens'
 import { setFollowStatus } from '../../actions/data'
 
-class Likes extends React.Component {
+class LikesScreen extends React.Component {
   static propTypes = {
     users: PropTypes.array.isRequired,
     myUserId: PropTypes.string.isRequired,
@@ -55,4 +55,4 @@ const mapStateToProps = (state, ownProps) => ({
   myUserId: getMyUserId(state),
 })
 
-export default connect(mapStateToProps)(Likes)
+export default connect(mapStateToProps)(LikesScreen)
