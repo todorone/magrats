@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View } from 'react-native'
 
-import SinglePost from '../smart/SinglePostContainer'
+import SinglePost from '../containers/SinglePostContainer'
 
-export default class PostsList extends React.Component {
+export default class PostsList extends Component {
   static propTypes = {
     posts: PropTypes.array,
   }

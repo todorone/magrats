@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
@@ -7,7 +7,7 @@ import PostsGrid from './PostsGrid'
 import { BLUE, LIGHTEST_GRAY } from '../styles'
 import PostsList from './PostsList'
 
-export default class ProfileFeeds extends React.Component {
+export default class ProfileFeeds extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
     onItemClick: PropTypes.func.isRequired,

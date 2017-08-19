@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import Header from '../dumb/Header'
-import ProfileInfo from '../dumb/ProfileInfo'
-import ProfileFeeds from '../dumb/ProfileFeeds'
-import { getTabIcon } from '../config/navigationUtils'
-import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors/selectors'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import Header from '../components/Header'
+import ProfileInfo from '../components/ProfileInfo'
+import ProfileFeeds from '../components/ProfileFeeds'
+import { getTabIcon } from '../components/TabIcon'
+import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../selectors/selectors'
 
-class ProfileScreen extends React.Component {
+class ProfileScreen extends Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('happy'),
   }

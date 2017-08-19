@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Button from './Button'
 import Thumbnail from './Thumbnail'
-import { truncateString } from '../../utils/utils'
+import { truncateString } from '../utils'
 import { GRAY, WHITE } from '../styles'
 
-export default class SingleLike extends React.Component {
+export default class SingleLike extends Component {
   static propTypes = {
     owner: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -28,7 +28,7 @@ export default class SingleLike extends React.Component {
 
     return (
       <TouchableWithoutFeedback onPress={this.goToProfile}>
-        <View style={styles.topContainer}>
+        <View style={styles.container}>
           <Thumbnail src={owner.thumbUrl} />
           <View style={styles.infoContainer}>
             <Text style={styles.id}>{owner.id}</Text>
@@ -49,7 +49,7 @@ export default class SingleLike extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     height: 68,
     flexDirection: 'row',
     alignItems: 'center',

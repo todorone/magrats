@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import Header from '../dumb/Header'
-import PostsGrid from '../dumb/PostsGrid'
-import PostsGridItem from '../dumb/PostsGridItem'
-import { getTabIcon } from '../config/navigationUtils'
-import { getPostsArray } from '../../selectors/selectors'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import Header from '../components/Header'
+import PostsGrid from '../components/PostsGrid'
+import PostsGridItem from '../components/PostsGridItem'
+import { getTabIcon } from '../components/TabIcon'
+import { getPostsArray } from '../selectors/selectors'
 
-class DiscoverScreen extends React.Component {
+class DiscoverScreen extends Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('search'),
   }

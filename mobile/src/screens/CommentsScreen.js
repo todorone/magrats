@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import Header from '../dumb/Header'
-import SingleComment from '../dumb/SingleComment'
-import { getComments, getUsers, getCommentsByIds, getUserById } from '../../selectors/selectors'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import Header from '../components/Header'
+import SingleComment from '../components/SingleComment'
+import { getComments, getUsers, getCommentsByIds, getUserById } from '../selectors/selectors'
 
-class CommentsScreen extends React.Component {
+class CommentsScreen extends Component {
   goBack = () => this.props.navigation.goBack()
 
   render () {

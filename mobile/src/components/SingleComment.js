@@ -5,12 +5,12 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import Icon from './Icon'
 import Thumbnail from './Thumbnail'
 import { BLACK, DARK_GRAY, DARKEST_GRAY, GRAY, LIGHTEST_GRAY, WHITE } from '../styles'
-import { getTimeAgo } from '../../utils/utils'
+import { getTimeAgo } from '../utils'
 
 const SingleComment = ({ owner, text, date }) => {
   return (
     <TouchableWithoutFeedback>
-      <View style={styles.topContainer}>
+      <View style={styles.container}>
         <Thumbnail src={owner.thumbUrl} />
         <View style={styles.contentContainer}>
           <View style={styles.textContainer}>
@@ -36,7 +36,7 @@ const SingleComment = ({ owner, text, date }) => {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     paddingTop: 15,
     flexDirection: 'row',
     paddingLeft: 10,

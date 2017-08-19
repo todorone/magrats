@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import PostsList from '../dumb/PostsList'
-import Header from '../dumb/Header'
-import { getTabIcon } from '../config/navigationUtils'
-import { getPostsArray, getUsers, getComments } from '../../selectors/selectors'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import PostsList from '../components/PostsList'
+import Header from '../components/Header'
+import { getTabIcon } from '../components/TabIcon'
+import { getPostsArray, getUsers, getComments } from '../selectors/selectors'
 
-class HomeScreen extends React.Component {
+class HomeScreen extends Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('home'),
   }

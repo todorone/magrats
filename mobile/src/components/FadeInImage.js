@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Image, StyleSheet } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 
-export default class FadeInImage extends React.Component {
+export default class FadeInImage extends PureComponent {
   static propTypes = {
     containerStyle: PropTypes.number,
   }

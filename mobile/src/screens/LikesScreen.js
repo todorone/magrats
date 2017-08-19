@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import Header from '../dumb/Header'
-import SingleLike from '../dumb/SingleLike'
-import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../../selectors/selectors'
-import { setProfileScreenUserId } from '../../actions/screens'
-import { setFollowStatus } from '../../actions/data'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import Header from '../components/Header'
+import SingleLike from '../components/SingleLike'
+import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../selectors/selectors'
+import { setProfileScreenUserId } from '../actions/screens'
+import { setFollowStatus } from '../actions/data'
 
-class LikesScreen extends React.Component {
+class LikesScreen extends Component {
   static propTypes = {
     users: PropTypes.array.isRequired,
     myUserId: PropTypes.string.isRequired,

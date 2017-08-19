@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
 import { BLACK, BLUE, WHITE, LIGHTEST_GRAY } from '../styles'
 
-export default class Button extends React.Component {
+export default class Button extends Component {
   static propTypes = {
     onPress: PropTypes.func.isRequired,
     theme: PropTypes.oneOf(['primary', 'light'])

@@ -1,4 +1,4 @@
-
+// Real API is outdated so it's not usable with current app's version
 const baseUrl = (process.env.NODE_ENV === 'production')
   ? 'http://magrats-api.todor.one'
   : 'http://localhost:7777'

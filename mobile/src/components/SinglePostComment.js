@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 import { GRAY } from '../styles'
 
-export default class SinglePostComment extends React.Component {
+export default class SinglePostComment extends Component {
   static propTypes = {
     author: PropTypes.string,
     text: PropTypes.string,
@@ -27,7 +27,7 @@ export default class SinglePostComment extends React.Component {
   render () {
     const { author, text } = this.props
     return (
-      <View style={styles.topContainer}>
+      <View style={styles.container}>
         <Text style={styles.text}>
           <Text style={styles.author}>{author} </Text>
           {this.renderText(text)}
@@ -38,7 +38,7 @@ export default class SinglePostComment extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     flexDirection: 'row',
     marginTop: 5,
   },

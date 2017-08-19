@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { ImagePicker } from 'expo'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import Header from '../dumb/Header'
-import Icon from '../dumb/Icon'
-import { getTabIcon } from '../config/navigationUtils'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import Header from '../components/Header'
+import Icon from '../components/Icon'
+import { getTabIcon } from '../components/TabIcon'
 import { LIGHTER_GRAY, LIGHTEST_GRAY } from '../styles'
 
-export default class CameraScreen extends React.Component {
+export default class CameraScreen extends Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('add-circle'),
   }
@@ -28,7 +28,7 @@ export default class CameraScreen extends React.Component {
         <Header title='Camera' />
 
         <Content>
-          <View style={styles.topContainer}>
+          <View style={styles.container}>
             <TouchableWithoutFeedback onPress={this.takePhoto}>
               <View style={styles.hintContainer}>
                 <Text style={styles.hint}>TAKE PHOTO</Text>
@@ -43,7 +43,7 @@ export default class CameraScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     height: 300,
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import FadeInImage from './FadeInImage'
 
-export default class PostsGridItem extends React.Component {
+export default class PostsGridItem extends Component {
   static propTypes = {
     id: PropTypes.string,
     url: PropTypes.string,

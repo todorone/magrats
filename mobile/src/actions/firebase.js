@@ -10,8 +10,7 @@ import {
 // ACTION TYPES
 
 export function initializeFirebase () {
-  return (dispatch) => {
-
+  return dispatch => {
     firebase.initializeApp({
       apiKey: FIREBASE_API_KEY,
       authDomain: FIREBASE_AUTH_DOMAIN,

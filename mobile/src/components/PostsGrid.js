@@ -6,7 +6,7 @@ import PostsGridItem from './PostsGridItem'
 
 const Grid = ({ posts, onItemClick }) => {
   return ((posts.length > 0) &&
-    <View style={styles.topContainer}>
+    <View style={styles.container}>
       {posts.map(post =>
         <PostsGridItem id={post.id} url={post.url} onItemClick={onItemClick} key={post.id} />
       )}
@@ -17,7 +17,7 @@ const Grid = ({ posts, onItemClick }) => {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',

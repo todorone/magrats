@@ -1,6 +1,6 @@
 import React from 'react'
 
-import RootApp from './src/components/config/App'
+import RootApp from './src/containers/App'
 
 export default class App extends React.Component {
   state = { isReady: false }

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import SinglePost from '../dumb/SinglePost'
-import { setLikeStatus } from '../../actions/data'
+import SinglePost from '../components/SinglePost'
+import { setLikeStatus } from '../actions/data'
 import {
   getPostOwner,
   isPostLiked,
@@ -13,9 +13,9 @@ import {
   getComments,
   getMyUserId,
   get2CommentsOfPost
-} from '../../selectors/selectors'
+} from '../selectors/selectors'
 
-class SinglePostContainer extends React.Component {
+class SinglePostContainer extends PureComponent {
   static propTypes = {
     myUserId: PropTypes.string.isRequired,
     postId: PropTypes.string.isRequired,

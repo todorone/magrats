@@ -9,7 +9,7 @@ import { BLACK, BLUE, DARKEST_GRAY, GRAY } from '../styles'
 const ProfileInfo = ({ user, editProfile }) => {
   return (
     <View>
-      <View style={styles.topContainer}>
+      <View style={styles.container}>
         <View style={styles.thumbnailContainer}>
           <Thumbnail big src={user.thumbUrl} />
         </View>
@@ -44,7 +44,7 @@ const ProfileInfo = ({ user, editProfile }) => {
 }
 
 const styles = StyleSheet.create({
-  topContainer: {
+  container: {
     flexDirection: 'row',
   },
   thumbnailContainer: {

@@ -1,13 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 
-import Container from '../dumb/Container'
-import Content from '../dumb/Content'
-import SinglePost from '../smart/SinglePostContainer'
-import Header from '../dumb/Header'
-import { getTabIcon } from '../config/navigationUtils'
+import Container from '../components/Container'
+import Content from '../components/Content'
+import SinglePost from '../containers/SinglePostContainer'
+import Header from '../components/Header'
+import { getTabIcon } from '../components/TabIcon'
 
-export default class PostScreen extends React.Component {
+export default class PostScreen extends PureComponent {
   static navigationOptions = {
     tabBarIcon: getTabIcon('home'),
   }
