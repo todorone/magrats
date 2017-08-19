@@ -1,14 +1,10 @@
-
-export const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
-
-export const getRandomDate = () => Date.now() - Math.round(1000000 * Math.random())
-
-export const truncateString = (string, characters) => (
-  (string.length > characters)
-    ? string.substr(0, characters - 1) + '…'
+// Truncates string if length > maxCharacters, adding "…" at the end
+export function truncateString (string, maxCharacters) {
+  return (string.length > maxCharacters)
+    ? string.substr(0, maxCharacters - 1) + '…'
     : string
-)
-
+}
+// Converts date to "x units ago" format
 export function getTimeAgo (val) {
   val = 0 | (Date.now() - val) / 1000
   let length = {

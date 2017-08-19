@@ -1,0 +1,60 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import Container from '../shared/Container'
+import Content from '../shared/Content'
+import Header from '../shared/Header'
+import ProfileInfo from '../shared/ProfileInfo'
+import ProfileFeeds from '../shared/ProfileFeeds'
+import { getTabIcon } from '../root/navigationUtils'
+import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../../selectors/selectors'
+
+class Profile extends React.Component {
+  static navigationOptions = {
+    tabBarIcon: getTabIcon('happy'),
+  }
+
+  static propTypes = {
+    user: PropTypes.object,
+  }
+
+  editProfile = () => {}
+
+  onItemClick = postId => this.props.navigation.navigate('Post', { postId })
+
+  render () {
+    const { user, posts, users, comments } = this.props
+    if (!user) return null // Data is not ready yet
+
+    return (
+      <Container>
+        <Header title={user.id} />
+
+        <Content>
+          <ProfileInfo
+            user={user}
+            editProfile={this.editProfile}
+          />
+
+          <ProfileFeeds
+            posts={posts}
+            users={users}
+            comments={comments}
+            navigation={this.props.navigation}
+            onItemClick={this.onItemClick}
+          />
+        </Content>
+      </Container>
+    )
+  }
+}
+
+const mapStateToProps = state => ({
+  user: getProfileScreenUser(state),
+  posts: getPostsForProfileScreen(state),
+  users: getUsers(state),
+  comments: getComments(state),
+})
+
+export default connect(mapStateToProps)(Profile)

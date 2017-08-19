@@ -1,14 +1,14 @@
 import React from 'react'
 import { Scene, Router } from 'react-native-router-flux'
 
-import Home from '../home/Home'
-import Discover from '../discover/Discover'
-import Social from '../social/Social'
-import Camera from '../camera/Camera'
-import Profile from '../profile/Profile'
-import Comments from '../comments/Comments'
-import Post from '../post/Post'
-import Likes from '../likes/Likes'
+import Home from '../screens/Home'
+import Discover from '../screens/Discover'
+import Social from '../screens/Social'
+import Camera from '../screens/Camera'
+import Profile from '../screens/Profile'
+import Comments from '../screens/Comments'
+import Post from '../screens/Post'
+import Likes from '../screens/Likes'
 
 export default class RootNew extends React.Component {
   render () {
