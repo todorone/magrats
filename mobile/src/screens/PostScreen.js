@@ -11,20 +11,15 @@ export default class PostScreen extends PureComponent {
     tabBarIcon: getTabIcon('home'),
   }
 
-  goBack = () => this.props.navigation.goBack()
-
   render () {
-    const { postId } = this.props.navigation.state.params
+    const { postId } = this.props
 
     return (
       <Container>
-        <Header left='back' title='' goBack={this.goBack} />
+        <Header left='back' />
 
         <Content>
-          <SinglePost
-            postId={postId}
-            navigation={this.props.navigation}
-          />
+          <SinglePost postId={postId} />
         </Content>
       </Container>
     )

@@ -31,7 +31,6 @@ class HomeScreen extends Component {
             posts={posts}
             users={users}
             comments={comments}
-            navigation={this.props.navigation}
           />
         </Content>
       </Container>

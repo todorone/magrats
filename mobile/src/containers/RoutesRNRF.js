@@ -13,10 +13,9 @@ import PostScreen from '../screens/PostScreen'
 import LikesScreen from '../screens/LikesScreen'
 import { setProfileScreenToMyself } from '../actions/screens'
 
-const NavBar = () => <View/> // TODO: Remove hack and hide navbar in correct way
+const NavBar = () => <View /> // TODO: Remove hack and hide navbar in correct way
 
 class RoutesRNRF extends Component {
-
   goToMyProfile = () => this.props.dispatch(setProfileScreenToMyself())
 
   render () {

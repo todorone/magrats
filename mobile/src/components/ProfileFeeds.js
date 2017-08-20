@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
 import Icon from './Icon'
+import PostsList from './PostsList'
 import PostsGrid from './PostsGrid'
 import { BLUE, LIGHTEST_GRAY } from '../styles'
-import PostsList from './PostsList'
 
 export default class ProfileFeeds extends Component {
   static propTypes = {
@@ -21,7 +21,7 @@ export default class ProfileFeeds extends Component {
   activateGridTab = () => this.setState({ currentTab: 'grid' })
 
   render () {
-    const { posts, users, comments, navigation, onItemClick } = this.props
+    const { posts, users, comments, onItemClick } = this.props
     const { currentTab } = this.state
 
     return (
@@ -59,7 +59,6 @@ export default class ProfileFeeds extends Component {
               posts={posts}
               users={users}
               comments={comments}
-              navigation={navigation}
             />
           )
         }

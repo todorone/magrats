@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { View, Text, StatusBar, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 
 import Icon from './Icon'
 import { ALMOST_WHITE, LIGHTEST_GRAY } from '../styles'
 
-const Header = ({ title, left = '', goBack }) => {
+const Header = ({ title, left = '' }) => {
   return (
     <View>
       <StatusBar />
@@ -13,15 +14,17 @@ const Header = ({ title, left = '', goBack }) => {
       <View style={styles.container}>
         <View>
           {(left === 'back') &&
-            <TouchableWithoutFeedback onPress={goBack}>
+            <TouchableWithoutFeedback onPress={Actions.pop}>
               <Icon style={styles.buttonIcon} name='arrow-back' />
             </TouchableWithoutFeedback>
           }
         </View>
 
-        <View>
-          <Text>{title}</Text>
-        </View>
+        {title &&
+          <View>
+            <Text>{title}</Text>
+          </View>
+        }
 
         <View />
       </View>
@@ -50,7 +53,6 @@ const styles = StyleSheet.create({
 Header.propTypes = {
   left: PropTypes.string,
   title: PropTypes.string,
-  goBack: PropTypes.func,
 }
 
 export default Header

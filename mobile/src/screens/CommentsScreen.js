@@ -8,16 +8,12 @@ import SingleComment from '../components/SingleComment'
 import { getComments, getUsers, getCommentsByIds, getUserById } from '../selectors/selectors'
 
 class CommentsScreen extends Component {
-  goBack = () => this.props.navigation.goBack()
-
   render () {
-    const { commentsIds } = this.props.navigation.state.params
-    // const commentsIds = []
-    const comments = getCommentsByIds(commentsIds, this.props.comments)
+    const comments = getCommentsByIds(this.props.commentsIds, this.props.comments)
 
     return (
       <Container>
-        <Header left='back' title='Comments' goBack={this.goBack} />
+        <Header left='back' title='Comments' />
 
         <Content>
           {comments.map(comment => (

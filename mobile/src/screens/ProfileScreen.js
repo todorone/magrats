@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 
 import Container from '../components/Container'
 import Content from '../components/Content'
@@ -21,7 +22,7 @@ class ProfileScreen extends Component {
 
   editProfile = () => {}
 
-  onItemClick = postId => this.props.navigation.navigate('Post', { postId })
+  onItemClick = postId => Actions.Post({ postId })
 
   render () {
     const { user, posts, users, comments } = this.props
@@ -41,7 +42,6 @@ class ProfileScreen extends Component {
             posts={posts}
             users={users}
             comments={comments}
-            navigation={this.props.navigation}
             onItemClick={this.onItemClick}
           />
         </Content>

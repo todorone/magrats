@@ -13,11 +13,7 @@ export default class PostsList extends Component {
     return (
       <View>
         {this.props.posts.map((post) => (
-          <SinglePost
-            key={post.id}
-            postId={post.id}
-            navigation={this.props.navigation}
-          />
+          <SinglePost key={post.id} postId={post.id} />
         ))}
       </View>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 
 import Container from '../components/Container'
 import Content from '../components/Content'
@@ -12,15 +13,14 @@ import { setFollowStatus } from '../actions/data'
 
 class LikesScreen extends Component {
   static propTypes = {
+    postId: PropTypes.string.isRequired,
     users: PropTypes.array.isRequired,
     myUserId: PropTypes.string.isRequired,
   }
 
-  goBack = () => this.props.navigation.goBack()
-
   goToProfile = userId => {
     this.props.dispatch(setProfileScreenUserId(userId))
-    this.props.navigation.navigate('Profile')
+    Actions.Profile()
   }
 
   switchFollow = (userId, status) => this.props.dispatch(
@@ -32,7 +32,7 @@ class LikesScreen extends Component {
 
     return (
       <Container>
-        <Header left='back' title='Likes' goBack={this.goBack} />
+        <Header left='back' title='Likes' />
 
         <Content>
           {users.map(user => (
@@ -51,7 +51,7 @@ class LikesScreen extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  users: getUsersWhoLikesPost(state, ownProps.navigation.state.params.postId),
+  users: getUsersWhoLikesPost(state, ownProps.postId),
   myUserId: getMyUserId(state),
 })
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 
 import Container from '../components/Container'
 import Content from '../components/Content'
@@ -14,7 +15,7 @@ class DiscoverScreen extends Component {
     tabBarIcon: getTabIcon('search'),
   }
 
-  onItemClick = postId => this.props.navigation.navigate('Post', { postId })
+  onItemClick = postId => Actions.Post({ postId })
 
   render () {
     const { posts } = this.props

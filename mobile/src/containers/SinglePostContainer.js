@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 import PropTypes from 'prop-types'
 
 import SinglePost from '../components/SinglePost'
@@ -39,11 +40,9 @@ class SinglePostContainer extends PureComponent {
     dispatch(setLikeStatus(post.id, myUserId, !isLiked))
   }
 
-  showComments = () =>
-    this.props.navigation.navigate('Comments', { commentsIds: this.props.post.comments })
+  showComments = () => Actions.Comments({ commentsIds: this.props.post.comments })
 
-  showLikes = () =>
-    this.props.navigation.navigate('Likes', { postId: this.props.post.id })
+  showLikes = () => Actions.Likes({ postId: this.props.post.id })
 
   render () {
     const { post, isLiked, twoComments, owner } = this.props
