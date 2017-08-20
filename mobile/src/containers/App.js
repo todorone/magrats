@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Provider, connect } from 'react-redux'
 
-import Routes from './Routes'
+// import Routes from './Routes'
+import Routes from './RoutesRNRF'
 import store from '../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../actions/data'
 import { initializeFirebase } from '../actions/firebase'
-import { setProfileScreenToMyself } from '../actions/screens'
 
 class App extends Component {
   state = {
@@ -27,17 +27,10 @@ class App extends Component {
     this.setState({ isInitialized: true })
   }
 
-  attachHook = (prevState, nextState, action) => {
-    // When switching to Profile screen through main tabs, set user id to myself
-    if ((action.type === 'Navigation/NAVIGATE') && (action.routeName === 'MyProfile')) {
-      this.props.dispatch(setProfileScreenToMyself())
-    }
-  }
-
   render () {
     return (this.state.isInitialized &&
       <View style={StyleSheet.absoluteFill}>
-        <Routes onNavigationStateChange={this.attachHook} />
+        <Routes />
       </View>
     )
   }
@@ -46,7 +39,6 @@ class App extends Component {
 const ConnectedApp = connect()(App)
 
 // ==========
-
 const ReduxWrapper = () => (
   <Provider store={store}>
     <ConnectedApp />
