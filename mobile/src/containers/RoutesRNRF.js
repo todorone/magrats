@@ -11,13 +11,11 @@ import ProfileScreen from '../screens/ProfileScreen'
 import CommentsScreen from '../screens/CommentsScreen'
 import PostScreen from '../screens/PostScreen'
 import LikesScreen from '../screens/LikesScreen'
-import { setProfileScreenToMyself } from '../actions/screens'
+import { getMyUserId } from '../selectors/selectors'
 
 const NavBar = () => <View /> // TODO: Remove hack and hide navbar in correct way
 
 class RoutesRNRF extends Component {
-  goToMyProfile = () => this.props.dispatch(setProfileScreenToMyself())
-
   render () {
     return (
       <Router>
@@ -32,7 +30,7 @@ class RoutesRNRF extends Component {
             <Scene key='Discover' component={DiscoverScreen} />
             <Scene key='Camera' component={CameraScreen} />
             <Scene key='Social' component={SocialScreen} />
-            <Scene key='MyProfile' component={ProfileScreen} on={this.goToMyProfile} />
+            <Scene key='MyProfile' component={ProfileScreen} userId={this.props.myUserId} />
           </Scene>
         </Scene>
       </Router>
@@ -52,4 +50,8 @@ const tabsContainerStyles = {
   backgroundColor: '#fcfdfe',
 }
 
-export default connect()(RoutesRNRF)
+const mapStateToProps = state => ({
+  myUserId: getMyUserId(state),
+})
+
+export default connect(mapStateToProps)(RoutesRNRF)

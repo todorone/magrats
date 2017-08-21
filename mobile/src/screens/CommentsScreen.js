@@ -5,7 +5,7 @@ import Container from '../components/Container'
 import Content from '../components/Content'
 import Header from '../components/Header'
 import SingleComment from '../components/SingleComment'
-import { getComments, getUsers, getCommentsByIds, getUserById } from '../selectors/selectors'
+import { getComments, getUsers, getCommentsByIds } from '../selectors/selectors'
 
 class CommentsScreen extends Component {
   render () {
@@ -18,7 +18,7 @@ class CommentsScreen extends Component {
         <Content>
           {comments.map(comment => (
             <SingleComment
-              owner={getUserById(comment.owner, this.props.users)}
+              owner={this.props.users[comment.owner]}
               text={comment.text}
               date={comment.date}
               key={comment.id}

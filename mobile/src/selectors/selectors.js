@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect'
+import memoize from 'lodash/memoize'
 
 // USERS
 export const getUsers = state => state.data.users
-export const getUserById = (userId, users) => users[userId]
+// export const getUserById = (state, userId) => getUsers(state)[userId]
 
 export const getUsersByIds = (state, userIds) =>
   getUsersArray(state).filter(user => userIds.indexOf(user.id) > -1)
@@ -42,18 +43,9 @@ export const getPostsArray = createSelector(
 export const getUsersWhoLikesPost = (state, postId) =>
   getUsersByIds(state, getPostById(state, postId).likes)
 
+export const getPostsOfUser = memoize(
+  (posts, user) => user.posts.map(postId => posts[postId])
+)
+
 // USER
 export const getMyUserId = state => state.user.userId
-
-// SCREENS
-const getProfileScreenUserId = state => state.profileScreen.userId
-
-export const getProfileScreenUser = state => getUsers(state)[getProfileScreenUserId(state)]
-
-export const getPostsForProfileScreen = createSelector(
-  getPosts,
-  getProfileScreenUser,
-  (posts, user) => (user)
-    ? user.posts.map(postId => posts[postId])
-    : []
-)

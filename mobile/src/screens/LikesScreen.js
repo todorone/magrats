@@ -8,7 +8,6 @@ import Content from '../components/Content'
 import Header from '../components/Header'
 import SingleLike from '../components/SingleLike'
 import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../selectors/selectors'
-import { setProfileScreenUserId } from '../actions/screens'
 import { setFollowStatus } from '../actions/data'
 
 class LikesScreen extends Component {
@@ -18,10 +17,7 @@ class LikesScreen extends Component {
     myUserId: PropTypes.string.isRequired,
   }
 
-  goToProfile = userId => {
-    this.props.dispatch(setProfileScreenUserId(userId))
-    Actions.Profile()
-  }
+  goToProfile = userId => Actions.Profile({ userId })
 
   switchFollow = (userId, status) => this.props.dispatch(
     setFollowStatus(userId, this.props.myUserId, status)

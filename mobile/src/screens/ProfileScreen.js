@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import ProfileInfo from '../components/ProfileInfo'
 import ProfileFeeds from '../components/ProfileFeeds'
 import { getTabIcon } from '../components/TabIcon'
-import { getProfileScreenUser, getPostsForProfileScreen, getUsers, getComments } from '../selectors/selectors'
+import { getUsers, getComments, getPosts, getPostsOfUser } from '../selectors/selectors'
 
 class ProfileScreen extends Component {
   static navigationOptions = {
@@ -25,21 +25,21 @@ class ProfileScreen extends Component {
   onItemClick = postId => Actions.Post({ postId })
 
   render () {
-    const { user, posts, users, comments } = this.props
+    const { userId, posts, users, comments } = this.props
+    const user = users[userId]
     if (!user) return null // Data is not ready yet
+
+    const postsOfUser = getPostsOfUser(posts, user)
 
     return (
       <Container>
         <Header title={user.id} />
 
         <Content>
-          <ProfileInfo
-            user={user}
-            editProfile={this.editProfile}
-          />
+          <ProfileInfo user={user} editProfile={this.editProfile} />
 
           <ProfileFeeds
-            posts={posts}
+            posts={postsOfUser}
             users={users}
             comments={comments}
             onItemClick={this.onItemClick}
@@ -50,10 +50,9 @@ class ProfileScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  user: getProfileScreenUser(state),
-  posts: getPostsForProfileScreen(state),
+const mapStateToProps = (state, ownProps) => ({
   users: getUsers(state),
+  posts: getPosts(state),
   comments: getComments(state),
 })
 
