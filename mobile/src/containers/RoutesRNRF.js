@@ -13,6 +13,7 @@ import ProfileScreen from '../screens/ProfileScreen'
 import CommentsScreen from '../screens/CommentsScreen'
 import PostScreen from '../screens/PostScreen'
 import LikesScreen from '../screens/LikesScreen'
+// import SignInScreen from '../screens/SignInScreen'
 import { getMyUserId } from '../selectors/selectors'
 
 const NavBar = () => <View /> // TODO: Remove hack and hide navbar in correct way
@@ -23,6 +24,8 @@ class RoutesRNRF extends Component {
   }
 
   render () {
+    // return <SignInScreen />
+
     return (
       <Router>
         <Scene key='StackScreens' hideNavBar>
