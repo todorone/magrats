@@ -13,7 +13,7 @@ import {
   getUsers,
   getComments,
   getMyUserId,
-  get2CommentsOfPost
+  getLastCommentsOfPost
 } from '../selectors/selectors'
 
 class SinglePostContainer extends PureComponent {
@@ -40,7 +40,7 @@ class SinglePostContainer extends PureComponent {
     dispatch(setLikeStatus(post.id, myUserId, !isLiked))
   }
 
-  showComments = () => Actions.Comments({ commentsIds: this.props.post.comments })
+  showComments = () => Actions.Comments({ postId: this.props.post.id })
 
   showLikes = () => Actions.Likes({ postId: this.props.post.id })
 
@@ -70,7 +70,7 @@ const mapStateToProps = (state, ownProps) => ({
   myUserId: getMyUserId(state),
   post: getPostById(state, ownProps.postId),
   owner: getPostOwner(state, ownProps.postId),
-  twoComments: get2CommentsOfPost(state, ownProps.postId),
+  twoComments: getLastCommentsOfPost(state, ownProps.postId),
   isLiked: isPostLiked(state, ownProps.postId),
   posts: getPosts(state), // To trigger component update, otherwise it won't update
   users: getUsers(state),

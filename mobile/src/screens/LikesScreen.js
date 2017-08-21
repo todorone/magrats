@@ -17,7 +17,7 @@ class LikesScreen extends Component {
     myUserId: PropTypes.string.isRequired,
   }
 
-  goToProfile = userId => Actions.Profile({ userId })
+  goToProfile = userId => Actions.Profile({ userId, backIcon: true })
 
   switchFollow = (userId, status) => this.props.dispatch(
     setFollowStatus(userId, this.props.myUserId, status)

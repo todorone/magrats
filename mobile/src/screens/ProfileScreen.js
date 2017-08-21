@@ -18,6 +18,7 @@ class ProfileScreen extends Component {
 
   static propTypes = {
     user: PropTypes.object,
+    backIcon: PropTypes.bool,
   }
 
   editProfile = () => {}
@@ -25,7 +26,7 @@ class ProfileScreen extends Component {
   onItemClick = postId => Actions.Post({ postId })
 
   render () {
-    const { userId, posts, users, comments } = this.props
+    const { userId, posts, users, comments, backIcon } = this.props
     const user = users[userId]
     if (!user) return null // Data is not ready yet
 
@@ -33,7 +34,7 @@ class ProfileScreen extends Component {
 
     return (
       <Container>
-        <Header title={user.id} />
+        <Header left={backIcon ? 'back' : ''} title={user.id} />
 
         <Content>
           <ProfileInfo user={user} editProfile={this.editProfile} />

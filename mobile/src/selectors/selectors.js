@@ -18,7 +18,10 @@ export const getUsersArray = createSelector(
 // COMMENTS
 export const getComments = state => state.data.comments
 
-export const get2CommentsOfPost = (state, postId) =>
+export const getCommentsOfPost = (state, postId) =>
+  getPostById(state, postId).comments.map(id => getComments(state)[id])
+
+export const getLastCommentsOfPost = (state, postId) =>
   getPostById(state, postId).comments.slice(0, 2).map(id => getComments(state)[id])
 
 export const getCommentsByIds = (commentsIds, comments) =>

@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Container from '../components/Container'
 import Content from '../components/Content'
 import Header from '../components/Header'
 import SingleComment from '../components/SingleComment'
-import { getComments, getUsers, getCommentsByIds } from '../selectors/selectors'
+import { getUsers, getCommentsOfPost } from '../selectors/selectors'
 
 class CommentsScreen extends Component {
-  render () {
-    const comments = getCommentsByIds(this.props.commentsIds, this.props.comments)
+  static propTypes = {
+    postId: PropTypes.string.isRequired,
+    users: PropTypes.object.isRequired,
+    comments: PropTypes.array.isRequired,
+  }
 
+  render () {
     return (
       <Container>
         <Header left='back' title='Comments' />
 
         <Content>
-          {comments.map(comment => (
+          {this.props.comments.map(comment => (
             <SingleComment
               owner={this.props.users[comment.owner]}
               text={comment.text}
@@ -30,9 +35,9 @@ class CommentsScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   users: getUsers(state),
-  comments: getComments(state),
+  comments: getCommentsOfPost(state, ownProps.postId),
 })
 
 export default connect(mapStateToProps)(CommentsScreen)

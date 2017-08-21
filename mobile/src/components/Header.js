@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Icon from './Icon'
 import { ALMOST_WHITE, LIGHTEST_GRAY } from '../styles'
 
-const Header = ({ title, left = '' }) => {
+const Header = ({ title, left }) => {
   return (
     <View>
       <StatusBar />
