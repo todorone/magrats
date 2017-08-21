@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View } from 'react-native'
 import { Scene, Router } from 'react-native-router-flux'
+import { TabBarBottom } from 'react-navigation'
 import PropTypes from 'prop-types'
 
 import HomeScreen from '../screens/HomeScreen'
@@ -30,7 +31,17 @@ class RoutesRNRF extends Component {
           <Scene key='Profile' component={ProfileScreen} />
           <Scene key='Post' component={PostScreen} />
 
-          <Scene key='MainScreen' tabs showLabel={false} tabBarStyle={tabsContainerStyles} initial navBar={NavBar}>
+          <Scene
+            key='MainScreen'
+            initial
+            tabs
+            swipeEnabled
+            showLabel={false}
+            tabBarStyle={tabsContainerStyles}
+            tabBarComponent={TabBarBottom}
+            tabBarPosition='bottom'
+            navBar={NavBar}
+          >
             <Scene key='Home' component={HomeScreen} initial />
             <Scene key='Discover' component={DiscoverScreen} />
             <Scene key='Camera' component={CameraScreen} />
