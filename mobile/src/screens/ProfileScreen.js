@@ -17,7 +17,10 @@ class ProfileScreen extends Component {
   }
 
   static propTypes = {
-    user: PropTypes.object,
+    userId: PropTypes.string.isRequired,
+    posts: PropTypes.object.isRequired,
+    users: PropTypes.object.isRequired,
+    comments: PropTypes.object.isRequired,
     backIcon: PropTypes.bool,
   }
 
@@ -51,7 +54,7 @@ class ProfileScreen extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   users: getUsers(state),
   posts: getPosts(state),
   comments: getComments(state),

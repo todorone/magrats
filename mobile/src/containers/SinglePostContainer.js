@@ -10,8 +10,6 @@ import {
   isPostLiked,
   getPostById,
   getPosts,
-  getUsers,
-  getComments,
   getMyUserId,
   getLastCommentsOfPost
 } from '../selectors/selectors'
@@ -19,8 +17,9 @@ import {
 class SinglePostContainer extends PureComponent {
   static propTypes = {
     myUserId: PropTypes.string.isRequired,
-    postId: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
     post: PropTypes.shape({
+      id: PropTypes.string.isRequired,
       owner: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
       likes: PropTypes.array.isRequired,
@@ -30,8 +29,6 @@ class SinglePostContainer extends PureComponent {
     owner: PropTypes.object.isRequired,
     twoComments: PropTypes.array.isRequired,
     isLiked: PropTypes.bool.isRequired,
-    users: PropTypes.object.isRequired,
-    comments: PropTypes.object.isRequired,
   }
 
   switchLike = () => {
@@ -73,8 +70,6 @@ const mapStateToProps = (state, ownProps) => ({
   twoComments: getLastCommentsOfPost(state, ownProps.postId),
   isLiked: isPostLiked(state, ownProps.postId),
   posts: getPosts(state), // To trigger component update, otherwise it won't update
-  users: getUsers(state),
-  comments: getComments(state),
 })
 
 export default connect(mapStateToProps)(SinglePostContainer)

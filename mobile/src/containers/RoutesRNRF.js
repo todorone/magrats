@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View } from 'react-native'
 import { Scene, Router } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 
 import HomeScreen from '../screens/HomeScreen'
 import DiscoverScreen from '../screens/DiscoverScreen'
@@ -16,6 +17,10 @@ import { getMyUserId } from '../selectors/selectors'
 const NavBar = () => <View /> // TODO: Remove hack and hide navbar in correct way
 
 class RoutesRNRF extends Component {
+  static propTypes = {
+    myUserId: PropTypes.string.isRequired,
+  }
+
   render () {
     return (
       <Router>

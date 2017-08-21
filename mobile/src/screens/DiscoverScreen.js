@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 
 import Container from '../components/Container'
 import Content from '../components/Content'
@@ -13,6 +14,10 @@ import { getPostsArray } from '../selectors/selectors'
 class DiscoverScreen extends Component {
   static navigationOptions = {
     tabBarIcon: getTabIcon('search'),
+  }
+
+  static propTypes = {
+    posts: PropTypes.array,
   }
 
   onItemClick = postId => Actions.Post({ postId })

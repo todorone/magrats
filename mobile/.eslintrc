@@ -6,7 +6,6 @@
   },
   "rules": {
     "comma-dangle": 0,
-    "react/prop-types": 0,
-    "react/no-unused-prop-types": 0,
+    "react/prop-types": [2, { ignore: ['children', 'dispatch']}],
   }
 }

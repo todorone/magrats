@@ -9,8 +9,9 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
+    "lint": "eslint src",
     "postinstall": "remotedev-debugger",
-    "lint": "eslint src"
+    "precommit": "yarn lint"
   },
   "jest": {
     "preset": "jest-expo"
@@ -43,6 +44,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.2.1",
     "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
     "jest-expo": "^19.0.5",
     "react-native-scripts": "^1.1.0",
     "react-test-renderer": "16.0.0-alpha.12",

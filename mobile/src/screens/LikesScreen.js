@@ -12,7 +12,7 @@ import { setFollowStatus } from '../actions/data'
 
 class LikesScreen extends Component {
   static propTypes = {
-    postId: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
     users: PropTypes.array.isRequired,
     myUserId: PropTypes.string.isRequired,
   }

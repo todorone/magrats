@@ -10,6 +10,8 @@ import { BLUE, LIGHTEST_GRAY } from '../styles'
 export default class ProfileFeeds extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
+    users: PropTypes.object.isRequired,
+    comments: PropTypes.object.isRequired,
     onItemClick: PropTypes.func.isRequired,
   }
 
