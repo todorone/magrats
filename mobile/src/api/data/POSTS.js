@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const { LOCATIONS } = require('./LOCATIONS')
 const { PHOTO } = require('./POST_TYPES')
 const { USERS, getRandomUserIds } = require('./USERS')
 const { getRandomCommentIds } = require('./COMMENTS')
@@ -14,9 +15,9 @@ const POSTS = _urls.reduce((result, current, index) => {
     url: `https://unsplash.it/400/${_.random(270, 300)}`,
     published: getRandomDate(),
     description: current,
-    location: Math.random() > 0.5 ? 'Kyiv, UA' : '',
-    likes: getRandomUserIds(Math.round(Math.random() * 7)),
-    comments: Object.values(getRandomCommentIds(Math.round(Math.random() * 4))),
+    location: LOCATIONS[_.random(0, LOCATIONS.length - 1)],
+    likes: getRandomUserIds(_.random(0, 6)),
+    comments: Object.values(getRandomCommentIds(_.random(0, 4))),
   }
   return result
 }, {})
