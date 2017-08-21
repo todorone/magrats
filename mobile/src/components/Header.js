@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, Text, StatusBar, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import { View, Text, Image, StatusBar, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import PropTypes from 'prop-types'
 
 import Icon from './Icon'
 import { ALMOST_WHITE, LIGHTEST_GRAY } from '../styles'
 
-const Header = ({ title, left }) => {
+const Header = ({ title, titleImage, left }) => {
   return (
     <View>
       <StatusBar />
@@ -20,6 +20,7 @@ const Header = ({ title, left }) => {
           }
         </View>
 
+        {titleImage && <Image source={titleImage} style={styles.image} />}
         {title &&
           <View>
             <Text>{title}</Text>
@@ -47,12 +48,18 @@ const styles = StyleSheet.create({
   buttonIcon: {
     padding: 5,
     fontSize: 28,
+  },
+  image: {
+    height: 16,
+    width: 120,
+    resizeMode: 'contain',
   }
 })
 
 Header.propTypes = {
   left: PropTypes.string,
   title: PropTypes.string,
+  titleImage: PropTypes.number, // require() returns assets link number
 }
 
 export default Header

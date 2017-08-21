@@ -4,6 +4,7 @@ import { Provider, connect } from 'react-redux'
 
 // import Routes from './Routes'
 import Routes from './RoutesRNRF'
+import LoadingScreen from '../screens/LoadingScreen'
 import store from '../store/store'
 import { fetchComments, fetchPosts, fetchUsers } from '../actions/data'
 import { initializeFirebase } from '../actions/firebase'
@@ -28,11 +29,13 @@ class App extends Component {
   }
 
   render () {
-    return (this.state.isInitialized &&
-      <View style={StyleSheet.absoluteFill}>
-        <Routes />
-      </View>
-    )
+    return (this.state.isInitialized)
+      ? (
+        <View style={StyleSheet.absoluteFill}>
+          <Routes />
+        </View>
+      )
+      : <LoadingScreen />
   }
 }
 

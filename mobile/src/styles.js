@@ -15,3 +15,6 @@ export const GRAY = '#999'
 export const LIGHT_GRAY = '#999'
 export const LIGHTER_GRAY = '#bbb'
 export const LIGHTEST_GRAY = '#ddd'
+
+// IMAGES
+export const logoImage = require('./images/MAGRATS.png')
