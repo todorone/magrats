@@ -1,14 +1,38 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, StyleSheet } from 'react-native'
-import { BLUE, LIGHT_BLUE, WHITE } from '../styles'
+import { View, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import Expo from 'expo'
+
 import Icon from '../components/Icon'
+import { BLUE, LIGHT_BLUE, WHITE } from '../styles'
+import { IOS_GOOGLE_OAUTH_ID, ANDROID_GOOGLE_OAUTH_ID } from 'react-native-dotenv'
 
 export default class SignInScreen extends Component {
+  async logIn () {
+    try {
+      const result = await Expo.Google.logInAsync({
+        androidClientId: ANDROID_GOOGLE_OAUTH_ID,
+        iosClientId: IOS_GOOGLE_OAUTH_ID,
+        scopes: ['profile', 'email'],
+      })
+
+      if (result.type === 'success') {
+        console.warn('Sign in success', result.accessToken)
+      } else {
+        console.warn('Sign cancelled')
+      }
+    } catch (e) {
+      console.warn('Sign error')
+    }
+  }
+
   render () {
     return (
       <View style={styles.container}>
         <Text style={[styles.hintText, styles.signInWith]}>SIGN IN WITH</Text>
-        <Icon name='logo-google' ios={false} style={styles.googleLogo} />
+
+        <TouchableWithoutFeedback onPress={this.logIn}>
+          <Icon name='logo-google' ios={false} style={styles.googleLogo} />
+        </TouchableWithoutFeedback>
 
         <Text style={[styles.hintText]}>OR</Text>
 
