@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View } from 'react-native'
 import { Scene, Router } from 'react-native-router-flux'
 import { TabBarBottom } from 'react-navigation'
 import PropTypes from 'prop-types'
@@ -13,19 +12,16 @@ import ProfileScreen from '../screens/ProfileScreen'
 import CommentsScreen from '../screens/CommentsScreen'
 import PostScreen from '../screens/PostScreen'
 import LikesScreen from '../screens/LikesScreen'
-// import SignInScreen from '../screens/SignInScreen'
 import { getMyUserId } from '../selectors/selectors'
 
-const NavBar = () => <View /> // TODO: Remove hack and hide navbar in correct way
+const NavBar = () => null // TODO: Remove hack and hide navbar in correct way
 
-class RoutesRNRF extends Component {
+class Routes extends Component {
   static propTypes = {
     myUserId: PropTypes.string.isRequired,
   }
 
   render () {
-    // return <SignInScreen />
-
     return (
       <Router>
         <Scene key='StackScreens' hideNavBar>
@@ -73,4 +69,4 @@ const mapStateToProps = state => ({
   myUserId: getMyUserId(state),
 })
 
-export default connect(mapStateToProps)(RoutesRNRF)
+export default connect(mapStateToProps)(Routes)

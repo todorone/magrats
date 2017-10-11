@@ -3,7 +3,7 @@ import memoize from 'lodash/memoize'
 
 // USERS
 export const getUsers = state => state.data.users
-// export const getUserById = (state, userId) => getUsers(state)[userId]
+export const getUserById = (state, userId) => getUsers(state)[userId]
 
 export const getUsersByIds = (state, userIds) =>
   getUsersArray(state).filter(user => userIds.indexOf(user.id) > -1)
