@@ -19,7 +19,7 @@ for (let i = 0; i < 11; i++) {
 // Fill up with following & followers
 Object.keys(USERS).forEach((userId, index, userIds) => {
   const followers = _.sampleSize(userIds, _.random(0, 10)).filter(
-    followerId => followerId !== userId // Checking not to be follower of oneself
+    followerId => followerId !== userId, // Checking not to be follower of oneself
   )
   USERS[userId].followers = followers
 
@@ -28,7 +28,7 @@ Object.keys(USERS).forEach((userId, index, userIds) => {
   })
 })
 
-const getRandomUserIds = (amount) => _.sampleSize(Object.keys(USERS), amount)
+const getRandomUserIds = amount => _.sampleSize(Object.keys(USERS), amount)
 
 module.exports = {
   USERS,

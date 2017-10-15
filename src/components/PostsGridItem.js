@@ -14,19 +14,19 @@ export default class PostsGridItem extends Component {
 
   onItemClick = () => this.props.onItemClick(this.props.id)
 
-  render () {
+  render() {
     const { url, featured, fake } = this.props
 
-    return (fake)
-      ? <View style={styles.image} /> // Used for correct grid alignment on last row
-      : (
-        <TouchableWithoutFeedback onPress={this.onItemClick}>
-          <FadeInImage
-            containerStyle={featured ? styles.featured : styles.image}
-            source={{ uri: url }}
-          />
-        </TouchableWithoutFeedback>
-      )
+    return fake ? (
+      <View style={styles.image} /> // Used for correct grid alignment on last row
+    ) : (
+      <TouchableWithoutFeedback onPress={this.onItemClick}>
+        <FadeInImage
+          containerStyle={featured ? styles.featured : styles.image}
+          source={{ uri: url }}
+        />
+      </TouchableWithoutFeedback>
+    )
   }
 }
 

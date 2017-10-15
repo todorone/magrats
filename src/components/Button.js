@@ -7,24 +7,21 @@ import { BLACK, BLUE, WHITE, LIGHTEST_GRAY } from '../styles'
 export default class Button extends Component {
   static propTypes = {
     onPress: PropTypes.func.isRequired,
-    theme: PropTypes.oneOf(['primary', 'light'])
+    theme: PropTypes.oneOf(['primary', 'light']),
   }
 
   static defaultProps = {
     theme: 'light',
   }
 
-  render () {
+  render() {
     const { theme } = this.props
     const containerStyle = [
       styles.container,
-      (theme === 'primary') && styles.primary,
-      (theme === 'light') && styles.light,
+      theme === 'primary' && styles.primary,
+      theme === 'light' && styles.light,
     ]
-    const textStyle = [
-      styles.text,
-      (theme === 'light') && styles.lightText,
-    ]
+    const textStyle = [styles.text, theme === 'light' && styles.lightText]
 
     return (
       <TouchableOpacity onPress={this.props.onPress}>
@@ -58,5 +55,5 @@ const styles = StyleSheet.create({
   },
   lightText: {
     color: BLACK,
-  }
+  },
 })

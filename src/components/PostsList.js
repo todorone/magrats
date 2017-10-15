@@ -9,12 +9,10 @@ export default class PostsList extends Component {
     posts: PropTypes.array,
   }
 
-  render () {
+  render() {
     return (
       <View>
-        {this.props.posts.map((post) => (
-          <SinglePost key={post.id} postId={post.id} />
-        ))}
+        {this.props.posts.map(post => <SinglePost key={post.id} postId={post.id} />)}
       </View>
     )
   }

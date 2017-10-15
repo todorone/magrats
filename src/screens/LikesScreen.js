@@ -7,7 +7,11 @@ import Container from '../components/Container'
 import Content from '../components/Content'
 import Header from '../components/Header'
 import SingleLike from '../components/SingleLike'
-import { isMeFollowingUser, getUsersWhoLikesPost, getMyUserId } from '../selectors/selectors'
+import {
+  isMeFollowingUser,
+  getUsersWhoLikesPost,
+  getMyUserId,
+} from '../selectors/selectors'
 import { setFollowStatus } from '../actions/data'
 
 class LikesScreen extends Component {
@@ -19,16 +23,15 @@ class LikesScreen extends Component {
 
   goToProfile = userId => Actions.Profile({ userId, backIcon: true })
 
-  switchFollow = (userId, status) => this.props.dispatch(
-    setFollowStatus(userId, this.props.myUserId, status)
-  )
+  switchFollow = (userId, status) =>
+    this.props.dispatch(setFollowStatus(userId, this.props.myUserId, status))
 
-  render () {
+  render() {
     const { users, myUserId } = this.props
 
     return (
       <Container>
-        <Header left='back' title='Likes' />
+        <Header left="back" title="Likes" />
 
         <Content>
           {users.map(user => (

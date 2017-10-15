@@ -21,18 +21,14 @@ class HomeScreen extends Component {
     comments: PropTypes.object,
   }
 
-  render () {
+  render() {
     const { posts, users, comments } = this.props
     return (
       <Container>
         <Header titleImage={logoImage} />
 
         <Content>
-          <PostsList
-            posts={posts}
-            users={users}
-            comments={comments}
-          />
+          <PostsList posts={posts} users={users} comments={comments} />
         </Content>
       </Container>
     )

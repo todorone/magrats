@@ -1,4 +1,3 @@
-
 const initialState = {
   userId: 'luke_skywalker', // TODO Remove hack and assign user id
 }

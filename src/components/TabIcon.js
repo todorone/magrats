@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import Icon from './Icon'
-
-export const getTabIcon = name => ({ tintColor }) => ( // eslint-disable-line react/prop-types
+// eslint-disable-next-line react/prop-types
+export const getTabIcon = name => ({ tintColor }) => (
   <Icon style={styles.icon} name={name} outline={tintColor !== '#3478f6'} />
 )
 

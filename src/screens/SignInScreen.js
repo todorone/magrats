@@ -7,7 +7,7 @@ import { BLUE, LIGHT_BLUE, WHITE } from '../styles'
 import { IOS_GOOGLE_OAUTH_ID, ANDROID_GOOGLE_OAUTH_ID } from 'react-native-dotenv'
 
 export default class SignInScreen extends Component {
-  async logIn () {
+  async logIn() {
     try {
       const result = await Expo.Google.logInAsync({
         androidClientId: ANDROID_GOOGLE_OAUTH_ID,
@@ -25,13 +25,13 @@ export default class SignInScreen extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={[styles.hintText, styles.signInWith]}>SIGN IN WITH</Text>
 
         <TouchableWithoutFeedback onPress={this.logIn}>
-          <Icon name='logo-google' ios={false} style={styles.googleLogo} />
+          <Icon name="logo-google" ios={false} style={styles.googleLogo} />
         </TouchableWithoutFeedback>
 
         <Text style={[styles.hintText]}>OR</Text>
@@ -39,14 +39,14 @@ export default class SignInScreen extends Component {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder='EMAIL'
+            placeholder="EMAIL"
             placeholderTextColor={WHITE}
           />
         </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder='PASSWORD'
+            placeholder="PASSWORD"
             placeholderTextColor={WHITE}
           />
         </View>

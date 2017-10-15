@@ -28,7 +28,7 @@ class ProfileScreen extends Component {
 
   onItemClick = postId => Actions.Post({ postId })
 
-  render () {
+  render() {
     const { userId, posts, users, comments, backIcon } = this.props
     const user = users[userId]
     if (!user) return null // Data is not ready yet

@@ -27,5 +27,5 @@ Object.values(POSTS).forEach(post => {
 })
 
 module.exports = {
-  POSTS
+  POSTS,
 }

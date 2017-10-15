@@ -8,7 +8,7 @@ export default class Thumbnail extends PureComponent {
     big: PropTypes.bool,
   }
 
-  render () {
+  render() {
     return (
       <Image
         source={{ uri: this.props.src }}

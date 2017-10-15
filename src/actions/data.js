@@ -17,7 +17,7 @@ export const FETCH_COMMENTS_SUCCESS = 'FETCH_COMMENTS_SUCCESS'
 // POSTS
 const fetchPostsRequest = () => ({ type: FETCH_POSTS_REQUEST })
 const fetchPostsSuccess = posts => ({ type: FETCH_POSTS_SUCCESS, posts })
-export function fetchPosts () {
+export function fetchPosts() {
   return async dispatch => {
     dispatch(fetchPostsRequest())
 
@@ -37,7 +37,7 @@ export function fetchPosts () {
 
 const patchPostRequest = () => ({ type: PATCH_POST_REQUEST })
 const patchPostSuccess = post => ({ type: PATCH_POST_SUCCESS, post })
-export function setLikeStatus (postId, userId, status) {
+export function setLikeStatus(postId, userId, status) {
   return async dispatch => {
     dispatch(patchPostRequest())
 
@@ -58,7 +58,7 @@ export function setLikeStatus (postId, userId, status) {
 // USERS
 const fetchUsersRequest = () => ({ type: FETCH_USERS_REQUEST })
 const fetchUsersSuccess = users => ({ type: FETCH_USERS_SUCCESS, users })
-export function fetchUsers () {
+export function fetchUsers() {
   return async dispatch => {
     dispatch(fetchUsersRequest())
 
@@ -78,12 +78,14 @@ export function fetchUsers () {
 
 const patchUserRequest = () => ({ type: PATCH_USER_REQUEST })
 const patchUserSuccess = user => ({ type: PATCH_USER_SUCCESS, user })
-export function setFollowStatus (followingId, followerId, status) {
+export function setFollowStatus(followingId, followerId, status) {
   return async dispatch => {
     dispatch(patchUserRequest())
 
     try {
-      const data = await API.patchUser(followingId, { followers: { [followerId]: status } })
+      const data = await API.patchUser(followingId, {
+        followers: { [followerId]: status },
+      })
 
       if (data.error) {
         dispatch(patchUserError(data.error))
@@ -99,7 +101,7 @@ export function setFollowStatus (followingId, followerId, status) {
 // COMMENTS
 const fetchCommentsRequest = () => ({ type: FETCH_COMMENTS_REQUEST })
 const fetchCommentsSuccess = comments => ({ type: FETCH_COMMENTS_SUCCESS, comments })
-export function fetchComments () {
+export function fetchComments() {
   return async dispatch => {
     dispatch(fetchCommentsRequest())
 
@@ -118,14 +120,14 @@ export function fetchComments () {
 }
 
 // ERROR HANDLERS
-function fetchDataError (error) {
+function fetchDataError(error) {
   return dispatch => console.error('Fetch data error:', error)
 }
 
-function patchPostError (error) {
+function patchPostError(error) {
   return dispatch => console.error('Patch post error:', error)
 }
 
-function patchUserError (error) {
+function patchUserError(error) {
   return dispatch => console.error('Patch user error:', error)
 }

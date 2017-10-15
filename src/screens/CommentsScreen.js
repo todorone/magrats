@@ -15,10 +15,10 @@ class CommentsScreen extends Component {
     comments: PropTypes.array.isRequired,
   }
 
-  render () {
+  render() {
     return (
       <Container>
-        <Header left='back' title='Comments' />
+        <Header left="back" title="Comments" />
 
         <Content>
           {this.props.comments.map(comment => (

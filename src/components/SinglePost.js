@@ -27,15 +27,10 @@ const SinglePost = ({
       {/* Top bar */}
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
-          <Image
-            source={{ uri: owner.thumbUrl }}
-            style={styles.topThumbnail}
-          />
+          <Image source={{ uri: owner.thumbUrl }} style={styles.topThumbnail} />
           <Text style={styles.id}>
             {owner.id}
-            {location &&
-              <Text style={styles.location}>{`\n${location}`}</Text>
-            }
+            {location && <Text style={styles.location}>{`\n${location}`}</Text>}
           </Text>
         </View>
         {/* <Text style={styles.ellipsis}>...</Text> */}
@@ -49,25 +44,25 @@ const SinglePost = ({
           <View style={styles.likes}>
             <TouchableWithoutFeedback onPress={onTapLike}>
               <Icon
-                name='heart'
+                name="heart"
                 outline={!isLiked}
                 style={[styles.buttonIcon, isLiked && styles.buttonIconLiked]}
               />
             </TouchableWithoutFeedback>
-            {(likesNumber > 0) &&
+            {likesNumber > 0 && (
               <TouchableWithoutFeedback onPress={showLikes}>
                 <View>
                   <Text style={styles.likesNumber}>{likesNumber}</Text>
                 </View>
               </TouchableWithoutFeedback>
-            }
+            )}
           </View>
           <TouchableWithoutFeedback onPress={showComments}>
             <View style={styles.likes}>
-              {(commentsNumber > 0) &&
+              {commentsNumber > 0 && (
                 <Text style={styles.commentsNumber}>{commentsNumber}</Text>
-              }
-              <Icon style={styles.buttonIcon} name='text' outline />
+              )}
+              <Icon style={styles.buttonIcon} name="text" outline />
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -78,16 +73,16 @@ const SinglePost = ({
           <SinglePostComment author={comment.owner} text={comment.text} key={i} />
         ))}
 
-        {(commentsNumber > 2) &&
+        {commentsNumber > 2 && (
           <TouchableWithoutFeedback onPress={showComments}>
             <View>
               <Text style={styles.commentsLink}>View all {commentsNumber} comments</Text>
             </View>
           </TouchableWithoutFeedback>
-        }
+        )}
 
         <View style={styles.time}>
-          <Icon style={styles.timeIcon} name='time' outline />
+          <Icon style={styles.timeIcon} name="time" outline />
           <Text style={styles.timeText}>{getTimeAgo(date).toUpperCase()}</Text>
         </View>
       </View>
@@ -96,7 +91,7 @@ const SinglePost = ({
 }
 
 const styles = StyleSheet.create({
-  topBar: { // TOP BAR
+  topBar: {
     height: 36,
     flexDirection: 'row',
     alignItems: 'center',
@@ -106,12 +101,12 @@ const styles = StyleSheet.create({
   },
   topBarLeft: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   topThumbnail: {
     width: 30,
     height: 30,
-    borderRadius: 15
+    borderRadius: 15,
   },
   id: {
     fontSize: 13,
@@ -128,11 +123,11 @@ const styles = StyleSheet.create({
     color: BLACK,
     paddingLeft: 6,
     position: 'relative',
-    top: -8
+    top: -8,
   }, // MAIN CONTENT
   content: {
     flex: 1,
-    height: 300
+    height: 300,
   }, // FOOTER
   footer: {
     paddingHorizontal: 20,

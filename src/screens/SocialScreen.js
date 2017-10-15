@@ -12,15 +12,15 @@ export default class SocialScreen extends Component {
     tabBarIcon: getTabIcon('heart'),
   }
 
-  render () {
+  render() {
     return (
       <Container>
-        <Header title='Social' />
+        <Header title="Social" />
 
         <Content>
           <View style={styles.container}>
             <TouchableWithoutFeedback>
-              <Icon name='heart' outline style={styles.buttonIcon} />
+              <Icon name="heart" outline style={styles.buttonIcon} />
             </TouchableWithoutFeedback>
           </View>
         </Content>
@@ -37,5 +37,5 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 30,
-  }
+  },
 })

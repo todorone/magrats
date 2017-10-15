@@ -22,7 +22,7 @@ export default class ProfileFeeds extends Component {
   activateListTab = () => this.setState({ currentTab: 'list' })
   activateGridTab = () => this.setState({ currentTab: 'grid' })
 
-  render () {
+  render() {
     const { posts, users, comments, onItemClick } = this.props
     const { currentTab } = this.state
 
@@ -32,8 +32,8 @@ export default class ProfileFeeds extends Component {
           <TouchableWithoutFeedback onPress={this.activateListTab}>
             <View style={styles.tab}>
               <Icon
-                name='list'
-                style={[styles.listIcon, (currentTab === 'list') && styles.activeIcon]}
+                name="list"
+                style={[styles.listIcon, currentTab === 'list' && styles.activeIcon]}
               />
             </View>
           </TouchableWithoutFeedback>
@@ -41,37 +41,26 @@ export default class ProfileFeeds extends Component {
           <TouchableWithoutFeedback onPress={this.activateGridTab}>
             <View style={styles.tab}>
               <Icon
-                name='apps'
+                name="apps"
                 outline
-                style={[styles.gridIcon, (currentTab === 'grid') && styles.activeIcon]}
+                style={[styles.gridIcon, currentTab === 'grid' && styles.activeIcon]}
               />
             </View>
           </TouchableWithoutFeedback>
         </View>
 
-        {(currentTab === 'grid')
-          ? (
-            <PostsGrid
-              posts={posts}
-              onItemClick={onItemClick}
-            />
-          )
-          : (
-            <PostsList
-              posts={posts}
-              users={users}
-              comments={comments}
-            />
-          )
-        }
+        {currentTab === 'grid' ? (
+          <PostsGrid posts={posts} onItemClick={onItemClick} />
+        ) : (
+          <PostsList posts={posts} users={users} comments={comments} />
+        )}
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
   tabsContainer: {
     flexDirection: 'row',
     flex: 1,

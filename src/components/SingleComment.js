@@ -28,7 +28,7 @@ const SingleComment = ({ owner, text, date }) => {
             </View>
           </View>
 
-          <Icon name='heart' outline style={styles.buttonIcon} />
+          <Icon name="heart" outline style={styles.buttonIcon} />
         </View>
       </View>
     </TouchableWithoutFeedback>

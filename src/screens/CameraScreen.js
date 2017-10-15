@@ -14,7 +14,7 @@ export default class CameraScreen extends Component {
     tabBarIcon: getTabIcon('add-circle'),
   }
 
-  async takePhoto () {
+  async takePhoto() {
     const pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -22,17 +22,17 @@ export default class CameraScreen extends Component {
     console.log(pickerResult)
   }
 
-  render () {
+  render() {
     return (
       <Container>
-        <Header title='Camera' />
+        <Header title="Camera" />
 
         <Content>
           <View style={styles.container}>
             <TouchableWithoutFeedback onPress={this.takePhoto}>
               <View style={styles.hintContainer}>
                 <Text style={styles.hint}>TAKE PHOTO</Text>
-                <Icon name='camera' outline style={styles.buttonIcon} />
+                <Icon name="camera" outline style={styles.buttonIcon} />
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -59,5 +59,5 @@ const styles = StyleSheet.create({
   buttonIcon: {
     fontSize: 75,
     color: LIGHTEST_GRAY,
-  }
+  },
 })

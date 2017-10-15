@@ -13,18 +13,21 @@ export default class SinglePostComment extends Component {
 
   showAll = () => this.setState({ isFull: true })
 
-  renderText (text) {
-    return ((text.length < 75) || this.state.isFull)
-      ? text
-      : (
-        <Text>
-          {text.substr(0, 70)}
-          <Text onPress={this.showAll} style={styles.more}> more</Text>
+  renderText(text) {
+    return text.length < 75 || this.state.isFull ? (
+      text
+    ) : (
+      <Text>
+        {text.substr(0, 70)}
+        <Text onPress={this.showAll} style={styles.more}>
+          {' '}
+          more
         </Text>
-      )
+      </Text>
+    )
   }
 
-  render () {
+  render() {
     const { author, text } = this.props
     return (
       <View style={styles.container}>

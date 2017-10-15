@@ -3,7 +3,7 @@ import { View, Image, StyleSheet } from 'react-native'
 import { logoImage } from '../styles'
 
 export default class LoadingScreen extends Component {
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <Image source={logoImage} style={styles.logo} />

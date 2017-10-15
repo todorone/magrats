@@ -5,14 +5,21 @@ import { View, StyleSheet } from 'react-native'
 import PostsGridItem from './PostsGridItem'
 
 const Grid = ({ posts, onItemClick }) => {
-  return ((posts.length > 0) &&
-    <View style={styles.container}>
-      {posts.map(post =>
-        <PostsGridItem id={post.id} url={post.url} onItemClick={onItemClick} key={post.id} />
-      )}
-      {/* Used for correct grid alignment on last row */}
-      {(Number.isInteger((posts.length - 2) / 3)) && <PostsGridItem fake />}
-    </View>
+  return (
+    posts.length > 0 && (
+      <View style={styles.container}>
+        {posts.map(post => (
+          <PostsGridItem
+            id={post.id}
+            url={post.url}
+            onItemClick={onItemClick}
+            key={post.id}
+          />
+        ))}
+        {/* Used for correct grid alignment on last row */}
+        {Number.isInteger((posts.length - 2) / 3) && <PostsGridItem fake />}
+      </View>
+    )
   )
 }
 

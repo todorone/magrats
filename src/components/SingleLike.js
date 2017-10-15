@@ -19,11 +19,12 @@ export default class SingleLike extends Component {
     switchFollow: PropTypes.func.isRequired,
   }
 
-  switchFollow = () => this.props.switchFollow(this.props.owner.id, !this.props.isMeFollowing)
+  switchFollow = () =>
+    this.props.switchFollow(this.props.owner.id, !this.props.isMeFollowing)
 
   goToProfile = () => this.props.goToProfile(this.props.owner.id)
 
-  render () {
+  render() {
     const { owner, isMeFollowing } = this.props
 
     return (
@@ -36,12 +37,14 @@ export default class SingleLike extends Component {
           </View>
 
           <View style={styles.buttonContainer}>
-            {isMeFollowing
-              ? <Button theme='primary' onPress={this.switchFollow}>Following</Button>
-              : <Button onPress={this.switchFollow}>Follow</Button>
-            }
+            {isMeFollowing ? (
+              <Button theme="primary" onPress={this.switchFollow}>
+                Following
+              </Button>
+            ) : (
+              <Button onPress={this.switchFollow}>Follow</Button>
+            )}
           </View>
-
         </View>
       </TouchableWithoutFeedback>
     )

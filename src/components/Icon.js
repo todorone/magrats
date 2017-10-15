@@ -4,7 +4,10 @@ import IonIcon from '@expo/vector-icons/Ionicons'
 
 const Icon = ({ name, ios = true, outline, ...props }) => {
   return (
-    <IonIcon name={`${ios ? 'ios-' : ''}${name}${outline ? '-outline' : ''}`} {...props} />
+    <IonIcon
+      name={`${ios ? 'ios-' : ''}${name}${outline ? '-outline' : ''}`}
+      {...props}
+    />
   )
 }
 

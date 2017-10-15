@@ -16,12 +16,12 @@ export default class PostScreen extends PureComponent {
     postId: PropTypes.string.isRequired,
   }
 
-  render () {
+  render() {
     const { postId } = this.props
 
     return (
       <Container>
-        <Header left='back' />
+        <Header left="back" />
 
         <Content>
           <SinglePost postId={postId} />

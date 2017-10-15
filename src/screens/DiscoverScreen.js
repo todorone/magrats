@@ -22,12 +22,12 @@ class DiscoverScreen extends Component {
 
   onItemClick = postId => Actions.Post({ postId })
 
-  render () {
+  render() {
     const { posts } = this.props
 
     return (
       <Container>
-        <Header title='Discover' />
+        <Header title="Discover" />
 
         <Content>
           <PostsGridItem
@@ -37,10 +37,7 @@ class DiscoverScreen extends Component {
             onItemClick={this.onItemClick}
           />
 
-          <PostsGrid
-            posts={posts.slice(1)}
-            onItemClick={this.onItemClick}
-          />
+          <PostsGrid posts={posts.slice(1)} onItemClick={this.onItemClick} />
         </Content>
       </Container>
     )

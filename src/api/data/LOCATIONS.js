@@ -1,4 +1,3 @@
-
 export const LOCATIONS = [
   'Kyiv, Ukraine',
   'Lviv, Ukraine',

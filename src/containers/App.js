@@ -13,7 +13,7 @@ class App extends Component {
     isInitialized: false,
   }
 
-  async componentWillMount () {
+  async componentWillMount() {
     // console.log('environment:', process.env.NODE_ENV)
     const { dispatch } = this.props
 
@@ -21,20 +21,20 @@ class App extends Component {
       dispatch(fetchUsers()),
       dispatch(fetchComments()),
       dispatch(fetchPosts()),
-      dispatch(initializeFirebase())
+      dispatch(initializeFirebase()),
     ])
 
     this.setState({ isInitialized: true })
   }
 
-  render () {
-    return (this.state.isInitialized)
-      ? (
-        <View style={StyleSheet.absoluteFill}>
-          <Routes />
-        </View>
-      )
-      : <LoadingScreen />
+  render() {
+    return this.state.isInitialized ? (
+      <View style={StyleSheet.absoluteFill}>
+        <Routes />
+      </View>
+    ) : (
+      <LoadingScreen />
+    )
   }
 }
 

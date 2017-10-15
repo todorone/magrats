@@ -11,7 +11,7 @@ import {
   getPostById,
   getPosts,
   getMyUserId,
-  getLastCommentsOfPost
+  getLastCommentsOfPost,
 } from '../selectors/selectors'
 
 class SinglePostContainer extends PureComponent {
@@ -41,7 +41,7 @@ class SinglePostContainer extends PureComponent {
 
   showLikes = () => Actions.Likes({ postId: this.props.post.id })
 
-  render () {
+  render() {
     const { post, isLiked, twoComments, owner } = this.props
 
     return (

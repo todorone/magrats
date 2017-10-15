@@ -1,11 +1,21 @@
 {
-  "extends": ["standard", "standard-react"],
+  "extends": ["standard", "standard-react", "prettier"],
+  "plugins": ["prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true
   },
   "rules": {
     "comma-dangle": 0,
-    "react/prop-types": [2, { ignore: ['children', 'dispatch']}],
+    "react/prop-types": [2, { ignore: ['children', 'dispatch'] }],
+    "prettier/prettier": [ // customizing prettier rules (unfortunately not many of them are customizable)
+      "error",
+      {
+        printWidth: 90,
+        singleQuote: true,
+        trailingComma: 'all',
+        semi: false,
+      },
+    ],
   }
 }

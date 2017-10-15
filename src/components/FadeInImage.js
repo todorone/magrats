@@ -10,7 +10,7 @@ export default class FadeInImage extends PureComponent {
 
   startAnimation = () => this.imageRef.fadeIn(750)
 
-  render () {
+  render() {
     const { containerStyle, ...props } = this.props
     return (
       <Animatable.View
@@ -26,5 +26,5 @@ export default class FadeInImage extends PureComponent {
 
 const styles = StyleSheet.create({
   container: { opacity: 0 },
-  image: { flex: 1 }
+  image: { flex: 1 },
 })

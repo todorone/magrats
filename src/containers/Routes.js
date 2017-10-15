@@ -21,31 +21,35 @@ class Routes extends Component {
     myUserId: PropTypes.string.isRequired,
   }
 
-  render () {
+  render() {
     return (
       <Router>
-        <Scene key='StackScreens' hideNavBar>
-          <Scene key='Comments' component={CommentsScreen} />
-          <Scene key='Likes' component={LikesScreen} />
-          <Scene key='Profile' component={ProfileScreen} />
-          <Scene key='Post' component={PostScreen} />
+        <Scene key="StackScreens" hideNavBar>
+          <Scene key="Comments" component={CommentsScreen} />
+          <Scene key="Likes" component={LikesScreen} />
+          <Scene key="Profile" component={ProfileScreen} />
+          <Scene key="Post" component={PostScreen} />
 
           <Scene
-            key='MainScreen'
+            key="MainScreen"
             initial
             tabs
             swipeEnabled
             showLabel={false}
             tabBarStyle={tabsContainerStyles}
             tabBarComponent={TabBarBottom}
-            tabBarPosition='bottom'
+            tabBarPosition="bottom"
             navBar={NavBar}
           >
-            <Scene key='Home' component={HomeScreen} initial />
-            <Scene key='Discover' component={DiscoverScreen} />
-            <Scene key='Camera' component={CameraScreen} />
-            <Scene key='Social' component={SocialScreen} />
-            <Scene key='MyProfile' component={ProfileScreen} userId={this.props.myUserId} />
+            <Scene key="Home" component={HomeScreen} initial />
+            <Scene key="Discover" component={DiscoverScreen} />
+            <Scene key="Camera" component={CameraScreen} />
+            <Scene key="Social" component={SocialScreen} />
+            <Scene
+              key="MyProfile"
+              component={ProfileScreen}
+              userId={this.props.myUserId}
+            />
           </Scene>
         </Scene>
       </Router>
